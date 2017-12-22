@@ -11,7 +11,7 @@ class Main extends CI_Controller {
     
      public function product() {
         $this->load->view("header");
-        $this->load->view("product/productdetail");
+        $this->load->view("admin/product/productdetail");
         $this->load->view("footer");
     }
 }
