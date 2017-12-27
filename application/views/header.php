@@ -6,25 +6,30 @@
         <title></title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <!-- Bootstrap 3.3.7 -->
-        <link rel="stylesheet" href="<?= base_url() ?>css/bootstrap.min.css">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="<?= base_url() ?>css/AdminLTE.min.css">
-        <!-- AdminLTE Skins. Choose a skin from the css/skins
-             folder instead of downloading all of them to reduce the load. -->
-        <link rel="stylesheet" href="<?= base_url() ?>css/skins/_all-skins.min.css">
-        <!-- Morris chart -->
-        <link rel="stylesheet" href="<?= base_url() ?>css/morris.css">
-        <!-- jvectormap -->
-        <link rel="stylesheet" href="<?= base_url() ?>css/jquery-jvectormap.css">
-        <!-- Date Picker -->
-        <link rel="stylesheet" href="<?= base_url() ?>css/bootstrap-datepicker.min.css">
-        <!-- bootstrap wysihtml5 - text editor -->
-        <link rel="stylesheet" href="<?= base_url() ?>js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"> 
-        
-        <link rel="stylesheet" href="<?= base_url() ?>css/Main.css">
+        <!-- Bootstrap v3.3.6 css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/bootstrap.min.css">
+        <!-- Animate css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/animate.css">
+        <!-- jQuery-ui.min css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/jquery-ui.min.css">
+        <!-- Owl carousel css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/owl.carousel.css">
+        <!-- Font-awesome css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/font-awesome.min.css">
+        <!-- Material design iconic css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/material-design-iconic-font.min.css">
+        <!-- Nivo Slider css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/nivo-slider.css" />
+        <!--Slider css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/slider.css" />
+        <!-- Default css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/default.css">
+        <!-- Mean menu css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/meanmenu.css">
+        <!-- Main style css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/style.css">
+        <!-- responsive css -->
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/responsive.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,6 +40,9 @@
 
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <script>
+            site_url = "<?= site_url(); ?>";
+        </script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="header-area home3-header-area">
@@ -45,13 +53,9 @@
                             <div class="col-md-9 col-sm-8 col-xs-12">
                                 <div class="header-login posr">
                                     <ul>
-                                        <li><a href="my-account.html">My Account</a>
+                                        <li><a href="<?= site_url("Main/cart"); ?>">Checkout</a>
                                         </li>
-                                        <li><a href="wishlist.html">My wishlist</a>
-                                        </li>
-                                        <li><a href="checkout.html">Checkout</a>
-                                        </li>
-                                        <li><a href="login.html">Login</a>
+                                        <li><a href="<?= site_url("Member/Account"); ?>">My Account</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -70,132 +74,37 @@
                             <div class="col-md-9 col-sm-9 hidden-xs">
                                 <nav>
                                     <ul class="main-menu">
-                                        <li class="active"><a href="index.html" target="_blank">Home <i class="fa fa-arrow-circle-down"></i></a>
-                                            <ul class="main-drop firstli">
-                                                <li><a href="index.html" target="_blank"> Home-1</a>
-                                                </li>
-                                                <li><a href="index2.html" target="_blank">Home-2</a>
-                                                </li>
-                                                <li><a href="index3.html" target="_blank">Home-3</a>
-                                                </li>
-                                                <li><a href="index4.html" target="_blank">Home-4</a>
-                                                </li>
-                                                <li><a href="index5.html" target="_blank">Home-5</a>
-                                                </li>
-                                                <li class="lastli"><a href="index6.html" target="_blank">Home-6</a>
-                                                </li>
-                                            </ul>
+                                        <li class="active"><a href="<?= site_url("Main"); ?>">Home </a>
+                                            
                                         </li>
                                         <li class="mega-parent"><a href="shop.html">Shop <i class="fa fa-arrow-circle-down"></i></a>
                                             <div class="mega-menu-area hp1-style1">
                                                 <ul class="single-mega-item mega-underline1 mega-underline3">
-                                                    <li class="mega-title"><a href="#">Shop Layouts</a>
+                                                    <li class="mega-title"><a href="#">Wardrobe</a>
                                                     </li>
-                                                    <li><a href="shop-fullwidth.html">Fullwidth</a>
+                                                    <li><a href="<?= site_url('Main/product/open-wardrobe'); ?>">Open Wardrobe</a>
                                                     </li>
-                                                    <li><a href="shop.html">Sidebar Left</a>
+                                                    <li><a href="<?= site_url('Main/product/sliding-wardrobe'); ?>">Sliding Wardrobe</a>
                                                     </li>
-                                                    <li><a href="shop-right-sidebar.html">Sidebar right</a>
+                                                    <li><a href="<?= site_url('Main/product/swing-door-wardrobe'); ?>">Swing Door Wardrobe</a>
                                                     </li>
-                                                    <li><a href="shop-list-view.html">List View</a>
-                                                    </li>
-                                                    <li><a href="shop-list-view-right.html">List View right</a>
-                                                    </li>
+                                                  
                                                 </ul>
-                                                <ul class="single-mega-item mega-underline1 mega-underline2">
-                                                    <li class="mega-title"><a href="#">Shop Pages</a>
+                                                <ul class="single-mega-item mega-underline1 mega-underline3">
+                                                    <li class="mega-title"><a href="#">Kitchen Cabinet</a>
                                                     </li>
-                                                    <li><a href="shop.html">Category</a>
+                                                    <li><a href="shop-fullwidth.html">Bottom Cabinet</a>
                                                     </li>
-                                                    <li><a href="my-account.html">My Account</a>
-                                                    </li>
-                                                    <li><a href="wishlist.html">Wishlist</a>
-                                                    </li>
-                                                    <li><a href="cart.html">Shopping Cart</a>
-                                                    </li>
-                                                    <li><a href="checkout.html">Checkout</a>
-                                                    </li>
-                                                </ul>
-                                                <ul class="single-mega-item mega-underline1">
-                                                    <li class="mega-title"><a href="#">Product Types</a>
-                                                    </li>
-                                                    <li><a href="single-product.html">Single Product</a>
-                                                    </li>
-                                                    <li><a href="shop.html">Variable Product</a>
-                                                    </li>
-                                                    <li><a href="shop.html">Group Product</a>
-                                                    </li>
-                                                    <li><a href="shop.html">External Product</a>
-                                                    </li>
-                                                    <li><a href="shop.html">New Product</a>
+                                                    <li><a href="shop.html">Top Hung Cabinet</a>
                                                     </li>
                                                 </ul>
                                             </div>
 
                                         </li>
-                                        <li class="mega-parent"><a href="about.html">About us</a>
+                                        <li class="mega-parent"><a href="<?= site_url('Main/about'); ?>">About us</a>
                                         </li>
-                                        <li class="mega-parent"><a href="shop.html" target="_blank">Pages <i class="fa fa-arrow-circle-down"></i></a>
-                                            <div class="mega-menu-area hp1-style3 mega-menu-area2">
-                                                <ul class="single-mega-item single-mega-item2">
-                                                    <li class="mega-title"><a>Pages-01</a>
-                                                    </li>
-                                                    <li><a href="about.html">About us</a>
-                                                    </li>
-                                                    <li><a href="404.html">Page 404</a>
-                                                    </li>
-                                                    <li><a href="portfolio.html">Portfolio</a>
-                                                    </li>
-                                                    <li><a href="portfolio2.html">Portfolio2</a>
-                                                    </li>
-                                                    <li><a href="single-product.html">Single Product</a>
-                                                    </li>
-                                                </ul>
-                                                <ul class="single-mega-item single-mega-item2">
-                                                    <li class="mega-title"><a>Pages-02</a>
-                                                    </li>
-                                                    <li><a href="blog-right-sidebar.html">Right Sidebar</a>
-                                                    </li>
-                                                    <li><a href="single-blog-video.html">Single Video</a>
-                                                    </li>
-                                                    <li><a href="single-blog-audio.html">Single Audio</a>
-                                                    </li>
-                                                    <li><a href="single-blog-slider.html">Single Gallery</a>
-                                                    </li>
-                                                    <li><a href="single-blog.html">Single Image</a>
-                                                    </li>
-                                                </ul>
-                                                <ul class="single-mega-item single-mega-item2">
-                                                    <li class="mega-title"><a href="#">Pages-03</a>
-                                                    </li>
-                                                    <li><a href="cart.html">Cart</a>
-                                                    </li>
-                                                    <li><a href="address.html">Address</a>
-                                                    </li>
-                                                    <li><a href="checkout.html">Checkout</a>
-                                                    </li>
-                                                    <li><a href="payment.html">Payment</a>
-                                                    </li>
-                                                    <li><a href="shipping.html">Shipping</a>
-                                                    </li>
-                                                </ul>
-                                                <ul class="single-mega-item single-mega-item2">
-                                                    <li class="mega-title"><a href="#">Pages-04</a>
-                                                    </li>
-                                                    <li><a href="my-account.html">My Account</a>
-                                                    </li>
-                                                    <li><a href="wishlist.html">Wishlist</a>
-                                                    </li>
-                                                    <li><a href="login.html">login</a>
-                                                    </li>
-                                                    <li><a href="shop.html">Dresses</a>
-                                                    </li>
-                                                    <li><a href="shop.html">T-Shirts</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li><a href="contact.html">Contact us</a>
+                                   
+                                        <li><a href="<?= site_url("Main/contact"); ?>">Contact us</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -215,26 +124,30 @@
                                                 <i class="fa fa-shopping-bag"></i>
                                             </div>
                                             <div class="cartpoint-shopping-qty">
-                                                <span>0</span>
+                                                <span><?= count($this->session->userdata("cart")); ?></span>
                                             </div>
                                         </div>
                                         <!-- Cart box start-->
                                         <div class="header-cart-box-wrapper cart-position-style2">
-                                            <div class="single-cart-box">
-                                                <div class="cart-image">
-                                                    <a href="cart.html"><img src="images/product/saving-tool.jpg" alt="" />
-                                                    </a>
-                                                </div>
+                                            <?php  
+                                            $total = 0;
+                                            if($this->session->has_userdata("cart")){
+                                                $i = 0;
+                                            foreach($this->session->userdata("cart") as $row){
+                                                $row['amount'] = 100;
+                                                $total += $row['amount'];
+                                                ?>
+                                            <div class="single-cart-box" id="cart_row_<?=$i; ?>">
+                                              
                                                 <div class="cart-content">
                                                     <div class="cart-heading">
-                                                        <a href="#"> <span class="cart-qty">2 x</span> soluta dress</a>
+                                                        <a href="#"><?= $row['name']; ?></a>
                                                     </div>
-                                                    <div class="cart-dress-color"><span>s, yellow</span>
-                                                    </div>
-                                                    <div class="cart-price">$200.00</div>
+                                                  
+                                                    <div class="cart-price">$100.00</div>
                                                 </div>
                                                 <div class="cart-remove deft-remove-icon">
-                                                    <a href="#"><i class="zmdi zmdi-close"></i></a>
+                                                    <a href="#" onclick="delete_cart(<?=$i; ?>)"><i class="zmdi zmdi-close"></i></a>
                                                 </div>
                                                 <div class="cart-shipping-cost">
                                                     <span class="shipping-text">Shipping</span>
@@ -242,34 +155,16 @@
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>
-                                            <div class="single-cart-box">
-                                                <div class="cart-image">
-                                                    <a href="cart.html"><img src="images/product/saving-tool.jpg" alt="" />
-                                                    </a>
-                                                </div>
-                                                <div class="cart-content">
-                                                    <div class="cart-heading">
-                                                        <a href="#"> <span class="cart-qty">2 x</span> soluta dress</a>
-                                                    </div>
-                                                    <div class="cart-dress-color"><span>s, yellow</span>
-                                                    </div>
-                                                    <div class="cart-price">$250.00</div>
-                                                </div>
-                                                <div class="cart-remove deft-remove-icon">
-                                                    <a href="#"><i class="zmdi zmdi-close"></i></a>
-                                                </div>
-                                                <div class="cart-shipping-cost">
-                                                    <span class="shipping-text">Shipping</span>
-                                                    <span class="shipping-amt">$8.00</span>
-                                                </div>
-                                            </div>
+                                            <?php $i++; }} ?>
+                                           
+                                         
                                             <div class="cart-subtotal">
                                                 <span class="subttl-text">Subtotal</span>
-                                                <span class="subttl-amt">$465.00</span>
+                                                <span class="subttl-amt"><?= $total; ?></span>
                                             </div>
 
                                             <div class="cart-checkout-btn btn-def-checkout">
-                                                <a href="checkout.html">Checkout <i class="checkout-dir-icon zmdi zmdi-chevron-right "></i></a>
+                                                <a href="<?= site_url("Main/cart"); ?>">Checkout <i class="checkout-dir-icon zmdi zmdi-chevron-right "></i></a>
                                             </div>
                                         </div>
 
@@ -321,13 +216,9 @@
                                                                 <ul>
                                                                     <li><a href="shop.html">Category</a>
                                                                     </li>
-                                                                    <li><a href="my-account.html">My Account</a>
+                                                                    <li><a href="<?= site_url("Main/cart"); ?>">Shopping Cart</a>
                                                                     </li>
-                                                                    <li><a href="wishlist.html">Wishlist</a>
-                                                                    </li>
-                                                                    <li><a href="cart.html">Shopping Cart</a>
-                                                                    </li>
-                                                                    <li><a href="checkout.html">Checkout</a>
+                                                                    <li><a href="<?= site_url("Main/cart"); ?>">Checkout</a>
                                                                     </li>
                                                                 </ul>
                                                             </li>
@@ -347,70 +238,11 @@
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li><a href="about.html">About Us</a>
+                                                    <li><a href="<?= site_url('Main/about'); ?>">About Us</a>
                                                     </li>
 
-                                                    <li><a href="#">Pages</a>
-                                                        <ul>
-                                                            <li><a href="#">Pages-01</a>
-                                                                <ul>
-                                                                    <li><a href="about.html">About us</a>
-                                                                    </li>
-                                                                    <li><a href="404.html">Page 404</a>
-                                                                    </li>
-                                                                    <li><a href="portfolio.html">Portfolio</a>
-                                                                    </li>
-                                                                    <li><a href="portfolio2.html">Portfolio2</a>
-                                                                    </li>
-                                                                    <li><a href="single-product">Single Product</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">Pages-02</a>
-                                                                <ul>
-                                                                    <li><a href="blog-right-sidebar.html">Right Sidebar</a>
-                                                                    </li>
-                                                                    <li><a href="single-blog-video.html">Single Video</a>
-                                                                    </li>
-                                                                    <li><a href="single-blog-audio.html">Single Audio</a>
-                                                                    </li>
-                                                                    <li><a href="single-blog-slider.html">Single Gallery</a>
-                                                                    </li>
-                                                                    <li><a href="single-blog.html">Single Image</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">Pages-03</a>
-                                                                <ul>
-                                                                    <li><a href="cart.html">Cart</a>
-                                                                    </li>
-                                                                    <li><a href="address.html">Address</a>
-                                                                    </li>
-                                                                    <li><a href="checkout.html">Checkout</a>
-                                                                    </li>
-                                                                    <li><a href="payment.html">Payment</a>
-                                                                    </li>
-                                                                    <li><a href="shipping.html">Shipping</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">Pages-04</a>
-                                                                <ul>
-                                                                    <li><a href="my-account.html">My Account</a>
-                                                                    </li>
-                                                                    <li><a href="wishlist.html">Wishlist</a>
-                                                                    </li>
-                                                                    <li><a href="login.html">login</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">Dresses</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">T-Shirts</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="contact.html">Contact Us</a>
+                                                
+                                                    <li><a href="<?= site_url("Main/contact"); ?>">Contact Us</a>
                                                     </li>
                                                 </ul>
                                             </nav>

@@ -103,5 +103,39 @@
     </div>
     <!--Footer bottom area end-->
 </footer>
+
+ <!-- all js here -->
+    <!-- jquery latest version -->
+    <script src="<?= site_url(); ?>js/Main/vendor/jquery-1.12.0.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="<?= site_url(); ?>js/Main/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="<?= site_url(); ?>js/Main/owl.carousel.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="<?= site_url(); ?>js/Main/jquery.meanmenu.js"></script>
+    <!-- jquery-ui js -->
+    <script src="<?= site_url(); ?>js/Main/jquery-ui.min.js"></script>
+    <!-- wow js -->
+    <script src="<?= site_url(); ?>js/Main/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="<?= site_url(); ?>js/Main/plugins.js"></script>
+    <!-- Nivo slider pack js -->
+    <script src="<?= site_url(); ?>js/Main/slider/jquery.nivo.slider.pack.js"></script>
+    <!-- nivo active js -->
+    <script src="<?= site_url(); ?>js/Main/slider/nivo-active.js"></script>
+    <!-- fancybox js -->
+    <script src="<?= site_url(); ?>js/Main/jquery.fancybox.js"></script>
+    <!-- counter up js -->
+    <script src="<?= site_url(); ?>js/Main/jquery.counterup.min.js"></script>
+    <!-- Treeview js -->
+    <script src="<?= site_url(); ?>js/Main/jquery.treeview.js"></script>
+    <!-- main js -->
+    <script src="<?= site_url(); ?>js/Main/main.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <!-- Google map API js -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-IIoucJ-70FQg6xZsORjQCUPHCVj9GV4"></script>
+    <!-- Google map js -->
+    <script src="<?= site_url(); ?>js/Main/google-map.js"></script>
+    <script src="<?= site_url(); ?>js/Main/functions.js"></script>
 </body>
 </html>
