@@ -28,8 +28,11 @@
         <link rel="stylesheet" href="<?= site_url(); ?>css/Main/meanmenu.css">
         <!-- Main style css -->
         <link rel="stylesheet" href="<?= site_url(); ?>css/Main/style.css">
+        <link rel="stylesheet" href="<?= site_url(); ?>css/custom.css">
         <!-- responsive css -->
         <link rel="stylesheet" href="<?= site_url(); ?>css/Main/responsive.css">
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/jquery.fancybox.css">
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/jquery.fancybox.min.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,6 +41,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+        <script src="<?= site_url(); ?>js/Main/vendor/jquery-1.12.0.min.js"></script>
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <script>
@@ -69,7 +73,8 @@
                      <section>
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-12">
-                                <div class="header-logo home2-header-logo header-logo-def"></div>
+                                <div class="header-logo home2-header-logo header-logo-def">
+                                   <h1> LOGO</h1>                                </div>
                             </div>
                             <div class="col-md-9 col-sm-9 hidden-xs">
                                 <nav>

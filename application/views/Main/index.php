@@ -90,9 +90,9 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="product-banner-left">
-                        <a href="<?= site_url('Main/product/swing-door-wardrobe'); ?>">
+                        <a href="<?= site_url('Main/category/'.$categories[0]['category_id']); ?>">
                             <div class="pbanner-image hvreff-defm20 posr">
-                                <img src="<?= site_url(); ?>images/category/swing.jpg" alt="" />
+                                <img src="<?= site_url().$categories[0]['image']; ?>" alt="" />
                             </div>
                             </a>
                         </div>
@@ -101,16 +101,16 @@
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="product-banner-right">
                             <div class="img-banner">
-                            <a href="<?= site_url('Main/product/open-wardrobe'); ?>">
+                            <a href="<?= site_url('Main/category/'.$categories[1]['category_id']); ?>">
                                 <div class="pbanner-image hvreff-defm10 posr">
-                                    <img src="<?= site_url(); ?>images/category/open.jpg" alt="" />
+                                    <img src="<?= site_url().$categories[1]['image']; ?>" alt="" />
                                 </div>
                                 </a>
                             </div>
                             <div class="img-banner">
-                            <a href="<?= site_url('Main/product/sliding-wardrobe'); ?>">
+                            <a href="<?= site_url('Main/category/'.$categories[2]['category_id']); ?>">
                                 <div class="pbanner-image hvreff-defm10 posr">
-                                    <img src="<?= site_url(); ?>images/category/sliding.jpg" alt="" />
+                                    <img src="<?= site_url().$categories[2]['image']; ?>" alt="" />
                                 </div>
                                 </a>
                             </div>
