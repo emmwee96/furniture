@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="cart-product-desc">
-                            <p>Your shopping cart contains: 5 products </p>
+                            <p>Your shopping cart contains: <?= count($this->session->userdata("cart")); ?> products </p>
                         </div>
                     </div>
                 </div>
@@ -53,13 +53,7 @@
                         <ul class="progress-steps">
                             <li class="steps-item  litext is-active"><a href="cart.html">01. Cart</a>
                             </li>
-                            <li class="steps-item"><a href="login.html">02. Sign in</a>
-                            </li>
-                            <li class="steps-item"><a href="address.html">03. Address</a>
-                            </li>
-                            <li class="steps-item"><a href="shipping.html">04. Shipping</a>
-                            </li>
-                            <li class="steps-item"><a href="payment.html">05. Payment</a>
+                            <li class="steps-item"><a href="login.html">02. Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -90,16 +84,21 @@
                                         <tr class="tr2">
                                             <td class="td2">
                                                 <h5>Custom <?= $row['name']; ?></h5>
-                                                <p><?= $row['options']; ?></p>
+                                                <p>
+                                            
+                                                    <?php  foreach($row['options'] as $key => $option){ ?>
+                                                    <?= $key . " : " . $option['label']; ?><br>
+                                                    <?php } ?>
+                                                </p>
                                             </td>
                                            
-                                            <td class="td4">$120.00</td>
+                                            <td class="td4">$<?= $row['total']; ?></td>
                                            
                                             <td class="td6"><i class="fa fa-trash-o"></i>
                                             </td>
-                                            <td class="td7">$120.00</td>
+                                            <td class="td7">$<?= $row['total']; ?></td>
                                         </tr>
-                                          <?php $total+=120; } ?>
+                                          <?php $total+=$row['total']; } ?>
                                      
                                         <tr class="tr6">
                                             <td colspan="3" class="td20">Total</td>

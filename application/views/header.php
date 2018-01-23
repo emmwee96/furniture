@@ -98,9 +98,9 @@
                                                 <ul class="single-mega-item mega-underline1 mega-underline3">
                                                     <li class="mega-title"><a href="#">Kitchen Cabinet</a>
                                                     </li>
-                                                    <li><a href="shop-fullwidth.html">Bottom Cabinet</a>
+                                                    <li><a href="<?= site_url('Main/product/bottom-cabinet'); ?>">Bottom Cabinet</a>
                                                     </li>
-                                                    <li><a href="shop.html">Top Hung Cabinet</a>
+                                                    <li><a href="<?= site_url('Main/product/top-cabinet'); ?>">Top Hung Cabinet</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -129,7 +129,7 @@
                                                 <i class="fa fa-shopping-bag"></i>
                                             </div>
                                             <div class="cartpoint-shopping-qty">
-                                                <span><?= count($this->session->userdata("cart")); ?></span>
+                                                <span id="cart_count"><?= count($this->session->userdata("cart")); ?></span>
                                             </div>
                                         </div>
                                         <!-- Cart box start-->
@@ -139,8 +139,8 @@
                                             if($this->session->has_userdata("cart")){
                                                 $i = 0;
                                             foreach($this->session->userdata("cart") as $row){
-                                                $row['amount'] = 100;
-                                                $total += $row['amount'];
+                                               
+                                                $total += $row['total'];
                                                 ?>
                                             <div class="single-cart-box" id="cart_row_<?=$i; ?>">
                                               
@@ -149,15 +149,12 @@
                                                         <a href="#"><?= $row['name']; ?></a>
                                                     </div>
                                                   
-                                                    <div class="cart-price">$100.00</div>
+                                                    <div class="cart-price">$<?= $row['total']; ?></div>
                                                 </div>
                                                 <div class="cart-remove deft-remove-icon">
                                                     <a href="#" onclick="delete_cart(<?=$i; ?>)"><i class="zmdi zmdi-close"></i></a>
                                                 </div>
-                                                <div class="cart-shipping-cost">
-                                                    <span class="shipping-text">Shipping</span>
-                                                    <span class="shipping-amt">$7.00</span>
-                                                </div>
+                                               
                                             </div>
                                             <div class="clearfix"></div>
                                             <?php $i++; }} ?>

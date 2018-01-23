@@ -47,14 +47,9 @@
                         <ul class="progress-steps">
                             <li class="steps-item  litext is-active"><a href="cart.html">01. Cart</a>
                             </li>
-                            <li class="steps-item is-active"><a href="<?= site_url('Main/login'); ?>">02. Sign in</a>
+                            <li class="steps-item is-active"><a href="<?= site_url('Main/login'); ?>">02. Contact</a>
                             </li>
-                            <li class="steps-item"><a href="<?= site_url('Main/address'); ?>">03. Address</a>
-                            </li>
-                            <li class="steps-item"><a href="<?= site_url('Main/shipping'); ?>">04. Shipping</a>
-                            </li>
-                            <li class="steps-item"><a href="<?= site_url('Main/payment'); ?>">05. Payment</a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -69,49 +64,78 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="account-creation">
                         <div class="lp-title">
-                            <h3>Create an account</h3>
+                            <h3>Leave your contact</h3>
                         </div>
                         <div class="lp-left-text">
-                            <p>Please enter your email address to create an account.</p>
+                            <p>Your team will contact you for your order.</p>
                         </div>
-                        <form action="#">
+                        <form method="POST" id="contact_form">
+                        <div class="lp-input">
+                                <label for="phoneno">Full Name</label>
+                                <input type="text" required id="name" name="name" />
+                            </div>
                             <div class="lp-input">
                                 <label for="emailleft">Email address</label>
-                                <input type="email" id="emailleft" name="email" />
+                                <input type="email" id='email' required name="email" />
                             </div>
                             <div class="lp-input">
                                 <label for="phoneno">Phone Number</label>
-                                <input type="text" id="phoneno" name="phone" />
-                            </div>
-                        </form>
-                        <div class=" lp-account-btn btn-ac ">
-                            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Create an account</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="account-creation">
-                        <div class="lp-title">
-                            <h3>Already registered?</h3>
-                        </div>
-                        <div class="lp-left-text">
-                            <p>Please put your email address that was used at the time of registration.</p>
-                        </div>
-                        <form action="#">
-                            <div class="lp-input">
-                                <label for="emailleftt">Email address</label>
-                                <input type="email" id="emailleftt" name="email2" />
+                                <input type="text" required id="phone" name="phone" />
                             </div>
                             <div class="lp-input">
-                                <label for="emailleft2">Password</label>
-                                <input type="password" id="emailleft2" name="pword" />
+                                <label for="phoneno">Address 1</label>
+                                <input type="text" required id="address1" name="address1" />
+                            </div>
+                            <div class="lp-input">
+                                <label for="phoneno">Address 2</label>
+                                <input type="text" required id="address2" name="address2" />
+                            </div>
+                            <div class="lp-input">
+                                <label for="phoneno">Postcode</label>
+                                <input type="text" required id="postcode" name="postcode" />
+                            </div>
+                            <div class="lp-input">
+                                <label for="phoneno">State</label>
+                                <select name="state" id='state' class="form-control">
+                                    <option value="Johor">Johor</option>
+                                </select>
+                            </div>
+                            <div class=" lp-account-btn btn-ac ">
+                                <a href="javascript:void()" id="submit_btn"><i class="fa fa-user" aria-hidden="true"></i> Submit</a>
                             </div>
                         </form>
-                        <div class=" lp-account-btn btn-ac btn-ac2">
-                            <a href="<?= site_url('Main/address'); ?>"><i class="fa fa-lock" aria-hidden="true"></i>Sign In</a>
-                        </div>
+                        
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
+<script>
+    $(document).ready(function(){
+        $("#submit_btn").click(function(){
+            $("#contact_form").submit();
+        });
+
+        $("#contact_form").on("submit",function(e){
+            e.preventDefault();
+           $.post('<?= site_url("Main/place_order"); ?>',{
+               name : $("#name").val(),
+               email : $("#email").val(),
+               contact : $("#phone").val(),
+               address1 : $("#address1").val(),
+               address2 : $("#address2").val(),
+               postcode : $("#postcode").val(),
+               state : $("#state").val()
+           },function(res){
+                if(res.status == "SUCCESS"){
+                    alert("Order placed! Our staff will contact you soon");
+
+                    window.location = "<?= site_url('Main/'); ?>";
+                }else{
+                    alert(res.message);
+                }
+           },"JSON");
+        });
+    });
+</script>

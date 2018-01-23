@@ -1,3 +1,4 @@
+/*
 function add_to_cart(product_id,product_name,options){
     $.post(site_url+'Main/add_to_cart',
             {
@@ -10,6 +11,7 @@ function add_to_cart(product_id,product_name,options){
             },
             "JSON");
 }
+*/
 
 function delete_cart(index){
     $.post(site_url+'Main/delete_cart',

@@ -41,16 +41,19 @@ class Main extends CI_Controller {
         $this->load->view("footer");
     }
      public function product($type){
-        $template = $this->Wardrobe_model->get_template($type);
-        $product = $this->Wardrobe_model->get($type);
+        $template = $this->Custom_Product_model->get_template($type);
+        $product = $this->Custom_Product_model->get($type);
         
+       
         if(!$template){
             die("Coming Soon. Please view our wardrobes");
         }
 
         $product[0]['product_id'] = $product[0]['custom_product_id'];
         $data = array(
-            "product" => $product[0]
+            "product" => $product[0],
+            "selection_labels" => $this->Custom_Product_model->get_labels($product[0]['product_id']),
+            "add_ons" => $this->Custom_Product_model->get_add_ons($product[0]['product_id'])
         );
 
         $this->load->view("header",$data);
@@ -102,13 +105,19 @@ class Main extends CI_Controller {
         $data = array(
             "product_id" => $this->input->post("product_id"),
             "name" => $this->input->post("product_name"),
-            "options" => $this->input->post("options")
+            "options" => $this->input->post("options"),
+            "total" => $this->input->post("total")
         );
         $cart = $this->session->userdata("cart");
 
         array_push($cart,$data);
 
         $this->session->set_userdata("cart",$cart);
+
+        die(json_encode(array(
+            "status" => "SUCCESS",
+            'counter' => count($cart)
+        )));
     }
 
     function delete_cart(){
@@ -127,15 +136,63 @@ class Main extends CI_Controller {
 
 
     function test(){
-        $json = array(
-            'key' => 'val1',
-            'key1' => 'val2'
-        );
+        $this->load->model("Invoice_model");
+        $this->Invoice_model->generate_invoice(3);
+    }
 
-        die(
-            json_encode($json)
-        );
+    function place_order(){
+        if($_POST){
+            // check for user
 
-        echo 'ok';
+            $user = $this->db->get_where("user",array(
+                "email" => $this->input->post("email")
+            ))->result_array();
+
+            if(count($user)){
+               $user_id = $user[0]['user_id'];
+            }else{
+                $this->db->insert("user",array(
+                    "name" => $this->input->post("name"),
+                    "email" => $this->input->post("email"),
+                    "contact" => $this->input->post("contact")
+                ));
+                $user_id = $this->db->insert_id();
+            }
+
+            
+            $cart = $this->session->userdata('cart');
+            if(!count($cart)){
+                die(json_encode(array(
+                    "status" => "ERROR",
+                    "message" => "Cart empty!"
+                )));
+            }
+            $this->db->insert("orders",array(
+                "user_id" => $user_id,
+                "address1" => $this->input->post("address1"),
+                "address2" => $this->input->post("address2"),
+                "postcode" => $this->input->post("postcode"),
+                "state" => $this->input->post("state")
+            ));
+
+            $order_id = $this->db->insert_id();
+
+            foreach($cart as $row){
+                $this->db->insert("order_product",array(
+                    "order_id" => $order_id,
+                    "product_id" => $row['product_id'],
+                    "name" => $row['name'],
+                    "total" => $row['total'],
+                    "options" => json_encode($row['options'])
+                ));
+            }
+
+
+            $this->session->set_userdata("cart",[]);
+            die(json_encode(array(
+                "status" => "SUCCESS",
+                
+            )));
+        }
     }
 }

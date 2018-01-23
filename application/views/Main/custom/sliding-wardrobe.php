@@ -74,140 +74,75 @@
                         </div>
                     </div>
                 </div>
-             
-                <div class="compare-conpart skill-communicate">
-                <div class="skill-checklist">
-                    <label for="skillc"><span class="italic">Choose Type</span>
-                    </label>
-                    <select id="skillc" name="type" onchange="changeSelection('selected_type',this)">
-                        <option value="">-- select a type --</option>
-                        <option value="Standard Height">Standard Height</option>
-                        <option value="Full Height">Full Height</option>
-                    </select>
-                </div>
-            </div> 
-            <div class="compare-conpart skill-communicate">
-            <div class="skill-checklist">
-                <label for="skillc"><span class="italic">Internal Frame Material</span>
-                </label>
-                <select id="skillc" name="internalFrame"  onchange="changeSelection('selected_internal_frame',this)">
-                    <option value="">-- select a type --</option>
-                    <option value="White PVC">White PVC</option>
-                    <option value="Color PVC">Color PVC</option>
-                </select>
-            </div>
-
-
-            <div class="compare-conpart skill-communicate">
-                <div class="skill-checklist">
-                    <label><span class="italic">External Frame Material</span>
-                    </label>
-                    <select  name="externalFrame"  onchange="changeSelection('selected_external_frame',this)">
-                        <option value="">-- select a type --</option>
-                        <option value="Laminate 1">Laminate 1</option>
-                        <option value="Laminate 2">Laminate 2</option>
-                        <option value="Laminate 3">Laminate 3</option>
-                        <option value="Veener 1">Veener 1</option>
-                        <option value="Veener 2">Veener 2</option>
-                        <option value="Veener 3">Veener 3</option>
-                    </select>
-                </div>
-
-            </div>
-            <div class="compare-conpart skill-communicate">
-                    <div class="skill-checklist">
-                        <label for="skillc"><span class="italic">Door Materials</span>
-                        </label><br>
-                        <select id="skillc" onchange="changeSelection('selected_door_material',this)">
-                            <option value="">-- select a material --</option>
-                            <option value="Material 1">Material 1</option>
-                            <option value="Material 2">Material 2</option>
-                            <option value="Material 3">Material 3</option>
-                        </select>
-                    </div>
-                </div>
+                <?php foreach($selection_labels as $row){ ?>
+                    <div class="compare-conpart skill-communicate">
+                        <div class="skill-checklist">
+                            <label for="skillc"><span class="italic">Choose <?= $row['label']; ?></span>
+                            </label>
+                            <br>
+                            <select id="skillc" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
+                                <option value="">-- select a type --</option>
+                                <?php foreach($row['options'] as $option){ ?>
+                                    <option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
+                                <?php } ?>
+                              
+                            </select>
+                        </div>
+                    </div> 
+                <?php } ?>
+           
 
             <div class="compare-conpart skill-communicate">
                 <div class="skill-checklist">
                     <label for="skillc"><span class="italic">Add Ons</span>
                     </label><br>
-                    <input type="checkbox"  onchange="changeSelection('add_on_drawer',this,true,'drawer')" name="drawer"> Drawer<br>
-                    <input type="checkbox"  onchange="changeSelection('add_on_shelving',this,true,'shelving')" name="shelving"> Shelving<br>
-                </div>
-
-            </div>
-                
-        </div>
-        </div>
-
-
-        </div>
-        <div class="col-md-2 col-lg-2">
-                        <div class="floating_price">
-                            <h3>My Selection</h3>
-                            <hr>
-                            <label>Type : </label><br>
-                            <span id="selected_type" ></span>
-                            <br>
-                            <label>Internal Frame Material</label><br>
-                            <span id="selected_internal_frame"></span>
-                            <br>
-                            <label>External Frame Material</label><br>
-                            <span id="selected_external_frame"></span><br>
-                            <label>Selected Door Material</label><br>
-                            <span id="selected_door_material"></span><br>
-
-                            <label>Add Ons</label><br>
-                            <div class="selected_add_ons"></div>
-                            <span id="add_on_drawer"></span><br>
-                            <span id="add_on_shelving"></span>
-                            <hr>
-                            <h5>Total : </h5>
-                            <h2>$ 450</h2>
-                            <div class="skill-cart-option skill-sep posr" style="margin-left:0;">
-                                        <a href="#" 
-                                        onclick="addItem()"
-                                        ><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    </div>
+                    <?php foreach($add_ons as $add_on){ ?>
+                        <input type="checkbox"  onchange="changeSelection('<?= $add_on["label_id"]; ?>',this,true,'<?= $add_on['label']; ?>',<?= $add_on['value']; ?>)" name="drawer"> <?= $add_on['label']; ?><br>
+                                       
+                        <?php } ?>
+                                      
                         </div>
+
                     </div>
+                    <br><br>
+            
+                </div>
+            </div>
+        </form>
+        <div class="col-md-2 col-lg-2">
+            <?php $this->load->view("Main/custom/my_selection",array("selection_labels" => $selection_labels, "add_ons" => $add_ons)); ?>
+        </div>
     </div>
+
+    <div class="row" style="margin-top:15vh;margin-bottom : 10vh;">
+<div class="col-md-10 col-lg-10 col-xs-10">
+<div class="cmain-heading text-uppercase">
+            <h3>You May Also Like :</h3>
+        </div>
+       
+        <div class="row">
+        <div class="col-md-3 col-lg-3">
+                <a  href="<?= site_url('Main/product/'."open-wardrobe"); ?>">
+                <img src="<?= site_url(); ?>/images/product/custom/open1.JPG">
+            </a>
+        </div>
+        <div class="col-md-3 col-lg-3">
+        <a  href="<?= site_url('Main/product/'."open-wardrobe"); ?>">
+                <img src="<?= site_url(); ?>/images/product/custom/open2.JPG">
+            </a>
+        </div>
+        <div class="col-md-3 col-lg-3">
+        <a  href="<?= site_url('Main/product/'."swing-door-wardrobe"); ?>">
+                <img src="<?= site_url(); ?>/images/product/custom/swing1.jpg">
+            </a>
+        </div>
+        <div class="col-md-3 col-lg-3">
+        <a  href="<?= site_url('Main/product/'."swing-door-wardrobe"); ?>">
+                <img src="<?= site_url(); ?>/images/product/custom/swing2.jpg">
+            </a>
+        </div>
+        </div>
 </div>
 </div>
-
-<script>
-        var selections = {
-        };
-        function addItem(){
-            var product_id = <?= $product['product_id']; ?>;
-            var product_name = "<?= $product['name']; ?>";
-
-            add_to_cart(2,'Sliding Wardrobe',{});
-            window.location = window.location;
-        }
-
-        $(document).ready(function(){
-        
-        });
-
-        function changeSelection(key,ele,checkbox = false,label=''){
-            if(checkbox){
-                if($(ele).is(":checked")){
-                    selections[key] = label;
-                }else{
-                    delete selections[key];
-                }
-                refreshSelection();
-                return;
-            }
-            selections[key] = $(ele).val();
-            refreshSelection();
-        }
-        function refreshSelection(){
-            for(key in selections){
-                console.log("#"+key);
-                $("#"+key).html(selections[key]);
-            }
-        
-        }
-</script>
+</div>
+</div>

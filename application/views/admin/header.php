@@ -91,8 +91,12 @@
                     <ul class="sidebar-menu">
                         <li class="header">MAIN NAVIGATION</li>
                         <li>
-                            <a href="<?= base_url() ?>dashboard">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            <a href="<?= base_url() ?>User">
+                                <i class="fa fa-user"></i> <span>Users</span>
+                            </a>
+                        </li> <li>
+                            <a href="<?= base_url() ?>Orders">
+                                <i class="fa fa-file"></i> <span>Orders</span>
                             </a>
                         </li>
                         <?php
@@ -110,6 +114,7 @@
                             <?php
                         }
                         ?>
+                        
                         <li>
                             <a href="<?= base_url() ?>category">
                                 <i class="fa fa-industry"></i> <span>Category</span>
