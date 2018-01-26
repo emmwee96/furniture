@@ -19,7 +19,13 @@ function delete_cart(index){
         index : index
     },
     function(response){
-        $("#cart_row_"+index).remove();
-        window.location = window.location;
+       refresh_cart();
     });
+}
+
+function refresh_cart(){
+    $.get(site_url+"Main/refresh_cart",function(response){
+        $("#cart_count").html(response.data.counter);
+        $("#header_cart").html(response.data.cart);
+    },'JSON');
 }

@@ -137,5 +137,8 @@
     <script src="<?= site_url(); ?>js/Main/google-map.js"></script>
     <script src="<?= site_url(); ?>js/Main/jquery.fancybox.js"></script>
     <script src="<?= site_url(); ?>js/Main/functions.js"></script>
+    <script>
+        refresh_cart();
+    </script>
 </body>
 </html>

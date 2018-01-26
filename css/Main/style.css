@@ -4414,11 +4414,11 @@ button.btn.btn-default a {
 .skill-checklist select {
     width: 35%;
     height: 27px;
-    color: #999;
+    color: black;
     border: 1px solid #ccc;
 }
 .skill-checklist label {
-    color: #999;
+    color:black;
 }
 .skill-checklist {
     margin-top: 20px;

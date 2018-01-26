@@ -167,7 +167,7 @@
             },
             function(response){
                 alert("added");
-                $("#cart_count").html(response.counter);
+                refresh_cart();
             },
             "JSON");
     }   

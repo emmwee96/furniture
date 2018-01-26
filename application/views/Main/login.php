@@ -95,6 +95,10 @@
                                 <input type="text" required id="postcode" name="postcode" />
                             </div>
                             <div class="lp-input">
+                                <label for="phoneno">City</label>
+                                <input type="text" required id="city" name="city" />
+                            </div>
+                            <div class="lp-input">
                                 <label for="phoneno">State</label>
                                 <select name="state" id='state' class="form-control">
                                     <option value="Johor">Johor</option>
@@ -126,7 +130,8 @@
                address1 : $("#address1").val(),
                address2 : $("#address2").val(),
                postcode : $("#postcode").val(),
-               state : $("#state").val()
+               state : $("#state").val(),
+               city : $("#city").val()
            },function(res){
                 if(res.status == "SUCCESS"){
                     alert("Order placed! Our staff will contact you soon");

@@ -133,41 +133,8 @@
                                             </div>
                                         </div>
                                         <!-- Cart box start-->
-                                        <div class="header-cart-box-wrapper cart-position-style2">
-                                            <?php  
-                                            $total = 0;
-                                            if($this->session->has_userdata("cart")){
-                                                $i = 0;
-                                            foreach($this->session->userdata("cart") as $row){
-                                               
-                                                $total += $row['total'];
-                                                ?>
-                                            <div class="single-cart-box" id="cart_row_<?=$i; ?>">
-                                              
-                                                <div class="cart-content">
-                                                    <div class="cart-heading">
-                                                        <a href="#"><?= $row['name']; ?></a>
-                                                    </div>
-                                                  
-                                                    <div class="cart-price">$<?= $row['total']; ?></div>
-                                                </div>
-                                                <div class="cart-remove deft-remove-icon">
-                                                    <a href="#" onclick="delete_cart(<?=$i; ?>)"><i class="zmdi zmdi-close"></i></a>
-                                                </div>
-                                               
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <?php $i++; }} ?>
+                                        <div class="header-cart-box-wrapper cart-position-style2" id="header_cart">
                                            
-                                         
-                                            <div class="cart-subtotal">
-                                                <span class="subttl-text">Subtotal</span>
-                                                <span class="subttl-amt"><?= $total; ?></span>
-                                            </div>
-
-                                            <div class="cart-checkout-btn btn-def-checkout">
-                                                <a href="<?= site_url("Main/cart"); ?>">Checkout <i class="checkout-dir-icon zmdi zmdi-chevron-right "></i></a>
-                                            </div>
                                         </div>
 
                                         <!-- Cart box end-->

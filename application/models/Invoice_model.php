@@ -14,6 +14,11 @@ class Invoice_model extends CI_Model{
         if(!count($order)){
             return;
         }
+
+        $user = $this->db->get_where("user",array(
+            "user_id" => $order[0]['user_id']
+        ))->result_array();
+
         $this->load->library("FPDF");
         
         $pdf = new FPDF();
@@ -23,11 +28,11 @@ class Invoice_model extends CI_Model{
         $this->Header($pdf,$order_id,$order[0]['timestamp']);
         
         /* set user address */
-        $pdf->Cell(0,6,"Yew Yang,",0,1);
-        $pdf->Cell(0,6,"6,Jalan Kuning,",0,1);
-        $pdf->Cell(0,6,"Taman Pelangi,",0,1);
-        $pdf->Cell(0,6,"80300 Johor Bahru",0,1);
-        $pdf->Cell(0,6,"Johor",0,1);
+        $pdf->Cell(0,6,$user[0]['name'].",",0,1);
+        $pdf->Cell(0,6,$order[0]['address1'],0,1);
+        $pdf->Cell(0,6,$order[0]['address2'],0,1);
+        $pdf->Cell(0,6,$order[0]['postcode']. " ". $order[0]['city'],0,1);
+        $pdf->Cell(0,6,$order[0]['state'],0,1);
 
         $pdf->Ln(10);
         /* order details */

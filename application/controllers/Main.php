@@ -120,6 +120,18 @@ class Main extends CI_Controller {
         )));
     }
 
+    function refresh_cart(){
+
+        $toLoad = array(
+            "counter" => count($this->session->userdata("cart")),
+            "cart" => $this->load->view("Main/header_cart",array(),true)
+        );
+
+        die(json_encode(array(
+            "status" => "SUCCESS",
+            "data" => $toLoad
+        )));
+    }
     function delete_cart(){
         $index = $this->input->post("index");
         
@@ -135,9 +147,9 @@ class Main extends CI_Controller {
     }
 
 
-    function test(){
+    function myInvoice($order_id){
         $this->load->model("Invoice_model");
-        $this->Invoice_model->generate_invoice(3);
+        $this->Invoice_model->generate_invoice($order_id);
     }
 
     function place_order(){
@@ -172,6 +184,7 @@ class Main extends CI_Controller {
                 "address1" => $this->input->post("address1"),
                 "address2" => $this->input->post("address2"),
                 "postcode" => $this->input->post("postcode"),
+                "city" => $this->input->post("city"),
                 "state" => $this->input->post("state")
             ));
 
@@ -186,13 +199,27 @@ class Main extends CI_Controller {
                     "options" => json_encode($row['options'])
                 ));
             }
+            $name = $this->input->post("name");
+            
+            $this->load->model("Email_model");
+            $subject= "Your custom furniture is placed";
+            $message = $this->load->view("EDM/order",array(
+                "name" => $name,
+                "date" => Date("Y-m-d"),
+                "order_id" => $order_id
+            ),true);
+            
+            $result = $this->Email_model->sendGmail($this->input->post("email"),$subject,$message);
 
 
             $this->session->set_userdata("cart",[]);
             die(json_encode(array(
                 "status" => "SUCCESS",
-                
+                "data" => $result
             )));
+            
         }
+
+
     }
 }
