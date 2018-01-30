@@ -9,8 +9,6 @@
         <div class='panel panel-default'>
             <div class='panel-heading'>
                 <h4 class="whiteTitle" style='display: inline-block;'>Category</h4>
-                <a href='<?php echo site_url('category/add'); ?>' class='btn btn-info pull-right'>
-                    <i class='glyphicon glyphicon-plus' ></i> Add</a>
             </div>
             <div class='panel-body'>
 
@@ -33,7 +31,7 @@
                                     <td><?= $i ?></td>
                                     <td><img height=150 width=150 src="<?= base_url() . $category['image'] ?>"></td>
                                     <td><?= $category['name'] ?></td>
-                                    <td> <a class="btn btn-danger delete-button" href='<?php echo base_url('category/delete/' .$category['category_id'] ); ?>' class='btn btn-info pull-right'><i class="fa fa-trash"></i> Delete</a></td>
+                                    <td> <a class="btn btn-warning" href='<?php echo base_url('category/edit/' .$category['category_id'] ); ?>'><i class="fa fa-pencil"></i> Edit</a></td>
                                 </tr>
                                 <?php
                                 $i++;
