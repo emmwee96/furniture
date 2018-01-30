@@ -120,6 +120,11 @@
                                 <i class="fa fa-industry"></i> <span>Category</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="<?= base_url() ?>product">
+                                <i class="fa fa-industry"></i> <span>Product</span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->
