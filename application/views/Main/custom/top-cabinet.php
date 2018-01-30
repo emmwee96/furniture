@@ -12,35 +12,13 @@
                                 </a>
                             </div>
                             <br>
-                            <div  class="product_extra_images">
-                                <div class="row">
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/top_1.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/top_1.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/top_2.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/top_2.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/top_3.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/top_3.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/top_4.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/top_4.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/top_5.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/top_5.jpg">
-                                        </a>
-                                    </div>
+                            <?php foreach($product_image as $row){ ?>
+                                <div class="col-md-4 col-lg-4">
+                                    <a class="gallery" data-fancybox="gallery" href="<?= site_url().$row['url']; ?>">
+                                        <img src="<?= site_url().$row['url']; ?>">
+                                    </a>
                                 </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

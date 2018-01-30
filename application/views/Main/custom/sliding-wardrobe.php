@@ -11,31 +11,13 @@
                                 <a href="<?= site_url(); ?>/images/product/custom/slide.jpg" class="fancybox" data-fancybox-group="gallery"><img src="<?= site_url(); ?>/images/product/custom/slide.jpg" alt="" />
                                 </a>
                             </div>
-                            <div  class="product_extra_images">
-                                <div class="row">
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/slide1.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/slide1.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/slide2.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/slide2.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/slide3.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/slide3.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/slide4.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/slide4.jpg">
-                                        </a>
-                                    </div>
-                                    
+                            <?php foreach($product_image as $row){ ?>
+                                <div class="col-md-4 col-lg-4">
+                                    <a class="gallery" data-fancybox="gallery" href="<?= site_url().$row['url']; ?>">
+                                        <img src="<?= site_url().$row['url']; ?>">
+                                    </a>
                                 </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

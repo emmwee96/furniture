@@ -12,31 +12,13 @@
                                 </a>
                             </div>
                             <br>
-                            <div  class="product_extra_images">
-                                <div class="row">
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/bottom_1.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/bottom_1.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/bottom_2.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/bottom_2.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/bottom_3.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/bottom_3.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                            <a class="gallery" data-fancybox="gallery" href="<?= site_url(); ?>/images/product/custom/bottom_4.jpg">
-                                            <img src="<?= site_url(); ?>/images/product/custom/bottom_4.jpg">
-                                        </a>
-                                    </div>
-                                 
+                            <?php foreach($product_image as $row){ ?>
+                                <div class="col-md-4 col-lg-4">
+                                    <a class="gallery" data-fancybox="gallery" href="<?= site_url().$row['url']; ?>">
+                                        <img src="<?= site_url().$row['url']; ?>">
+                                    </a>
                                 </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -161,6 +143,7 @@
             </div>
            
             <div class="row">
+                </a>
             <div class="col-md-3 col-lg-3">
                     <a  href="<?= site_url('Main/product/'.'top-cabinet'); ?>">
                     <img src="<?= site_url(); ?>/images/product/custom/top_1.jpg">
@@ -174,7 +157,6 @@
             <div class="col-md-3 col-lg-3">
             <a  href="<?= site_url('Main/product/'.'top-cabinet'); ?>">
                     <img src="<?= site_url(); ?>/images/product/custom/top_3.jpg">
-                </a>
             </div>
             <div class="col-md-3 col-lg-3">
             <a  href="<?= site_url('Main/product/'.'top-cabinet'); ?>">
