@@ -40,10 +40,10 @@ class Main extends CI_Controller {
         $this->load->view("Main/category");
         $this->load->view("footer");
     }
+    
      public function product($type){
         $template = $this->Custom_Product_model->get_template($type);
         $product = $this->Custom_Product_model->get($type);
-        
        
         if(!$template){
             die("Coming Soon. Please view our wardrobes");
@@ -53,7 +53,8 @@ class Main extends CI_Controller {
         $data = array(
             "product" => $product[0],
             "selection_labels" => $this->Custom_Product_model->get_labels($product[0]['product_id']),
-            "add_ons" => $this->Custom_Product_model->get_add_ons($product[0]['product_id'])
+            "add_ons" => $this->Custom_Product_model->get_add_ons($product[0]['product_id']),
+            "product_image" => $this->Custom_Product_model->get_images($product[0]['product_id'])
         );
 
         $this->load->view("header",$data);
@@ -120,18 +121,6 @@ class Main extends CI_Controller {
         )));
     }
 
-    function refresh_cart(){
-
-        $toLoad = array(
-            "counter" => count($this->session->userdata("cart")),
-            "cart" => $this->load->view("Main/header_cart",array(),true)
-        );
-
-        die(json_encode(array(
-            "status" => "SUCCESS",
-            "data" => $toLoad
-        )));
-    }
     function delete_cart(){
         $index = $this->input->post("index");
         
@@ -147,9 +136,9 @@ class Main extends CI_Controller {
     }
 
 
-    function myInvoice($order_id){
+    function test(){
         $this->load->model("Invoice_model");
-        $this->Invoice_model->generate_invoice($order_id);
+        $this->Invoice_model->generate_invoice(3);
     }
 
     function place_order(){
@@ -184,7 +173,6 @@ class Main extends CI_Controller {
                 "address1" => $this->input->post("address1"),
                 "address2" => $this->input->post("address2"),
                 "postcode" => $this->input->post("postcode"),
-                "city" => $this->input->post("city"),
                 "state" => $this->input->post("state")
             ));
 
@@ -199,27 +187,13 @@ class Main extends CI_Controller {
                     "options" => json_encode($row['options'])
                 ));
             }
-            $name = $this->input->post("name");
-            
-            $this->load->model("Email_model");
-            $subject= "Your custom furniture is placed";
-            $message = $this->load->view("EDM/order",array(
-                "name" => $name,
-                "date" => Date("Y-m-d"),
-                "order_id" => $order_id
-            ),true);
-            
-            $result = $this->Email_model->sendGmail($this->input->post("email"),$subject,$message);
 
 
             $this->session->set_userdata("cart",[]);
             die(json_encode(array(
                 "status" => "SUCCESS",
-                "data" => $result
+                
             )));
-            
         }
-
-
     }
 }
