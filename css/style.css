@@ -5423,3 +5423,7 @@ p.success {
 p.error {
     color: red
 }
+
+.index_how_it_works{
+    text-align: center;
+}

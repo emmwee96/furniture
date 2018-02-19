@@ -22,11 +22,6 @@
         </div>
         <!--Breadcrumb end-->
 
-        <!--map area start-->
-        <div class="map-area">
-            <div id="googleMap"></div>
-        </div>
-        <!--map area end-->
 
         <!--Contact email start-->
 
@@ -77,3 +72,10 @@
         </div>
 
         <!--Contact email end-->
+
+                                <br><br>
+                                <br><br>
+                                <br><br>
+                                <br><br>
+                                <br><br>
+                                <br><br>

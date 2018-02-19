@@ -5423,3 +5423,35 @@ p.success {
 p.error {
     color: red
 }
+
+.index_how_it_works{
+    text-align:center;
+
+}
+
+.how_it_works_icon{
+    width: 50%;
+}
+
+
+.title_center{
+    width: 100%;
+    text-align: center;
+}
+
+.white_font{
+    color: white !important;
+}
+
+.bg_black{
+    background: #3b3b3b !important;
+}
+
+.footer_social{
+    display: inline-block;
+    padding: 3px 15px;
+    background-color: #333333;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 30px;
+}

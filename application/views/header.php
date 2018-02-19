@@ -50,6 +50,7 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="header-area home3-header-area">
+            <!-- 
             <div class="header-topbar-area-top topbar-area-top2 topbar3">
                 <div class="container">
                    <header class="main-header">
@@ -67,7 +68,7 @@
                    </header>
                 </div>
             </div>
-
+        -->
             <div id="sticky-header" class="main-menu-wrapper sticky-style2 hp3-menu">
                 <div class="container">
                      <section>
@@ -106,9 +107,10 @@
                                             </div>
 
                                         </li>
-                                        <li class="mega-parent"><a href="<?= site_url('Main/about'); ?>">About us</a>
+                                        <li class="mega-parent"><a href="<?= site_url('Main/about'); ?>">How It Works</a>
                                         </li>
-                                   
+                                        <li class="mega-parent"><a href="<?= site_url('Main/about'); ?>">Gallery</a>
+                                        </li>
                                         <li><a href="<?= site_url("Main/contact"); ?>">Contact us</a>
                                         </li>
                                     </ul>
@@ -207,9 +209,10 @@
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li><a href="<?= site_url('Main/about'); ?>">About Us</a>
+                                                    <li><a href="<?= site_url('Main/about'); ?>">How It Works</a>
                                                     </li>
-
+                                                    <li><a href="<?= site_url('Main/about'); ?>">Gallery</a>
+                                                    </li>
                                                 
                                                     <li><a href="<?= site_url("Main/contact"); ?>">Contact Us</a>
                                                     </li>

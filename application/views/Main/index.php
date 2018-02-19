@@ -51,37 +51,73 @@
         <!--slider area are end-->
 
         <!--Banner3 top area start-->
-        <div class="banner3-top hp3-banner-area hp3ba">
+        <div class="banner3-top  hp3-banner-area hp3ba">
+            <h2 class="title_center">How it works</h2>
+            <br><br>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="banner-content">
-                            <div class="banner-sstitle">
-                                <h5>See more about us!</h5>
-                            </div>
-                            <div class="banner-stitle">
-                                <h3>Hello! welcome to</h3>
-                            </div>
-                            <div class="banner-btitle">
-                                <h2><span class="text-color">Domino</span> store.</h2>
-                            </div>
-                            <div class="banner-text btext">
-                                <p>Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura. Aenean commodo ligula eget dolor Aenean massa. Portals seize data-driven, tag expedite. Aenean commodo ligula eget dolor Aenean massa. Portals seize data-driven, tag expedite.</p>
-                            </div>
-                            <div class="banner-button">
-                                <a class="banner-bbtn" href="#">Continue Reading</a>
-                            </div>
-                        </div>
+                    <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 index_how_it_works">
+                        <img src="<?= site_url('/images/product.png'); ?>" class="how_it_works_icon">
+                        <h3>Select A Product</h3>
+                        <p>Choose from our array of product selections.</p>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="banner-image text-right">
-                            <img src="<?= site_url(); ?>images/banner/b1.jpg" alt="Domino" />
-                        </div>
+                    <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 index_how_it_works">
+                        <img src="<?= site_url('/images/dimensions.png'); ?>" class="how_it_works_icon">
+                        <h3>Customize</h3>
+                        <p>Customize to your desired dimensions and add ons.<p>
+                    </div>
+                    <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 index_how_it_works">
+                        <img src="<?= site_url('/images/quot.png'); ?>" class="how_it_works_icon">
+                        <h3>Get Quotation</h3>
+                        <p>Get your quotation instantly from our product finder<p>
+                    </div>
+                    <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 index_how_it_works">
+                        <img src="<?= site_url('/images/contact.png'); ?>" class="how_it_works_icon">
+                        <h3>Sit Back</h3>
+                        <p>Our customer service will contact you to complete the order.<p>
                     </div>
                 </div>
             </div>
         </div>
         <!--Banner3 top area end-->
+
+
+    <!--Banner3 top area start
+    <div class="banner3-middle bg_black" style="margin-top:0">
+            <div class="banner-full-wrapper bg_black hp3-bannerbag-md">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-4 col-xs-12">
+                            <div class="banner-content">
+                                <div class="banner-sstitle">
+                                    <h5>Supper deal only today!</h5>
+                                </div>
+                                <div class="banner-stitle">
+                                    <h3 class="white_font">Mega sale off</h3>
+                                </div>
+                                <div class="banner-btitle">
+                                    <h2  class="white_font">Up to <span class="text-color">70%</span></h2>
+                                </div>
+                                <div class="banner-text btext">
+                                    <p  class="white_font">Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura. Aenean commodo ligula eget dolor Aenean massa. Portals seize data-driven, tag expedite.</p>
+                                </div>
+                                <div class="banner-button">
+                                    <a class="btn-back2" href="shop.html">Shopping Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-8 col-xs-12">
+                            <div class="banner-image text-right">
+                                <img src="<?= site_url(); ?>/images/banner_1.jpg" alt="Domino" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        Banner3 top area end-->
+
 
         <!--Product banner area start-->
 
@@ -122,42 +158,7 @@
 
         <!--Product banner area end-->
 
-        <!--Banner3 top area start-->
-        <div class="banner3-middle">
-            <div class="banner-full-wrapper hp3-bannerbag-md">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-4 col-xs-12">
-                            <div class="banner-content">
-                                <div class="banner-sstitle">
-                                    <h5>Supper deal only today!</h5>
-                                </div>
-                                <div class="banner-stitle">
-                                    <h3>Mega sale off</h3>
-                                </div>
-                                <div class="banner-btitle">
-                                    <h2>Up to <span class="text-color">70%</span></h2>
-                                </div>
-                                <div class="banner-text btext">
-                                    <p>Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura. Aenean commodo ligula eget dolor Aenean massa. Portals seize data-driven, tag expedite.</p>
-                                </div>
-                                <div class="banner-button">
-                                    <a class="btn-back2" href="shop.html">Shopping Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-8 col-xs-12">
-                            <div class="banner-image text-right">
-                                <img src="<?= site_url(); ?>images/banner/h3b5.png" alt="Domino" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--Banner3 top area end-->
-
+    
         <!--Featured product area start
         <div class="featured-product-area home3-fp">
             <div class="container">

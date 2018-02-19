@@ -13,7 +13,7 @@
                                         <a href="<?= site_url('Main/'); ?>" target="_blank" title="Return to home"><i class="fa fa-home"></i></a>
                                     </div>
                                 </li>
-                                <li>About Us</li>
+                                <li>How It Works</li>
                             </ul>
                         </div>
                     </div>
@@ -27,27 +27,25 @@
         <div class="about-top-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-7 col-sm-12 col-xs-12">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="abt-image">
-                            <a href="#"><img src="<?= site_url(); ?>images/banner/b1.jpg" alt="Domino" />
+                            <a href="#"><img src="<?= site_url(); ?>images/banner_1.jpg" alt="Domino" />
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-5 col-sm-12 col-xs-12">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="abt-content-wrapper">
                             <div class="abt-title title-head-normal">
-                                <h3><span class="color-black-def">Why</span> We are?</h3>
+                                <h3><span class="color-black-def">STEP 1</span><br><br> Select Your Product</h3>
                             </div>
                             <div class="abt-content">
-                                <p>Mellentesque faucibus dapibus dapibus. Morbi aliquam aliquet neque. Donec placerat dapibus sollicitudin. Morbi arcu nisi, mattis ut ullamcorper in, dapibus ac nunc. Cras bibendum mauris et sapien feugiat. scelerisque accumsan nibh gravida. Quisque aliquet justo elementum lectus ultrices bibendum.</p>
+                                <p>We do a wide array of furnitures, choose from one of the categories below to get started</p>
                             </div>
                             <div class="about-feature">
                                 <ul>
-                                    <li><i class="fa fa-check"></i> Fully customized furnitures</li>
-                                    <li><i class="fa fa-check"></i> Excellent workmanship</li>
-                                    <li><i class="fa fa-check"></i> Fast Customer Support</li>
-                                    <li><i class="fa fa-check"></i> Low Prices</li>
-                                    <li><i class="fa fa-check"></i> Premium Quality</li>
+                                    <li><i class="fa fa-circle"></i> Wardrobes</li>
+                                    <li><i class="fa fa-circle"></i> Kitchen Cabinets</li>
+                                    <li><i class="fa fa-circle"></i> Living Room Cabinets</li>
                                 </ul>
                             </div>
                         </div>
@@ -55,37 +53,88 @@
                 </div>
             </div>
         </div>
-        <div class="abt-middle-content">
+        <div class="about-top-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="abt-title title-head-normal">
-                            <h3><span class="color-black-def">What</span> We do?</h3>
-                        </div>
-                        <div class="abt-content">
-                            <p>Huis nostrud exerci tation ullamcorper suscipites lobortis nisl ut aliquip ex ea commodo consequat. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius claritas.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="abt-title title-head-normal">
-                            <h3><span class="color-black-def">Our</span> Mission</h3>
-                        </div>
-                        <div class="abt-content">
-                            <p>Huis nostrud exerci tation ullamcorper suscipites lobortis nisl ut aliquip ex ea commodo consequat. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius claritas.</p>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="abt-content-wrapper">
+                            <div class="abt-title title-head-normal">
+                                <h3><span class="color-black-def">STEP 2</span> 
+                                <br><br>
+                                Select Your Dimensions
+                            </h3>
+                            </div>
+                            <div class="abt-content">
+                                <p>We are able to cater for any rooms of any sizes. Just choose your desired dimensions and leave the rest to us!</p>
+                            </div>
+                            
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="abt-title title-head-normal">
-                            <h3><span class="color-black-def">Our</span> Vision</h3>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="abt-image">
+                            <a href="#"><img src="<?= site_url(); ?>images/measure.png" alt="Domino" />
+                            </a>
                         </div>
-                        <div class="abt-content">
-                            <p>Puis nostrud exerci tation ullamcorper suscipito lobortis nisl ut aliquip ex ea commodo consequat. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius claritas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about-top-area">
+            <div class="container">
+                <div class="row">
+                   
+                    
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="abt-image">
+                            <a href="#"><img src="<?= site_url(); ?>images/quote.png" alt="Domino" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="abt-content-wrapper">
+                            <div class="abt-title title-head-normal">
+                                <h3><span class="color-black-def">Step 3</span><br><br>
+                                Get Your Quotation</h3>
+                            </div>
+                            <div class="abt-content">
+                                <p>Our product finder has an instant tool that provides you a quotation. No more waiting needed!</p>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about-top-area">
+            <div class="container">
+                <div class="row">
+                  
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="abt-content-wrapper">
+                            <div class="abt-title title-head-normal">
+                                <h3><span class="color-black-def">Step 4</span> 
+                                <br><br>
+                                Order Is Placed
+                            </h3>
+                            </div>
+                            <div class="abt-content">
+                                <p>
+                                    Sit back, relax and our customer service will contact you to make all the final confirmation before creating your masterpiece.
+                                </p>
+                                 </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="abt-image">
+                            <a href="#"><img src="<?= site_url(); ?>images/agreement.jpg" alt="Domino" />
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!--about us main area end-->
-
+    <br><br><br>
 
     </div>
