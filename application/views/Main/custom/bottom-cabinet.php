@@ -122,7 +122,11 @@
             </div>
 
         </div>
-            
+
+        <br>
+        <h2>TOTAL : <span class="label_total"></span></h2>
+         <a onclick="viewSummary()" class="pull-right btn btn-default">View Summary</a>
+         <br><br>
     </div>
 
   
@@ -130,12 +134,10 @@
 
 
     </div>
-    <div class="col-md-2 col-lg-2">
-        <?php $this->load->view("Main/custom/my_selection",array("selection_labels" => $selection_labels, "add_ons" => $add_ons)); ?>
-                           
-    </div>
+             
 </div>
-
+<?php $this->load->view("Main/custom/my_selection",array("selection_labels" => $selection_labels, "add_ons" => $add_ons)); ?>
+                    
 <div class="row" style="margin-top:15vh;">
     <div class="col-md-10 col-lg-10 col-xs-10">
     <div class="cmain-heading text-uppercase">

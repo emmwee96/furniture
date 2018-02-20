@@ -109,7 +109,7 @@
                                         </li>
                                         <li class="mega-parent"><a href="<?= site_url('Main/about'); ?>">How It Works</a>
                                         </li>
-                                        <li class="mega-parent"><a href="<?= site_url('Main/about'); ?>">Gallery</a>
+                                        <li class="mega-parent"><a href="<?= site_url('Main/gallery'); ?>">Gallery</a>
                                         </li>
                                         <li><a href="<?= site_url("Main/contact"); ?>">Contact us</a>
                                         </li>
@@ -211,7 +211,7 @@
                                                     </li>
                                                     <li><a href="<?= site_url('Main/about'); ?>">How It Works</a>
                                                     </li>
-                                                    <li><a href="<?= site_url('Main/about'); ?>">Gallery</a>
+                                                    <li><a href="<?= site_url('Main/gallery'); ?>">Gallery</a>
                                                     </li>
                                                 
                                                     <li><a href="<?= site_url("Main/contact"); ?>">Contact Us</a>

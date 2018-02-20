@@ -51,7 +51,7 @@
     border-top: 3px solid #d9d9d9;
     position : fixed;
     z-index: 2;
-    right : 5%;
+    right : -100vw;
 }
 
 .floating_price hr{

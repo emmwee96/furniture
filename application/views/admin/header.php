@@ -125,6 +125,11 @@
                                 <i class="fa fa-industry"></i> <span>Product</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="<?= base_url() ?>Gallery">
+                                <i class="fa fa-image"></i> <span>Gallery</span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->

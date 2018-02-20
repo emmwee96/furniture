@@ -57,10 +57,16 @@
                                         </div>
                                     </div>
                                 </div>
+                              
                                 <?php foreach($selection_labels as $row){ ?>
                                     <div class="compare-conpart skill-communicate">
                                         <div class="skill-checklist">
-                                            <label for="skillc"><span class="italic">Choose <?= $row['label']; ?></span>
+                                            <label for="skillc">
+                                                <span class="italic">Choose <?= $row['label']; ?> </span>
+                                                 <span data-toggle="tooltip" data-placement="right"
+
+                                                 title="View how it works for more info"
+                                                 class="ttip fa fa-info-circle"></span>
                                             </label>
                                             <br>
                                             <select id="skillc" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
@@ -127,7 +133,10 @@
                                     </div>
 
                                 </div>
-                                <br><br>
+                                <br>
+        <h2>TOTAL : <span class="label_total"></span></h2>
+        <a onclick="viewSummary()" class="pull-right btn btn-default">View Summary</a>
+         <br><br>
                         
                             </div>
                         </div>
@@ -171,3 +180,8 @@
 </div>
 
      
+
+     <script>
+$(document).ready(function(){
+    $('.ttip').tooltip()
+});</script>

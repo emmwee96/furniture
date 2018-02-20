@@ -74,6 +74,16 @@ class Main extends CI_Controller {
         $this->load->view("footer");
     }
 
+    function gallery(){
+        $images = $this->db->get("gallery")->result_array();
+        $pageData = array(
+            "images" => $images
+        );
+        $this->load->view("header",$pageData);
+        $this->load->view("Main/gallery");
+        $this->load->view("footer");
+    }
+
     function about(){
         $this->load->view("header");
         $this->load->view("Main/about");

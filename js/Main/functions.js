@@ -29,3 +29,11 @@ function refresh_cart(){
         $("#header_cart").html(response.data.cart);
     },'JSON');
 }
+
+function viewSummary(){
+    $(".floating_price").animate({ right: '0vw'});
+}
+
+function hideSummary(){
+    $(".floating_price").animate({ right:"-100vw" });
+}

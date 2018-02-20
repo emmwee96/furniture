@@ -1,5 +1,9 @@
 <div class="floating_price">
-    <h3>My Selection</h3>
+    <h3>My Selection 
+        <span class="pull-right">
+            <a href="javascript:void(0)" onclick="hideSummary()"><small>hide</small></a>
+</span>
+    </h3>
     <hr>
     <?php foreach($selection_labels as $row){ ?>
         <label><?= $row['label'] ?></label><br>
@@ -119,6 +123,7 @@
         
         calculate();
         $("#total_price").html("$ " + total.toFixed(2));
+        $(".label_total").html("$ " + total.toFixed(2));
     }
 
     function calculate(){
