@@ -80,8 +80,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $total = 0; foreach($this->session->userdata("cart") as $row){ ?>
-                                        <tr class="tr2">
+                                    <?php $total = 0; foreach($this->session->userdata("cart") as $row){ $i =0;?>
+                                        <tr class="tr2" id="cart_row_<?= $i; ?>">
                                             <td class="td2">
                                                 <h5>Custom <?= $row['name']; ?></h5>
                                                 <p>
@@ -94,15 +94,15 @@
                                            
                                             <td class="td4">$<?= $row['total']; ?></td>
                                            
-                                            <td class="td6"><i class="fa fa-trash-o"></i>
+                                            <td class="td6"><a href="<?= site_url('Main/removeCartRow/'.$i); ?>" ><i class="fa fa-trash-o"></i></a>
                                             </td>
                                             <td class="td7">$<?= $row['total']; ?></td>
                                         </tr>
-                                          <?php $total+=$row['total']; } ?>
+                                          <?php $total+=$row['total']; $i++;} ?>
                                      
                                         <tr class="tr6">
                                             <td colspan="3" class="td20">Total</td>
-                                            <td class="td21">$<?= $total; ?></td>
+                                            <td class="td21" id="total">$<?= $total; ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -142,3 +142,4 @@
   <br>
 
     <!--Main shop area end-->
+

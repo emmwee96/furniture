@@ -62,11 +62,11 @@
                                     <div class="compare-conpart skill-communicate">
                                         <div class="skill-checklist">
                                             <label for="skillc">
-                                                <span class="italic">Choose <?= $row['label']; ?> </span>
+                                                <span class="italic">Choose <?= $row['label']; ?> <a target="_blank" href="<?= site_url('Main/about'); ?>"></span>
                                                  <span data-toggle="tooltip" data-placement="right"
 
                                                  title="View how it works for more info"
-                                                 class="ttip fa fa-info-circle"></span>
+                                                 class="ttip fa fa-info-circle"></span></a>
                                             </label>
                                             <br>
                                             <select id="skillc" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
@@ -135,7 +135,7 @@
                                 </div>
                                 <br>
         <h2>TOTAL : <span class="label_total"></span></h2>
-        <a onclick="viewSummary()" class="pull-right btn btn-default">View Summary</a>
+        <a onclick="viewSummary()" class="pull-right btn btn-default view_summary">View Summary</a>
          <br><br>
                         
                             </div>

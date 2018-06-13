@@ -56,22 +56,22 @@
             <br><br>
             <div class="container">
                 <div class="row">
-                    <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 index_how_it_works">
+                    <div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
                         <img src="<?= site_url('/images/product.png'); ?>" class="how_it_works_icon">
                         <h3>Select A Product</h3>
                         <p>Choose from our array of product selections.</p>
                     </div>
-                    <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 index_how_it_works">
+                    <div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
                         <img src="<?= site_url('/images/dimensions.png'); ?>" class="how_it_works_icon">
                         <h3>Customize</h3>
                         <p>Customize to your desired dimensions and add ons.<p>
                     </div>
-                    <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 index_how_it_works">
+                    <div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
                         <img src="<?= site_url('/images/quot.png'); ?>" class="how_it_works_icon">
                         <h3>Get Quotation</h3>
                         <p>Get your quotation instantly from our product finder<p>
                     </div>
-                    <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 index_how_it_works">
+                    <div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
                         <img src="<?= site_url('/images/contact.png'); ?>" class="how_it_works_icon">
                         <h3>Sit Back</h3>
                         <p>Our customer service will contact you to complete the order.<p>

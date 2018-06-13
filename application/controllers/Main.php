@@ -151,6 +151,36 @@ class Main extends CI_Controller {
         $this->Invoice_model->generate_invoice(3);
     }
 
+    function refresh_cart(){
+        $cartBody = "";
+       foreach($this->session->userdata("cart") as $row){ 
+           $cartBody.= '<div class="cart_row">';
+            $cartBody.= $row['name'] .' <span class="pull-right">$'.$row['total'].'</span>';
+            $cartBody.= '</div>';
+       }
+        $cartBody.= '<br><a class="btn btn-info" href="'. site_url('Main/cart').'">Checkout</a>';
+
+        die(json_encode(array(
+            "status" => true,
+            "data" => array(
+               "counter" => count($this->session->userdata("cart")),
+               "cart" => $cartBody
+            )
+        )));
+    }
+
+    function removeCartRow($targetRow){
+        $cart = $this->session->userdata('cart');
+        $newCart = array();
+        for($i = 0; $i < count($cart); $i++){
+            if ($targetRow == $i)
+                continue;
+            array_push($newCart,$cart[$i]);
+        }
+        $this->session->set_userdata("cart",$newCart);
+
+        redirect("Main/cart",'refresh');
+    }
     function place_order(){
         if($_POST){
             // check for user

@@ -75,18 +75,16 @@
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-12">
                                 <div class="header-logo home2-header-logo header-logo-def">
-                                   <h1> LOGO</h1>                                </div>
+                                   <a href="<?= site_url('Main'); ?>"><h1> LOGO</h1>   </a>                             </div>
                             </div>
                             <div class="col-md-9 col-sm-9 hidden-xs">
                                 <nav>
                                     <ul class="main-menu">
-                                        <li class="active"><a href="<?= site_url("Main"); ?>">Home </a>
-                                            
-                                        </li>
-                                        <li class="mega-parent"><a href="shop.html">Shop <i class="fa fa-arrow-circle-down"></i></a>
+                                      
+                                        <li class="mega-parent"><a href="#">Shop <i class="fa fa-arrow-circle-down"></i></a>
                                             <div class="mega-menu-area hp1-style1">
                                                 <ul class="single-mega-item mega-underline1 mega-underline3">
-                                                    <li class="mega-title"><a href="#">Wardrobe</a>
+                                                    <li class="mega-title"><a href="<?= site_url('Main/category/1'); ?>">Wardrobe</a>
                                                     </li>
                                                     <li><a href="<?= site_url('Main/product/open-wardrobe'); ?>">Open Wardrobe</a>
                                                     </li>
@@ -97,7 +95,7 @@
                                                   
                                                 </ul>
                                                 <ul class="single-mega-item mega-underline1 mega-underline3">
-                                                    <li class="mega-title"><a href="#">Kitchen Cabinet</a>
+                                                    <li class="mega-title"><a href="<?= site_url('Main/category/2'); ?>">Kitchen Cabinet</a>
                                                     </li>
                                                     <li><a href="<?= site_url('Main/product/bottom-cabinet'); ?>">Bottom Cabinet</a>
                                                     </li>
@@ -135,9 +133,21 @@
                                             </div>
                                         </div>
                                         <!-- Cart box start-->
+                                        
                                         <div class="header-cart-box-wrapper cart-position-style2" id="header_cart">
-                                           
+                                        <?php if (count($this->session->userdata("cart"))){ ?>
+                                            <?php foreach($this->session->userdata("cart") as $row){ ?>
+                                                <div class="cart_row">
+                                                   <?= $row['name']; ?> <span class="pull-right">$<?= $row['total']; ?></span>
+                                                </div>
+                                            <?php } ?>
+                                            <br>
+                                            <a class="btn btn-info" href="<?= site_url('Main/cart'); ?>">Checkout</a>
+                                            <?php }else { ?>
+                                                cart empty
+                                            <?php } ?>
                                         </div>
+                                       
 
                                         <!-- Cart box end-->
 
@@ -151,62 +161,34 @@
                                         <div class="col-xs-12">
                                             <nav class="active-mobile-menu">
                                                 <ul>
-                                                    <li><a href="index.html">Home</a>
+                                                    
+                                                    <li><a href="#">Shop</a>
                                                         <ul>
-                                                            <li><a href="index.html">Home-1</a>
+                                                            <li><a href="<?= site_url('Main/category/1'); ?>">Wardrobe</a>
+                                                            <ul class="single-mega-item mega-underline1 mega-underline3">
+                                                                <li class="mega-title"><a href="#">Wardrobe</a>
+                                                                </li>
+                                                                <li><a href="<?= site_url('Main/product/open-wardrobe'); ?>">Open Wardrobe</a>
+                                                                </li>
+                                                                <li><a href="<?= site_url('Main/product/sliding-wardrobe'); ?>">Sliding Wardrobe</a>
+                                                                </li>
+                                                                <li><a href="<?= site_url('Main/product/swing-door-wardrobe'); ?>">Swing Door Wardrobe</a>
+                                                                </li>
+                                                            
+                                                            </ul>
+                                                          
                                                             </li>
-                                                            <li><a href="index2.html">Home-2</a>
-                                                            </li>
-                                                            <li><a href="index3.html">Home-3</a>
-                                                            </li>
-                                                            <li><a href="index4.html">Home-4</a>
-                                                            </li>
-                                                            <li><a href="index5.html">Home-5</a>
-                                                            </li>
-                                                            <li><a href="index6.html">Home-6</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="shop.html">Shop</a>
-                                                        <ul>
-                                                            <li><a href="#">Shop Layouts</a>
-                                                                <ul>
-                                                                    <li><a href="shop-fullwidth.html">Fullwidth</a>
+                                                            <li><a href="<?= site_url('Main/category/2'); ?>">Cabinets</a>
+                                                                <ul class="single-mega-item mega-underline1 mega-underline3">
+                                                                    <li class="mega-title"><a href="#">Kitchen Cabinet</a>
                                                                     </li>
-                                                                    <li><a href="shop.html">Sidebar Left</a>
+                                                                    <li><a href="<?= site_url('Main/product/bottom-cabinet'); ?>">Bottom Cabinet</a>
                                                                     </li>
-                                                                    <li><a href="shop-right-sidebar.html">Sidebar right</a>
-                                                                    </li>
-                                                                    <li><a href="shop-list-view.html">List View</a>
-                                                                    </li>
-                                                                    <li><a href="shop-list-view-right.html">List View right</a>
+                                                                    <li><a href="<?= site_url('Main/product/top-cabinet'); ?>">Top Hung Cabinet</a>
                                                                     </li>
                                                                 </ul>
                                                             </li>
-                                                            <li><a href="#">Shop Pages</a>
-                                                                <ul>
-                                                                    <li><a href="shop.html">Category</a>
-                                                                    </li>
-                                                                    <li><a href="<?= site_url("Main/cart"); ?>">Shopping Cart</a>
-                                                                    </li>
-                                                                    <li><a href="<?= site_url("Main/cart"); ?>">Checkout</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="#">Product Types</a>
-                                                                <ul>
-                                                                    <li><a href="single-product.html">Single Product</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">Variable Product</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">Group Product</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">External Product</a>
-                                                                    </li>
-                                                                    <li><a href="shop.html">New Product</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
+                                                          
                                                         </ul>
                                                     </li>
                                                     <li><a href="<?= site_url('Main/about'); ?>">How It Works</a>

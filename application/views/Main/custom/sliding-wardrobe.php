@@ -88,7 +88,7 @@
                     </div>
                     <br>
         <h2>TOTAL : <span class="label_total"></span></h2>
-        <a onclick="viewSummary()" class="pull-right btn btn-default">View Summary</a>
+        <a onclick="viewSummary()" class="pull-right btn btn-default view_summary">View Summary</a>
          <br><br>
             
                 </div>
