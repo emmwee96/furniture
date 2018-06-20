@@ -62,3 +62,36 @@
     padding: 7px 14px;
     border-bottom: 1px solid #d9d9d9;
 }
+
+.mean-container .mean-nav ul {
+    overflow: initial; /*Remove all scrollbar from mobile nav because hard to scroll */
+}
+
+.mobile-menu-area .mean-nav > ul {
+    overflow: auto; /*Only add one scrollbar*/
+}
+
+.page-indicator-right {
+    float: none;
+    text-align: right; /* float right make the button weird */
+}
+
+.product_btn_container {
+    text-align: right;
+}
+
+.product_btn_container a {
+    color: #000;
+}
+
+.internal_frame_container,
+.external_frame_container {
+    display: inline-block;
+    width: 49%;
+    padding-right: 3%;
+}
+
+.internal_frame_container select,
+.external_frame_container select {
+    width: 100%;
+}

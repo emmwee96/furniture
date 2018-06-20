@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -116,13 +116,13 @@
                             </div>
                             <div class="col-md-1 col-sm-1 col-xs-12">
                                 <div class="main-cart-area home2-main-cart posr">
-                                    <div class="header-search header-search-style2 header-search-position hps2 hps3 posr">
+                                    <!-- <div class="header-search header-search-style2 header-search-position hps2 hps3 posr">
                                         <form action="#">
                                             <input type="text" value="Search Product..." placeholder="" />
                                             <button type="submit"><i class="fa fa-search"></i>
                                             </button>
                                         </form>
-                                    </div>
+                                    </div> -->
                                     <div class="main-cart-area home2-cart-wrap posr cart-hover-effect">
                                         <div class="shop-bag home2-shopbag home3-shopbag">
                                             <div class="cartpoint-shopping-bag">

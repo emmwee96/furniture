@@ -60,7 +60,13 @@
             <?php foreach($selection_labels as $row){ ?>
                 <div class="compare-conpart skill-communicate">
                     <div class="skill-checklist">
-                        <label for="skillc"><span class="italic">Choose <?= $row['label']; ?></span>
+                        <label for="skillc">
+                            <span class="italic">Choose <?= $row['label']; ?></span>
+                            <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                            <span data-toggle="tooltip" data-placement="right"
+
+                            title="View how it works for more info"
+                            class="ttip fa fa-info-circle"></span></a>
                         </label>
                         <br>
                         <select id="skillc" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
@@ -77,10 +83,11 @@
 
         <div class="compare-conpart skill-communicate">
             <div class="skill-checklist">
-                <label for="skillc"><span class="italic">Add Ons</span>
-                </label><br>
+                <label style="padding-right: 5%;" for="skillc">
+                    <span class="italic">Add Ons</span>
+                </label>
                 <?php foreach($add_ons as $add_on){ ?>
-                    <input type="checkbox"  onchange="changeSelection('<?= $add_on["label_id"]; ?>',this,true,'<?= $add_on['label']; ?>',<?= $add_on['value']; ?>)" name="drawer"> <?= $add_on['label']; ?><br>
+                    <input style="margin-left: 1%;" type="checkbox"  onchange="changeSelection('<?= $add_on["label_id"]; ?>',this,true,'<?= $add_on['label']; ?>',<?= $add_on['value']; ?>)" name="drawer"> <?= $add_on['label']; ?>
                                    
                     <?php } ?>
                                   
@@ -88,8 +95,11 @@
 
                 </div>
                 <br>
-        <h2>TOTAL : <span class="label_total"></span></h2>
-        <a onclick="viewSummary()" class="pull-right btn btn-default view_summary">View Summary</a>
+        <h2>TOTAL : <span class="label_total">0.00 MYR</span></h2>
+        <div class="product_btn_container">
+            <a onclick="viewSummary()" class="btn btn-default view_summary">View Summary</a>
+            <a href="#" onclick="add_to_cart()" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+        </div>
          <br><br>
         
             </div>

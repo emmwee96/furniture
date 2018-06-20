@@ -113,5 +113,10 @@
     <script>
         refresh_cart();
     </script>
+    <script>
+        $(document).ready(function(){
+            $('.ttip').tooltip()
+        });
+    </script>
 </body>
 </html>

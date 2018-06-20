@@ -20,7 +20,7 @@
 
     <hr>
     <h5>Total : </h5>
-    <h2 id="total_price">$ 0</h2>
+    <h2 id="total_price">0.00 MYR</h2>
     <div class="skill-cart-option skill-sep posr" style="margin-left:0;">
         <a href="#" 
         onclick="add_to_cart()"
@@ -122,8 +122,8 @@
             $("#"+key).html(selections[key]);
         
         calculate();
-        $("#total_price").html("$ " + total.toFixed(2));
-        $(".label_total").html("$ " + total.toFixed(2));
+        $("#total_price").html(total.toFixed(2) + " MYR");
+        $(".label_total").html(total.toFixed(2) + " MYR");
     }
 
     function calculate(){

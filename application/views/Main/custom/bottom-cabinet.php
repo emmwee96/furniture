@@ -59,23 +59,32 @@
             </div>
          
       
-            <div class="compare-conpart skill-communicate">
-            <div class="skill-checklist">
-                <label for="skillc"><span class="italic">Internal Frame Material</span>
+        <div class="compare-conpart skill-communicate">
+            <div class="skill-checklist internal_frame_container">
+                <label for="internalFrame">
+                    <span class="italic">Internal Frame Material</span>
+                    <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                    <span data-toggle="tooltip" data-placement="right"
+
+                    title="View how it works for more info"
+                    class="ttip fa fa-info-circle"></span></a>
                 </label>
-                <select id="skillc" name="internalFrame"  onchange="changeSelection('c_internal_frame_material',this)">
+                <select id="internalFrame" name="internalFrame"  onchange="changeSelection('c_internal_frame_material',this)">
                     <option value="">-- select a type --</option>
                     <option value="White PVC">White PVC</option>
                     <option value="Color PVC">Color PVC</option>
                 </select>
             </div>
+            <div class="skill-checklist external_frame_container">
+                <label for="externalFrame">
+                    <span class="italic">External Frame Material</span>
+                    <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                    <span data-toggle="tooltip" data-placement="right"
 
-
-        <div class="compare-conpart skill-communicate">
-            <div class="skill-checklist">
-                <label><span class="italic">External Frame Material</span>
+                    title="View how it works for more info"
+                    class="ttip fa fa-info-circle"></span></a>
                 </label>
-                <select  name="externalFrame"  onchange="changeSelection('c_external_frame_material',this)">
+                <select id="externalFrame"  name="externalFrame"  onchange="changeSelection('c_external_frame_material',this)">
                     <option value="">-- select a type --</option>
                     <option value="Laminate 1">Laminate 1</option>
                     <option value="Laminate 2">Laminate 2</option>
@@ -85,36 +94,49 @@
                     <option value="Veener 3">Veener 3</option>
                 </select>
             </div>
-
         </div>
-        <div class="compare-conpart skill-communicate">
-                <div class="skill-checklist">
-                    <label for="skillc"><span class="italic">Door Materials</span>
-                    </label><br>
-                    <select id="skillc" onchange="changeSelection('c_door_material',this)">
-                        <option value="">-- select a material --</option>
-                        <option value="Material 1">Material 1</option>
-                        <option value="Material 2">Material 2</option>
-                        <option value="Material 3">Material 3</option>
-                    </select>
-                </div>
-            </div>
-            <div class="compare-conpart skill-communicate">
-                <div class="skill-checklist">
-                    <label for="skillc"><span class="italic">Counter top Materials</span>
-                    </label><br>
-                    <select id="skillc" onchange="changeSelection('c_counter_top_material',this)">
-                        <option value="">-- select a material --</option>
-                        <option value="Material 1">Material 1</option>
-                        <option value="Material 2">Material 2</option>
-                        <option value="Material 3">Material 3</option>
-                    </select>
-                </div>
-            </div>
+
         <div class="compare-conpart skill-communicate">
             <div class="skill-checklist">
-                <label for="skillc"><span class="italic">Add Ons</span>
+                <label for="door_material">
+                    <span class="italic">Door Materials</span>
+                    <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                    <span data-toggle="tooltip" data-placement="right"
+
+                    title="View how it works for more info"
+                    class="ttip fa fa-info-circle"></span></a>
                 </label><br>
+                <select id="door_material" onchange="changeSelection('c_door_material',this)">
+                    <option value="">-- select a material --</option>
+                    <option value="Material 1">Material 1</option>
+                    <option value="Material 2">Material 2</option>
+                    <option value="Material 3">Material 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="compare-conpart skill-communicate">
+            <div class="skill-checklist">
+                <label for="counter_top_material">
+                    <span class="italic">Counter top Materials</span>
+                    <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                    <span data-toggle="tooltip" data-placement="right"
+
+                    title="View how it works for more info"
+                    class="ttip fa fa-info-circle"></span></a>
+                </label><br>
+                <select id="counter_top_material" onchange="changeSelection('c_counter_top_material',this)">
+                    <option value="">-- select a material --</option>
+                    <option value="Material 1">Material 1</option>
+                    <option value="Material 2">Material 2</option>
+                    <option value="Material 3">Material 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="compare-conpart skill-communicate">
+            <div class="skill-checklist">
+                <label style="padding-right: 5%;">
+                    <span class="italic">Add Ons</span>
+                </label>
                 <?php foreach($add_ons as $add_on){ ?>
                     <input type="checkbox"  onchange="changeSelection('<?= $add_on["label_id"]; ?>',this,true,'<?= $add_on['label']; ?>')" name="drawer"> <?= $add_on['label']; ?><br>
                     
@@ -124,8 +146,11 @@
         </div>
 
         <br>
-        <h2>TOTAL : <span class="label_total"></span></h2>
-         <a onclick="viewSummary()" class="pull-right btn btn-default view_summary">View Summary</a>
+        <h2>TOTAL : <span class="label_total">0.00 MYR</span></h2>
+        <div class="product_btn_container">
+            <a onclick="viewSummary()" class="btn btn-default view_summary">View Summary</a>
+            <a href="#" onclick="add_to_cart()" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+        </div>
          <br><br>
     </div>
 
@@ -133,11 +158,14 @@
 </div>
 
 
+    <div class="col-md-2 col-lg-2">
+        <?php $this->load->view("Main/custom/my_selection",array("selection_labels" => $selection_labels, "add_ons" => $add_ons)); ?>
+    </div>    
     </div>
-             
+   
 </div>
-<?php $this->load->view("Main/custom/my_selection",array("selection_labels" => $selection_labels, "add_ons" => $add_ons)); ?>
-                    
+
+
 <div class="row" style="margin-top:15vh;">
     <div class="col-md-10 col-lg-10 col-xs-10">
     <div class="cmain-heading text-uppercase">
