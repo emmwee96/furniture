@@ -95,3 +95,17 @@
 .external_frame_container select {
     width: 100%;
 }
+
+/* make select same style with the ceiling height and width box */
+.custom_label {
+    font-style: italic;
+}
+
+.skill-checklist .custom_select { 
+    background: #fbfbfb none repeat scroll 0 0;
+    border: 1px solid #d6d4d4;
+    border-radius: 0;
+    height: 40px;
+    line-height: 38px;
+    padding: 0;
+}

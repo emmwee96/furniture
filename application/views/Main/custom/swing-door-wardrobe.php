@@ -57,27 +57,77 @@
                 </div>
             </div>
          
-            <?php foreach($selection_labels as $row){ ?>
-                <div class="compare-conpart skill-communicate">
-                    <div class="skill-checklist">
-                        <label for="skillc">
-                            <span class="italic">Choose <?= $row['label']; ?></span>
-                            <a target="_blank" href="<?= site_url('Main/about'); ?>">
-                            <span data-toggle="tooltip" data-placement="right"
+            <div class="compare-conpart-pm compare-bottom">
 
-                            title="View how it works for more info"
-                            class="ttip fa fa-info-circle"></span></a>
-                        </label>
-                        <br>
-                        <select id="skillc" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
-                            <option value="">-- select a type --</option>
-                            <?php foreach($row['options'] as $option){ ?>
-                                <option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
-                            <?php } ?>
-                          
-                        </select>
+                <?php foreach($selection_labels as $row){ 
+                    if ($row['label'] == 'Internal Frame Material') {?>
+                    
+                <div class="skill-checklist internal_frame_container">
+                    <div class="custom_label">
+                        <span class="italic">Choose <?= $row['label']; ?></span>
+                        <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                        <span data-toggle="tooltip" data-placement="right"
+
+                        title="View how it works for more info"
+                        class="ttip fa fa-info-circle"></span></a>
                     </div>
-                </div> 
+                    <select class="custom_select" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
+                        <option value="">-- select a type --</option>
+                        <?php foreach($row['options'] as $option){ ?>
+                            <option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
+                        <?php } ?>
+                    
+                    </select>
+                </div>
+                <?php } elseif ($row['label'] == 'External Frame Material') { ?>
+                <div class="skill-checklist external_frame_container">
+                    <div class="custom_label">
+                        <span class="italic">Choose <?= $row['label']; ?></span>
+                        <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                        <span data-toggle="tooltip" data-placement="right"
+
+                        title="View how it works for more info"
+                        class="ttip fa fa-info-circle"></span></a>
+                    </div>
+                    <select class="custom_select" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
+                        <option value="">-- select a type --</option>
+                        <?php foreach($row['options'] as $option){ ?>
+                            <option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
+                        <?php } ?>
+                    
+                    </select>
+                </div>
+
+                    <?php } ?>
+                <?php } ?>
+
+            </div>
+            
+            <?php foreach($selection_labels as $row){ 
+                if ($row['label'] !== 'Internal Frame Material') {
+                    if ($row['label'] !== 'External Frame Material') { ?>
+                    <div class="compare-conpart-pm compare-bottom">
+                        <div class="skill-checklist">
+                            <div class="custom_label">
+                                <span class="italic">Choose <?= $row['label']; ?></span>
+                                <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                                <span data-toggle="tooltip" data-placement="right"
+
+                                title="View how it works for more info"
+                                class="ttip fa fa-info-circle"></span></a>
+                            </div>
+                            <probr>
+                            <select class="custom_select" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
+                                <option value="">-- select a type --</option>
+                                <?php foreach($row['options'] as $option){ ?>
+                                    <option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
+                                <?php } ?>
+                            
+                            </select>
+                        </div>
+                    </div> 
+                    <?php } ?>
+                <?php } ?>
             <?php } ?>
        
 

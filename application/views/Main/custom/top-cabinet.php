@@ -58,52 +58,50 @@
                 </div>
             </div>
          
-            <div class="compare-conpart skill-communicate">
-                                    <div class="skill-checklist">
-                                        <label for="skillc">
-                                            <span class="italic">Choose Type</span>
-                                            <a target="_blank" href="<?= site_url('Main/about'); ?>">
-                                            <span data-toggle="tooltip" data-placement="right"
+            <div class="compare-conpart-pm compare-bottom">
+                <div class="skill-checklist">
+                    <div class="custom_label">
+                        <span class="italic">Choose Type</span>
+                        <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                        <span data-toggle="tooltip" data-placement="right"
 
-                                            title="View how it works for more info"
-                                            class="ttip fa fa-info-circle"></span></a>
-                                        </label>
-                                        <select id="skillc" name="type" onchange="changeSelection('c_type',this)">
-                                            <option value="">-- select a type --</option>
-                                            <option value="Standard Height">Standard Height</option>
-                                            <option value="Full Height">Full Height</option>
-                                        </select>
-                                    </div>
-                                </div> 
-        <div class="compare-conpart skill-communicate">
-            <div class="skill-checklist">
-                <label for="skillc">
+                        title="View how it works for more info"
+                        class="ttip fa fa-info-circle"></span></a>
+                            </div>
+                    <select class="custom_select" name="type" onchange="changeSelection('c_type',this)">
+                        <option value="">-- select a type --</option>
+                        <option value="Standard Height">Standard Height</option>
+                        <option value="Full Height">Full Height</option>
+                    </select>
+                </div>
+            </div> 
+        <div class="compare-conpart-pm compare-bottom">
+            <div class="skill-checklist internal_frame_container">
+                <div class="custom_label">
                     <span class="italic">Internal Frame Material</span>
                     <a target="_blank" href="<?= site_url('Main/about'); ?>">
                     <span data-toggle="tooltip" data-placement="right"
 
                     title="View how it works for more info"
                     class="ttip fa fa-info-circle"></span></a>
-                </label>
-                <select id="skillc" name="internalFrame"  onchange="changeSelection('c_internal_frame_material',this)">
+                </div>
+                <select class="custom_select" name="internalFrame"  onchange="changeSelection('c_internal_frame_material',this)">
                     <option value="">-- select a type --</option>
                     <option value="White PVC">White PVC</option>
                     <option value="Color PVC">Color PVC</option>
                 </select>
             </div>
 
-
-        <div class="compare-conpart skill-communicate">
-            <div class="skill-checklist">
-                <label>
+            <div class="skill-checklist external_frame_container">
+                <div class="custom_label">
                     <span class="italic">External Frame Material</span>
                     <a target="_blank" href="<?= site_url('Main/about'); ?>">
                     <span data-toggle="tooltip" data-placement="right"
 
                     title="View how it works for more info"
                     class="ttip fa fa-info-circle"></span></a>
-                </label>
-                <select  name="externalFrame"  onchange="changeSelection('c_external_frame_material',this)">
+                </div>
+                <select class="custom_select" name="externalFrame"  onchange="changeSelection('c_external_frame_material',this)">
                     <option value="">-- select a type --</option>
                     <option value="Laminate 1">Laminate 1</option>
                     <option value="Laminate 2">Laminate 2</option>
@@ -113,44 +111,44 @@
                     <option value="Veener 3">Veener 3</option>
                 </select>
             </div>
-
         </div>
-        <div class="compare-conpart skill-communicate">
-                <div class="skill-checklist">
-                    <label for="skillc">
-                        <span class="italic">Door Materials</span>
-                        <a target="_blank" href="<?= site_url('Main/about'); ?>">
-                        <span data-toggle="tooltip" data-placement="right"
 
-                        title="View how it works for more info"
-                        class="ttip fa fa-info-circle"></span></a>
-                    </label><br>
-                    <select id="skillc" onchange="changeSelection('c_door_material',this)">
-                        <option value="">-- select a material --</option>
-                        <option value="Material 1">Material 1</option>
-                        <option value="Material 2">Material 2</option>
-                        <option value="Material 3">Material 3</option>
-                    </select>
-                </div>
-            </div>
-            <div class="compare-conpart skill-communicate">
-                <div class="skill-checklist">
-                    <label for="skillc">
-                        <span class="italic">Counter top Materials</span>
-                        <a target="_blank" href="<?= site_url('Main/about'); ?>">
-                        <span data-toggle="tooltip" data-placement="right"
+        <div class="compare-conpart-pm compare-bottom">
+            <div class="skill-checklist">
+                <div class="custom_label">
+                    <span class="italic">Door Materials</span>
+                    <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                    <span data-toggle="tooltip" data-placement="right"
 
-                        title="View how it works for more info"
-                        class="ttip fa fa-info-circle"></span></a>
-                    </label><br>
-                    <select id="skillc" onchange="changeSelection('c_counter_top_material',this)">
-                        <option value="">-- select a material --</option>
-                        <option value="Material 1">Material 1</option>
-                        <option value="Material 2">Material 2</option>
-                        <option value="Material 3">Material 3</option>
-                    </select>
+                    title="View how it works for more info"
+                    class="ttip fa fa-info-circle"></span></a>
                 </div>
+                <select class="custom_select" onchange="changeSelection('c_door_material',this)">
+                    <option value="">-- select a material --</option>
+                    <option value="Material 1">Material 1</option>
+                    <option value="Material 2">Material 2</option>
+                    <option value="Material 3">Material 3</option>
+                </select>
             </div>
+        </div>
+        <div class="compare-conpart-pm compare-bottom">
+            <div class="skill-checklist">
+                <div class="custom_label">
+                    <span class="italic">Counter top Materials</span>
+                    <a target="_blank" href="<?= site_url('Main/about'); ?>">
+                    <span data-toggle="tooltip" data-placement="right"
+
+                    title="View how it works for more info"
+                    class="ttip fa fa-info-circle"></span></a>
+                </div>
+                <select class="custom_select" onchange="changeSelection('c_counter_top_material',this)">
+                    <option value="">-- select a material --</option>
+                    <option value="Material 1">Material 1</option>
+                    <option value="Material 2">Material 2</option>
+                    <option value="Material 3">Material 3</option>
+                </select>
+            </div>
+        </div>
         <div class="compare-conpart skill-communicate">
             <div class="skill-checklist">
                 <label for="skillc" style="padding-right: 5%;">
