@@ -109,3 +109,16 @@
     line-height: 38px;
     padding: 0;
 }
+
+.faq_main_area {
+    margin: 80px auto;
+}
+
+.faq_category_container {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.faq_page_title {
+    margin-bottom: 5rem;
+}

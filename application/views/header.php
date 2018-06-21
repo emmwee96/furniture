@@ -109,6 +109,8 @@
                                         </li>
                                         <li class="mega-parent"><a href="<?= site_url('Main/gallery'); ?>">Gallery</a>
                                         </li>
+                                        <li class="mega-parent"><a href="<?= site_url('Main/FAQ'); ?>">FAQ</a>
+                                        </li>
                                         <li><a href="<?= site_url("Main/contact"); ?>">Contact us</a>
                                         </li>
                                     </ul>

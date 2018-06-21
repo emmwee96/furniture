@@ -111,6 +111,11 @@ class Main extends CI_Controller {
         $this->load->view("Main/contact");
         $this->load->view("footer");
     }
+    function FAQ(){
+        $this->load->view("header");
+        $this->load->view("Main/FAQ");
+        $this->load->view("footer");
+    }
 
     function add_to_cart(){
         $data = array(
