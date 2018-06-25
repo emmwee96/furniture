@@ -1,7 +1,7 @@
 <?php
 
 
-class Invoice_model extends CI_Model{
+class Invoice_model extends Base_Model{
 
     function generate_invoice($order_id){
         $order = $this->db->get_where('orders',array(

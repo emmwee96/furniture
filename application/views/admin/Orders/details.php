@@ -4,12 +4,13 @@
         <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
             <div class="box box-info">
                 <div class="box-header agent-panel">
-                    <?php if ($this->session->userdata("type") == "ADMIN") { ?>
-                        <a href="<?= site_url("Orders/edit/" . $orders['user_id']); ?>" class="pull-right">
+                    <h4 class="pull-left">ORDER NO : <?= $orders['order_id']?></h4>
+
+                    <?php if ($this->session->userdata("login_data")["type"] == "ADMIN") { ?>
+                        <a href="<?= site_url("Orders/edit/" . $orders['order_id']); ?>" class="pull-right">
                             edit
                         </a>
                     <?php } ?>
-                    <h4 style="margin-left:20px;" class="pull-left">ORDER NO : <?= $orders['order_id']?></h4>
                 </div>
                 <div class="box-body">
 
@@ -27,10 +28,13 @@
                             <h4>User </h4>
                             <table class='formTable'>
                                 <tr>
+                                    <th>name</th>
+                                    <td>: <?= $user['name']; ?></td>
+                                </tr>
+                                <tr>
                                     <th>email</th>
                                     <td>: <?= $user['email']; ?></td>
                                 </tr>
-                               
                                 <tr>
                                     <th>contact</th>
                                     <td>: <?= $user['contact']; ?></td>
@@ -42,7 +46,7 @@
                             <table class='formTable'>
                                 <tr>
                                     <th>Date</th>
-                                    <td>: <?= $orders['timestamp']; ?></td>
+                                    <td>: <?= $orders['created_date']; ?></td>
                                 </tr>
                                
                                 <tr>
@@ -51,7 +55,7 @@
                                 </tr>
                                 <tr>
                                     <th> </th>
-                                    <td>: <?= $orders['address2']; ?></td>
+                                    <td>  <?= $orders['address2']; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Postcode </th>
@@ -60,6 +64,10 @@
                                 <tr>
                                     <th>State </th>
                                     <td>: <?= $orders['state']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>City </th>
+                                    <td>: <?= $orders['city']; ?></td>
                                 </tr>
                             </table>
                             <hr>
@@ -74,6 +82,7 @@
 
                                 <a href="<?= site_url('Orders/updateStatus/'.$orders['order_id']."/4"); ?>" class="btn btn-warning">Canceled</a>
                             <?php } ?>
+                            <a href="<?= site_url('Orders/send_quotation/'.$orders['order_id']); ?>" class="btn btn-primary">Send Quotation</a>
                         </div>
                     </div>
 
@@ -138,3 +147,15 @@
         </div>
     </div>
 </div>
+<script>
+    <?php
+    if($this->session->flashdata("quotation")){
+        ?>
+        $(document).ready(function(){
+            alert("quotation sent");
+        });
+        <?php
+    }
+    ?>
+    
+</script>

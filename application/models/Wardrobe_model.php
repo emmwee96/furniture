@@ -1,6 +1,6 @@
 <?php
 
-class Wardrobe_model extends CI_Model{
+class Wardrobe_model extends Base_Model{
     
     function get_template($type){
         $templates = array(

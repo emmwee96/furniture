@@ -20,9 +20,10 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
+                                <th>Name</th>
                                 <th>Email</th>
                                 <th>Contact</th>
-                            
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,9 +33,10 @@
                                 ?>
                                 <tr>
                                     <td><a href="<?= base_url() ?>User/details/<?= $row['user_id'] ?>"><?php echo $i; ?></a></td>
+                                    <td><a href="<?= base_url() ?>User/details/<?= $row['user_id'] ?>"><?php echo $row['name']; ?></a></td>
                                     <td><a href="<?= base_url() ?>User/details/<?= $row['user_id'] ?>"><?php echo $row['email']; ?></a></td>
                                     <td><a href="<?= base_url() ?>User/details/<?= $row['user_id'] ?>"><?php echo $row['contact']; ?></a></td>
-                                   
+                                    <td><a href="<?= base_url() ?>User/delete/<?= $row['user_id']?>" class="btn btn-danger delete-button">Delete</a></td>                                   
                                 </tr>
                                 <?php
                                 $i++;
@@ -44,9 +46,10 @@
                         <tfoot>
                             <tr>
                                 <th>No.</th>
+                                <th>Name</th>
                                 <th>Email</th>
                                 <th>Contact</th>
-                             
+                                <th></th>
                             </tr>
                         </tfoot>
                     </table>

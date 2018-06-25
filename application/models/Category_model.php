@@ -1,6 +1,6 @@
 <?php
 
-class Category_model extends CI_Model {
+class Category_model extends Base_Model {
 
     function __construct() {
         parent ::__construct();

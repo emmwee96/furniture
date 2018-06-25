@@ -34,7 +34,7 @@
                                 <tr>
                                     <td><a href="<?= base_url() ?>Orders/details/<?= $row['order_id'] ?>"><?php echo $i; ?></a></td>
                                     <td><a href="<?= base_url() ?>Orders/details/<?= $row['order_id'] ?>"><?php echo $row['user']; ?></a></td>
-                                    <td><a href="<?= base_url() ?>Orders/details/<?= $row['order_id'] ?>"><?php echo DATE("Y-m-d",strtotime($row['timestamp'])); ?></a></td>
+                                    <td><a href="<?= base_url() ?>Orders/details/<?= $row['order_id'] ?>"><?php echo DATE("Y-m-d",strtotime($row['created_date'])); ?></a></td>
                                     <td><a href="<?= base_url() ?>Orders/details/<?= $row['order_id'] ?>"><?php echo $row['status']; ?></a></td>
                                    
                                 </tr>

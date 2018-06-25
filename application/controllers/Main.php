@@ -2,7 +2,7 @@
 if (!defined('BASEPATH')) 
     exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Main extends Base_Controller{
 
     function __construct(){
         parent::__construct();
@@ -218,7 +218,8 @@ class Main extends CI_Controller {
                 "address1" => $this->input->post("address1"),
                 "address2" => $this->input->post("address2"),
                 "postcode" => $this->input->post("postcode"),
-                "state" => $this->input->post("state")
+                "state" => $this->input->post("state"),
+                "city" => $this->input->post("city")
             ));
 
             $order_id = $this->db->insert_id();

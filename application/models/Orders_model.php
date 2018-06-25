@@ -1,6 +1,6 @@
 <?php
 
-class Orders_model extends CI_Model{
+class Orders_model extends Base_Model{
 
     function get_all(){
         $sql = "SELECT *, email as user,

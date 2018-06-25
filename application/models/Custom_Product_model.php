@@ -1,6 +1,6 @@
 <?php 
 
-class Custom_Product_model extends CI_Model{
+class Custom_Product_model extends Base_Model{
 
     function get_all() {
         $this->db->select('*');

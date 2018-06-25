@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class User extends Base_Controller{
 
     public function __construct() {
         parent::__construct();
@@ -97,72 +97,38 @@ class User extends CI_Controller {
         $this->load->view("admin/footer");
     }
 
-    public function edit($agent_id) {
+    public function edit($user_id) {
 
-        if ($_POST) {
+        $where = array(
+            "user_id" => $user_id
+        );
+
+        $user = $this->User_model->get_where($where);
+
+        $this->show_404_if_empty($user);
+
+        $this->page_data["user"] = $user[0];
+
+        if($_POST){
             $input = $this->input->post();
 
-            $error = false;
+            $where = array(
+                "user_id" => $user_id
+            );
 
-            if ($input["password"] OR $input["password2"]) {
-                if ($input["password"] == $input["password2"]) {
-                    $hash = $this->hast($input["password"]);
-                } else {
-                    $error = true;
-                    $error_message = "Passwords do not match";
-                }
-            }
+            $data = array(
+                "name" => $input["name"],
+                "email" => $input["email"],
+                "contact" => $input["contact"]
+            );
 
-            if (!$error) {
-                $where = array(
-                    "agent_id" => $agent_id
-                );
+            $this->User_model->update_where($where, $data);
 
-                if (!$input["referrer_id"]) {
-                    $input["referrer_id"] = 0;
-                }
-
-                $input["commission_rate"] = $input["commission_rate"] / 100;
-
-                $data = array(
-                    "username" => $input["username"],
-                    "name" => $input["name"],
-                    "email" => $input["email"],
-                    "contact" => $input["contact"],
-                    "referrer_id" => $input["referrer_id"],
-                    "commission_rate" => $input["commission_rate"],
-                    "gender" => $input["gender"],
-                );
-
-                if (isset($hash)) {
-                    $data["password"] = $hash["password"];
-                    $data["salt"] = $hash["salt"];
-                }
-
-                $this->Agent_model->update_where($where, $data);
-
-                die(json_encode(array(
-                    "status" => true
-                )));
-            } else {
-                die(json_encode(array(
-                    "status" => false,
-                    "message" => $error_message
-                )));
-            }
+            redirect("user/details/" . $user_id, "refresh");
         }
 
-        $agent = $this->Agent_model->get_where($where = array(
-            "agent_id" => $agent_id
-        ));
-        
-        $agent[0]["commission_rate"] = $agent[0]["commission_rate"] * 100;
-
-        $this->page_data["agent"] = $agent[0];
-        $agents = $this->Agent_model->get_all_expect($agent_id);
-
         $this->load->view("admin/header", $this->page_data);
-        $this->load->view("admin/Agent/edit");
+        $this->load->view("admin/User/edit");
         $this->load->view("admin/footer");
     }
 
