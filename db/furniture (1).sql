@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 30, 2018 at 05:13 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Host: localhost
+-- Generation Time: Jun 25, 2018 at 04:43 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,6 +19,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `furniture`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL,
+  `username` varchar(256) CHARACTER SET utf8 NOT NULL,
+  `password` varchar(256) CHARACTER SET utf8 NOT NULL,
+  `salt` int(8) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `name` varchar(256) CHARACTER SET utf8 NOT NULL,
+  `deleted` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `username`, `password`, `salt`, `role_id`, `name`, `deleted`) VALUES
+(1, 'emmwee', 'e392ee36f99a43a073fdb3907fdb90521530afb128bf6605361242fe2e42ab9a3431355c6eef0040b40a72db1593663f9ae635e527c8becbc3eb352fc31b3627', 136416, 1, 'Emmanual', 0),
+(2, 'admin', '94011ff0772559b179ebc7082562c942decfbddcaba1a5ef9633b696b3cb257c3e7d6c1e8779d0a9e3ba6b6f655c84ac608409f71e4c107bcbdb7e0674284263', 192348, 2, 'admin', 0);
 
 -- --------------------------------------------------------
 
@@ -39,7 +61,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`category_id`, `name`, `image`) VALUES
-(1, 'wardrobes', '/images/category/wardrobe2.jpg'),
+(1, 'wardrobes', '/images/category/wardrobe1.jpg'),
 (2, 'kitchen cabinets', '/images/category/kitchen-cabinet.jpg'),
 (3, 'living room cabinets', '/images/category/living_room.jpg');
 
@@ -228,6 +250,28 @@ CREATE TABLE `custom_product_type` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gallery`
+--
+
+CREATE TABLE `gallery` (
+  `id` int(11) NOT NULL,
+  `image` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `gallery`
+--
+
+INSERT INTO `gallery` (`id`, `image`) VALUES
+(1, '/images/gallery/wardrobe.jpg'),
+(2, '/images/gallery/banner_1.jpg'),
+(3, '/images/gallery/banner_1.png'),
+(4, '/images/gallery/b1.jpg'),
+(5, '/images/gallery/bottom_4.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
@@ -239,7 +283,7 @@ CREATE TABLE `orders` (
   `postcode` varchar(32) NOT NULL,
   `state` varchar(32) NOT NULL,
   `total` decimal(10,2) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status_id` int(11) NOT NULL DEFAULT '1',
   `city` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -248,9 +292,11 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `user_id`, `address1`, `address2`, `postcode`, `state`, `total`, `timestamp`, `status_id`, `city`) VALUES
-(13, 5, '2, Lorong 3,', 'Jalan Sri Pelangi 1, Taman Pelangi', '80400', 'Johor', '0.00', '2018-01-24 04:42:01', 1, 'Johor Bahru'),
-(14, 6, '2, Lorong 3,', 'Jalan Sri Pelangi 1, Taman Pelangi', '80400', 'Johor', '0.00', '2018-01-24 04:42:57', 1, 'Johor Bahru');
+INSERT INTO `orders` (`order_id`, `user_id`, `address1`, `address2`, `postcode`, `state`, `total`, `created_date`, `status_id`, `city`) VALUES
+(15, 7, '47, Jalan Sierra Perdana 2/13, Taman Sierra Perdana', '', '81750', 'Johor', '0.00', '2018-06-25 06:33:28', 3, ''),
+(16, 7, '47, Jalan Sierra Perdana 2/13, Taman Sierra Perdana', '', '81750', 'Johor', '0.00', '2018-06-25 06:56:37', 1, ''),
+(17, 7, '47, Jalan Sierra Perdana 2/13, Taman Sierra Perdana', '', '81750', 'Johor', '0.00', '2018-06-25 07:19:36', 1, 'Johor Bahru'),
+(18, 7, '47, Jalan Sierra Perdana 2/13, Taman Sierra Perdana', '', '81750', 'Johor', '0.00', '2018-06-25 08:08:53', 1, 'Johor Bahru');
 
 -- --------------------------------------------------------
 
@@ -272,8 +318,11 @@ CREATE TABLE `order_product` (
 --
 
 INSERT INTO `order_product` (`order_product_id`, `order_id`, `total`, `options`, `product_id`, `name`) VALUES
-(14, 13, '1290.00', '{\"c_type\":{\"label\":\"Full Height\",\"type\":\"option\",\"row\":{\"custom_product_options_id\":\"2\",\"label\":\"Full Height\",\"custom_product_fields_id\":\"1\",\"value\":\"100\",\"standard_white_pvc\":\"0.00\",\"standard_color_pvc\":\"0.00\",\"full_white_pvc\":\"0.00\",\"full_color_pvc\":\"0.00\"}},\"c_internal_frame_material\":{\"label\":\"White PVC\",\"type\":\"option\",\"row\":{\"custom_product_options_id\":\"3\",\"label\":\"White PVC\",\"custom_product_fields_id\":\"2\",\"value\":\"100\",\"standard_white_pvc\":\"0.00\",\"standard_color_pvc\":\"0.00\",\"full_white_pvc\":\"0.00\",\"full_color_pvc\":\"0.00\"}},\"c_external_frame_material\":{\"label\":\"Laminate\",\"type\":\"option\",\"row\":{\"custom_product_options_id\":\"5\",\"label\":\"Laminate\",\"custom_product_fields_id\":\"3\",\"value\":\"100\",\"standard_white_pvc\":\"340.00\",\"standard_color_pvc\":\"380.00\",\"full_white_pvc\":\"360.00\",\"full_color_pvc\":\"400.00\"}},\"c_drawers\":{\"label\":\"drawers\",\"type\":\"checkbox\",\"row\":{\"label\":\"drawers\",\"value\":\"500\"}}}', 1, 'open-wardrobe'),
-(15, 14, '1260.00', '{\"c_type\":{\"label\":\"Standard Height\",\"type\":\"option\",\"row\":{\"custom_product_options_id\":\"1\",\"label\":\"Standard Height\",\"custom_product_fields_id\":\"1\",\"value\":\"100\",\"standard_white_pvc\":\"0.00\",\"standard_color_pvc\":\"0.00\",\"full_white_pvc\":\"0.00\",\"full_color_pvc\":\"0.00\"}},\"c_internal_frame_material\":{\"label\":\"White PVC\",\"type\":\"option\",\"row\":{\"custom_product_options_id\":\"3\",\"label\":\"White PVC\",\"custom_product_fields_id\":\"2\",\"value\":\"100\",\"standard_white_pvc\":\"0.00\",\"standard_color_pvc\":\"0.00\",\"full_white_pvc\":\"0.00\",\"full_color_pvc\":\"0.00\"}},\"c_external_frame_material\":{\"label\":\"Laminate\",\"type\":\"option\",\"row\":{\"custom_product_options_id\":\"5\",\"label\":\"Laminate\",\"custom_product_fields_id\":\"3\",\"value\":\"100\",\"standard_white_pvc\":\"340.00\",\"standard_color_pvc\":\"380.00\",\"full_white_pvc\":\"360.00\",\"full_color_pvc\":\"400.00\"}},\"c_drawers\":{\"label\":\"drawers\",\"type\":\"checkbox\",\"row\":{\"label\":\"drawers\",\"value\":\"500\"}}}', 1, 'open-wardrobe');
+(16, 15, '1335.00', '{"c_internal_frame_material":{"label":"White PVC","type":"option","row":{"custom_product_options_id":"3","label":"White PVC","custom_product_fields_id":"2","value":"100","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_external_frame_material":{"label":"Laminate","type":"option","row":{"custom_product_options_id":"5","label":"Laminate","custom_product_fields_id":"3","value":"100","standard_white_pvc":"340.00","standard_color_pvc":"380.00","full_white_pvc":"360.00","full_color_pvc":"400.00"}},"c_type":{"label":"Standard Height","type":"option","row":{"custom_product_options_id":"1","label":"Standard Height","custom_product_fields_id":"1","value":"100","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_drawers":{"label":"drawers","type":"checkbox","row":{"label":"drawers","value":"500"}},"c_shelving":{"label":"shelving","type":"checkbox","row":{"label":"shelving","value":"50"}}}', 1, 'open-wardrobe'),
+(17, 16, '1575.00', '{"c_internal_frame_material":{"label":"White PVC","type":"option","row":{"custom_product_options_id":"17","label":"White PVC","custom_product_fields_id":"9","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_external_frame_material":{"label":"Veener","type":"option","row":{"custom_product_options_id":"20","label":"Veener","custom_product_fields_id":"10","value":"0","standard_white_pvc":"500.00","standard_color_pvc":"550.00","full_white_pvc":"550.00","full_color_pvc":"605.00"}},"c_type":{"label":"Standard Height","type":"option","row":{"custom_product_options_id":"15","label":"Standard Height","custom_product_fields_id":"8","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_door_material":{"label":"Laminate","type":"option","row":{"custom_product_options_id":"23","label":"Laminate","custom_product_fields_id":"11","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_drawers":{"label":"drawers","type":"checkbox","row":{"label":"drawers","value":"500"}},"c_shelving":{"label":"shelving","type":"checkbox","row":{"label":"shelving","value":"50"}}}', 3, 'sliding-wardrobe'),
+(18, 17, '1635.00', '{"c_internal_frame_material":{"label":"White PVC","type":"option","row":{"custom_product_options_id":"9","label":"White PVC","custom_product_fields_id":"5","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_external_frame_material":{"label":"Laminate Alum","type":"option","row":{"custom_product_options_id":"13","label":"Laminate Alum","custom_product_fields_id":"6","value":"0","standard_white_pvc":"495.00","standard_color_pvc":"550.00","full_white_pvc":"540.00","full_color_pvc":"600.00"}},"c_type":{"label":"Full Height","type":"option","row":{"custom_product_options_id":"8","label":"Full Height","custom_product_fields_id":"4","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_door_material":{"label":"Laminate","type":"option","row":{"custom_product_options_id":"24","label":"Laminate","custom_product_fields_id":"7","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_shelving":{"label":"shelving","type":"checkbox","row":{"label":"shelving","value":"50"}},"c_drawers":{"label":"drawers","type":"checkbox","row":{"label":"drawers","value":"500"}}}', 2, 'swing-door-wardrobe'),
+(19, 18, '825.00', '{"c_internal_frame_material":{"label":"Color PVC","type":"option","row":{"custom_product_options_id":"18","label":"Color PVC","custom_product_fields_id":"9","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_external_frame_material":{"label":"Veener","type":"option","row":{"custom_product_options_id":"20","label":"Veener","custom_product_fields_id":"10","value":"0","standard_white_pvc":"500.00","standard_color_pvc":"550.00","full_white_pvc":"550.00","full_color_pvc":"605.00"}},"c_type":{"label":"Standard Height","type":"option","row":{"custom_product_options_id":"15","label":"Standard Height","custom_product_fields_id":"8","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_door_material":{"label":"Laminate","type":"option","row":{"custom_product_options_id":"23","label":"Laminate","custom_product_fields_id":"11","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}}}', 3, 'sliding-wardrobe'),
+(20, 18, '1500.00', '{"c_internal_frame_material":{"label":"White PVC","type":"option","row":{"custom_product_options_id":"9","label":"White PVC","custom_product_fields_id":"5","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_external_frame_material":{"label":"Laminate","type":"option","row":{"custom_product_options_id":"11","label":"Laminate","custom_product_fields_id":"6","value":"0","standard_white_pvc":"450.00","standard_color_pvc":"500.00","full_white_pvc":"495.00","full_color_pvc":"550.00"}},"c_type":{"label":"Standard Height","type":"option","row":{"custom_product_options_id":"7","label":"Standard Height","custom_product_fields_id":"4","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_door_material":{"label":"Laminate","type":"option","row":{"custom_product_options_id":"24","label":"Laminate","custom_product_fields_id":"7","value":"0","standard_white_pvc":"0.00","standard_color_pvc":"0.00","full_white_pvc":"0.00","full_color_pvc":"0.00"}},"c_drawers":{"label":"drawers","type":"checkbox","row":{"label":"drawers","value":"500"}},"c_shelving":{"label":"shelving","type":"checkbox","row":{"label":"shelving","value":"50"}}}', 2, 'swing-door-wardrobe');
 
 -- --------------------------------------------------------
 
@@ -299,6 +348,27 @@ INSERT INTO `order_status` (`order_status_id`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `role`
+--
+
+CREATE TABLE `role` (
+  `role_id` int(11) NOT NULL,
+  `role` varchar(256) CHARACTER SET utf8 NOT NULL,
+  `type` enum('USER','CLIENT','ADMIN') COLLATE utf8_bin NOT NULL,
+  `level` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`role_id`, `role`, `type`, `level`) VALUES
+(1, 'Superadmin', 'ADMIN', 1),
+(2, 'Admin', 'ADMIN', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -314,12 +384,18 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `email`, `contact`, `name`) VALUES
-(5, '0', '167780275', 'Chong Yew Yang'),
-(6, 'yewyang.chong@hotmail.com', '167780275', 'Robert Kwok');
+(7, 'emmwee96@gmail.com', '0149151084', 'Emmanual Wee');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- Indexes for table `category`
@@ -364,6 +440,12 @@ ALTER TABLE `custom_product_type`
   ADD PRIMARY KEY (`custom_product_type_id`);
 
 --
+-- Indexes for table `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -385,6 +467,12 @@ ALTER TABLE `order_status`
   ADD PRIMARY KEY (`order_status_id`);
 
 --
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`role_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -395,71 +483,75 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `custom_product`
 --
 ALTER TABLE `custom_product`
   MODIFY `custom_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `custom_product_add_ons`
 --
 ALTER TABLE `custom_product_add_ons`
   MODIFY `custom_product_add_ons_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `custom_product_fields`
 --
 ALTER TABLE `custom_product_fields`
   MODIFY `custom_product_field_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
 --
 -- AUTO_INCREMENT for table `custom_product_image`
 --
 ALTER TABLE `custom_product_image`
-  MODIFY `custom_product_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
+  MODIFY `custom_product_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `custom_product_options`
 --
 ALTER TABLE `custom_product_options`
   MODIFY `custom_product_options_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
 --
 -- AUTO_INCREMENT for table `custom_product_type`
 --
 ALTER TABLE `custom_product_type`
   MODIFY `custom_product_type_id` int(11) NOT NULL AUTO_INCREMENT;
-
+--
+-- AUTO_INCREMENT for table `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-  MODIFY `order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
+  MODIFY `order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `order_status`
 --
 ALTER TABLE `order_status`
   MODIFY `order_status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+--
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Constraints for dumped tables
 --
@@ -476,7 +568,6 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `order_product`
   ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
