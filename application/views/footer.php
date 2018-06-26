@@ -124,6 +124,12 @@
                 scrollTop: $panel.offset().top -110
             }, 500); 
         });
+
+        $(document).on("click", ".sub_image", function(e){
+            var img = $(this).data("img");
+            $(".main_image").attr("src", img);
+            $(".fancybox").attr("href", img);
+        });
     </script>
 </body>
 </html>

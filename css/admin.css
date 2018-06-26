@@ -291,7 +291,8 @@ a:link{
 
 .checkbox-inline {
     margin-right : 5%;
-    margin-bottom : 2.5%;
+    margin-bottom : 1%;
+    margin-top : 1% !important;
 }
 
 .padding-left {
@@ -672,4 +673,13 @@ a:link{
     font-size: 1.8em;
     padding: 7.5%;
     color: black;
+}
+
+.product_modal_row {
+    padding: 14px 5px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.product_row_details{
+    margin-top : 1%;
 }

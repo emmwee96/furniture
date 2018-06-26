@@ -3,6 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Gallery extends Base_Controller{
 
+    function __construct()
+    {
+        parent::__construct();
+
+        if (!$this->session->has_userdata("login_data")) {
+            redirect("access/login", "refresh");
+        }
+    }
+
     function index(){
         $sql = "SELECT *, concat( ?, image) from gallery";
         $images = $this->db->query($sql,array(site_url()))->result_array();

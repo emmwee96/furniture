@@ -173,4 +173,15 @@ class Base_Model extends CI_Model
 
         return $query->result_array();
     }
+
+    function get_where_not_in($primary_key_id)
+    {
+        $this->db->select("*");
+        $this->db->from($this->table_name);
+        $this->db->where_not_in($this->primary_key, $primary_key_id);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }

@@ -9,13 +9,13 @@
 							<div role="tabpanel" class="tab-pane active" id="tab-1">
 								<div class="tab-single-image">
 									<a href="<?= site_url(); ?>/images/product/custom/open1.JPG" class="fancybox" data-fancybox-group="gallery">
-										<img src="<?= site_url(); ?>/images/product/custom/open1.JPG" alt="" />
+										<img class="main_image" src="<?= site_url(); ?>/images/product/custom/open1.JPG" alt="" />
 									</a>
 								</div>
 								<?php foreach($product_image as $row){ ?>
 								<div class="col-md-4 col-lg-4">
-									<a class="gallery" data-fancybox="gallery" href="<?= site_url().$row['url']; ?>">
-										<img src="<?= site_url().$row['url']; ?>">
+									<a class="gallery">
+										<img class="sub_image" data-img="<?= site_url().$row['url']; ?>" src="<?= site_url().$row['url']; ?>">
 									</a>
 								</div>
 								<?php } ?>
@@ -77,14 +77,12 @@
 										<span data-toggle="tooltip" data-placement="right" title="View how it works for more info" class="ttip fa fa-info-circle"></span>
 									</a>
 								</label>
-								<select id="<?= $row['label_id']; ?>" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
+								<select class="custom_select" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
 									<option value="">-- select a type --</option>
 									<?php foreach($row['options'] as $option){ ?>
-									<option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>">
-										<?= $option['label']; ?>
-									</option>
+										<option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
 									<?php } ?>
-
+								
 								</select>
 							</div>
 							<?php } elseif ($row['label'] == 'External Frame Material') { ?>
@@ -97,14 +95,12 @@
 										<span data-toggle="tooltip" data-placement="right" title="View how it works for more info" class="ttip fa fa-info-circle"></span>
 									</a>
 								</label>
-								<select id="<?= $row['label_id']; ?>" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
+								<select class="custom_select" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
 									<option value="">-- select a type --</option>
 									<?php foreach($row['options'] as $option){ ?>
-									<option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>">
-										<?= $option['label']; ?>
-									</option>
+										<option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
 									<?php } ?>
-
+								
 								</select>
 							</div>
 
@@ -127,15 +123,13 @@
 									</a>
 								</label>
 								<br>
-								<select id="<?= $row['label_id']; ?>" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
-									<option value="">-- select a type --</option>
-									<?php foreach($row['options'] as $option){ ?>
-									<option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>">
-										<?= $option['label']; ?>
-									</option>
-									<?php } ?>
-
-								</select>
+								<select class="custom_select" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
+                                    <option value="">-- select a type --</option>
+                                    <?php foreach($row['options'] as $option){ ?>
+                                        <option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
+                                    <?php } ?>
+                                
+                                </select>
 							</div>
 						</div>
 						<?php } ?>

@@ -4,13 +4,14 @@
         <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
             <div class="box box-info">
                 <div class="box-header agent-panel">
-                    <h4 class="pull-left">ORDER NO : <?= $orders['order_id']?></h4>
+                    <h4 class="pull-left">ORDER NO : <?= $orders['order_id'] ?></h4>
 
                     <?php if ($this->session->userdata("login_data")["type"] == "ADMIN") { ?>
                         <a href="<?= site_url("Orders/edit/" . $orders['order_id']); ?>" class="pull-right">
                             edit
                         </a>
-                    <?php } ?>
+                    <?php 
+                } ?>
                 </div>
                 <div class="box-body">
 
@@ -71,18 +72,28 @@
                                 </tr>
                             </table>
                             <hr>
+                            <h4>Remarks</h4>
+                            <form method="POST" action="<?= base_url() ?>orders/add_remarks/<?= $orders['order_id'] ?>">
+                                <textarea name="remarks" class="form-control" rows="5"><?= $orders["remarks"] ?></textarea>
+                                <br/>
+                                <input type="submit" class="btn btn-primary pull-right">
+                                <br/>
+                            </form>
+                            <hr>
                             <h4>Current Status : <?= $orders['status']; ?></h4>
-                            <?php if($orders['status_id'] == 1){ ?>
-                                <a href="<?= site_url('Orders/updateStatus/'.$orders['order_id']."/2"); ?>" class="btn btn-info">In Progress</a>
+                            <?php if ($orders['status_id'] == 1) { ?>
+                                <a href="<?= site_url('Orders/updateStatus/' . $orders['order_id'] . "/2"); ?>" class="btn btn-info">In Progress</a>
 
-                                <a href="<?= site_url('Orders/updateStatus/'.$orders['order_id']."/4"); ?>" class="btn btn-warning">Canceled</a>
-                            <?php }else if($orders['status_id'] == 2){ ?>
+                                <a href="<?= site_url('Orders/updateStatus/' . $orders['order_id'] . "/4"); ?>" class="btn btn-warning">Canceled</a>
+                            <?php 
+                        } else if ($orders['status_id'] == 2) { ?>
 
-                                <a href="<?= site_url('Orders/updateStatus/'.$orders['order_id']."/3"); ?>" class="btn btn-success">Completed</a>
+                                <a href="<?= site_url('Orders/updateStatus/' . $orders['order_id'] . "/3"); ?>" class="btn btn-success">Completed</a>
 
-                                <a href="<?= site_url('Orders/updateStatus/'.$orders['order_id']."/4"); ?>" class="btn btn-warning">Canceled</a>
-                            <?php } ?>
-                            <a href="<?= site_url('Orders/send_quotation/'.$orders['order_id']); ?>" class="btn btn-primary">Send Quotation</a>
+                                <a href="<?= site_url('Orders/updateStatus/' . $orders['order_id'] . "/4"); ?>" class="btn btn-warning">Canceled</a>
+                            <?php 
+                        } ?>
+                            <a href="<?= site_url('Orders/send_quotation/' . $orders['order_id']); ?>" class="btn btn-primary">Send Quotation</a>
                         </div>
                     </div>
 
@@ -119,23 +130,25 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        for($i = 0; $i < count($orders['details']); $i++){ ?>
+                                    for ($i = 0; $i < count($orders['details']); $i++) { ?>
 
                                         <tr>
-                                            <td><?= $i+1 ; ?></td>
+                                            <td><?= $i + 1; ?></td>
                                             <td><?= $orders['details'][$i]['name']; ?></td>
                                             <td><?= $orders['details'][$i]['total']; ?></td>
                                         </tr>
                                         <?php 
                                         $details = json_decode($orders["details"][$i]['options']);
-                                        foreach( $details as $key => $opt){ ?>
+                                        foreach ($details as $key => $opt) { ?>
                                             <tr>
                                                 <td></td>
                                                 <td><?= $key; ?> : <?= $opt->label; ?></td>
                                                 <td></td>
                                             </tr>
-                                        <?php } ?>
-                                        <?php } ?>
+                                        <?php 
+                                    } ?>
+                                        <?php 
+                                    } ?>
                                     
                                 </tbody>
                             </table>
@@ -149,12 +162,13 @@
 </div>
 <script>
     <?php
-    if($this->session->flashdata("quotation")){
+    if ($this->session->flashdata("quotation")) {
         ?>
         $(document).ready(function(){
             alert("quotation sent");
         });
         <?php
+
     }
     ?>
     

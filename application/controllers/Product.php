@@ -11,6 +11,10 @@ class Product extends Base_Controller{
         $this->load->model("Category_model");
         $this->load->model("Custom_Product_model");
 
+        if (!$this->session->has_userdata("login_data")) {
+            redirect("access/login", "refresh");
+        }
+        
         if(!$this->session->has_userdata("cart")){
             $this->session->set_userdata("cart",array());
         }

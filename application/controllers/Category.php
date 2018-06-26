@@ -7,6 +7,11 @@ class Category extends  Base_Controller{
 
     public function __construct() {
         parent::__construct();
+
+        if (!$this->session->has_userdata("login_data")) {
+            redirect("access/login", "refresh");
+        }
+
         $this->load->model("Category_model");
         $this->page_data = array();
     }

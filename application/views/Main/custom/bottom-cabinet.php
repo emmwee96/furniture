@@ -8,17 +8,17 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab-1">
                             <div class="tab-single-image">
-                                <a href="<?= site_url(); ?>/images/product/custom/floor.jpg" class="fancybox" data-fancybox-group="gallery"><img src="<?= site_url(); ?>/images/product/custom/floor.jpg" alt="" />
+                                <a href="<?= site_url(); ?>/images/product/custom/floor.jpg" class="fancybox" data-fancybox-group="gallery"><img class="main_image" src="<?= site_url(); ?>/images/product/custom/floor.jpg" alt="" />
                                 </a>
                             </div>
                             <br>
                             <?php foreach($product_image as $row){ ?>
-                                <div class="col-md-4 col-lg-4">
-                                    <a class="gallery" data-fancybox="gallery" href="<?= site_url().$row['url']; ?>">
-                                        <img src="<?= site_url().$row['url']; ?>">
-                                    </a>
-                                </div>
-                            <?php } ?>
+								<div class="col-md-4 col-lg-4">
+									<a class="gallery">
+										<img class="sub_image" data-img="<?= site_url().$row['url']; ?>" src="<?= site_url().$row['url']; ?>">
+									</a>
+								</div>
+							<?php } ?>
                         </div>
                     </div>
                 </div>

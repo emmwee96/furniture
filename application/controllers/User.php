@@ -9,9 +9,9 @@ class User extends Base_Controller{
         parent::__construct();
 
         $this->page_data = array();
-
-        if (!$this->session->has_userdata("role_id")) {
-         //   redirect("access/login", "refresh");
+        
+        if (!$this->session->has_userdata("login_data")) {
+            redirect("access/login", "refresh");
         }
 
         $this->load->model("User_model");
