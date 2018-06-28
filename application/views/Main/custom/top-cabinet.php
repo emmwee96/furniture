@@ -41,7 +41,7 @@
                 <div class="skill-plusminus-wrap">
                     <div class="skill-plusminus">
                         <div class="skill-minus qtybutton">-</div>
-                        <input type="text" name="#" value="220" class="cart-plus-minus-box" />
+                            <input type="text" name="#" value="220" class="cart-plus-minus-box" name="height" id="height_form"/>
                         <div class="skill-plus qtybutton">+</div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="skill-plusminus-wrap">
                     <div class="skill-plusminus">
                         <div class="skill-minus qtybutton">-</div>
-                        <input type="text" id="install_width" onchange="refreshSelection()" name="#" value="400" class="cart-plus-minus-box" name="installWidth" />
+                            <input type="text" name="#" value="400" class="cart-plus-minus-box" name="width" id="width_form"/>
                         <div class="skill-plus qtybutton">+</div>
                     </div>
                 </div>
@@ -174,7 +174,7 @@
 
     </div>
     <div class="col-md-2 col-lg-2">
-    <?php $this->load->view("Main/custom/my_selection",array("selection_labels" => $selection_labels, "add_ons" => $add_ons)); ?>
+    <?php $this->load->view("Main/custom/my_selection",array("selection_labels" => $selection_labels, "add_ons" => $add_ons, "height_label" => "Install Height (mm)", "width_label" => "Install Width (mm)")); ?>
                            
     </div>
 
@@ -183,7 +183,7 @@
 <div class="row" style="margin-top:15vh;margin-bottom : 10vh;">
     <div class="col-md-10 col-lg-10 col-xs-10">
     <div class="cmain-heading text-uppercase">
-                <h3>You May Also Like :</h3>
+                <h3>Recommended Combination :</h3>
             </div>
            
             <div class="row">

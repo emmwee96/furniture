@@ -104,7 +104,7 @@ class Base_Controller extends CI_Controller
 
     function build_email($data, $template)
     {
-        $email = $this->load->view('email/' . $template, $data, true);
+        $email = $this->load->view('Email/' . $template, $data, true);
 
         return $email;
     }

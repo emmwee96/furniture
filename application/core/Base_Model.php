@@ -61,8 +61,20 @@ class Base_Model extends CI_Model
 
     function get_all()
     {
+        $fields = $this->db->list_fields($this->table_name);
+
+        $deleted = false;
+        foreach($fields as $row){
+            if($row == "deleted"){
+                $deleted = true;
+            }
+        }
+
         $this->db->select("*");
         $this->db->from($this->table_name);
+        if($deleted){
+            $this->db->where("deleted", 0);
+        }
 
         $query = $this->db->get();
 

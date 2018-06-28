@@ -9,7 +9,7 @@
                             edit
                         </a>
                     <?php } ?>
-                    <h4 class="pull-left"><?= $user['name']?>'s info</h4>
+                    <h4 class="pull-left"><?= $user['email']?>'s info</h4>
                 </div>
                 <div class="box-body">
 
@@ -26,19 +26,10 @@
                         <div class="tab-pane active" id="login">
                             <table class='formTable'>
                                 <tr>
-                                    <th>name</th>
-                                    <td>: <?= $user['name']; ?></td>
-                                </tr>
-                               <tr>
                                     <th>email</th>
                                     <td>: <?= $user['email']; ?></td>
                                 </tr>
-                               <tr>
-                                    <th>contact</th>
-                                    <td>: <?= $user['contact']; ?></td>
-                                </tr>
-                              
-                            </table>
+                           </table>
                         </div>
                     </div>
 
@@ -56,15 +47,34 @@
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs" id="tabs">
                             <li class="active">
-                                <a href="#login" data-toggle="tab">Orders</a>
+                                <a href="#order" data-toggle="tab">Orders</a>
 
                             </li>
 
                         </ul>
                     </div>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="login">
-                        
+                        <div class="tab-pane active" id="order">
+                            <table class="table">
+                                <tr>
+                                    <th>Order No</th>
+                                    <th>Receiver Name</th>
+                                    <th>Receiver Contact</th>
+                                    <th>Status</th>
+                                </tr>
+                                <?php
+                                    foreach($orders as $row){
+                                        ?>
+                                        <tr>
+                                            <td><a href="<?= base_url() ?>Orders/details/<?= $row['order_id'] ?>"><?= $row['order_id'] ?></a></td>
+                                            <td><a href="<?= base_url() ?>Orders/details/<?= $row['order_id'] ?>"><?= $row['name'] ?></a></td>
+                                            <td><a href="<?= base_url() ?>Orders/details/<?= $row['order_id'] ?>"><?= $row['contact'] ?></a></td>
+                                            <td><a href="<?= base_url() ?>Orders/details/<?= $row['order_id'] ?>"><?= $row['status'] ?></a></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                ?>
+                            </table>
                         </div>
                     </div>
 

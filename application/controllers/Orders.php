@@ -39,8 +39,6 @@ class Orders extends Base_Controller
         $this->load->view("admin/footer");
     }
 
-
-
     public function details($order_id)
     {
 
@@ -149,8 +147,6 @@ class Orders extends Base_Controller
 
                         $custom_product_fields = $this->Custom_product_fields_model->get_where($where);
 
-
-
                         $where = array(
                             "custom_product_fields_id" => $custom_product_fields[0]["custom_product_field_id"],
                             "custom_product_options_id" => $input[$row['label_id'] . "_" . $product_id]
@@ -159,6 +155,7 @@ class Orders extends Base_Controller
                         $custom_product_options = $this->Custom_product_options_model->get_where($where);
 
                         $options[$custom_product_fields[0]["label_id"]] = array(
+                            "name" => $custom_product_fields[0]["label"],
                             "label" => $custom_product_options[0]["label"],
                             "type" => "option",
                             "row" => $custom_product_options[0]
@@ -167,22 +164,25 @@ class Orders extends Base_Controller
                 }
 
                 foreach ($product[0]['add_ons'] as $row) {
-                    if ($input[$row['label_id'] . "_" . $product_id] == "CHECKED") {
-                        $where = array(
-                            "label_id" => $row['label_id'],
-                            "custom_product_id" => $product_id,
-                        );
+                    if (!empty($input[$row['label_id'] . "_" . $product_id])) {
+                        if ($input[$row['label_id'] . "_" . $product_id] == "CHECKED") {
+                            $where = array(
+                                "label_id" => $row['label_id'],
+                                "custom_product_id" => $product_id,
+                            );
 
-                        $custom_product_add_ons = $this->Custom_product_add_ons_model->get_where($where);
+                            $custom_product_add_ons = $this->Custom_product_add_ons_model->get_where($where);
 
-                        $options[$custom_product_add_ons[0]["label_id"]] = array(
-                            "label" => $custom_product_add_ons[0]["label"],
-                            "type" => "checkbox",
-                            "row" => array(
+                            $options[$custom_product_add_ons[0]["label_id"]] = array(
+                                "name" => $custom_product_add_ons[0]["label"],
                                 "label" => $custom_product_add_ons[0]["label"],
-                                "value" => $custom_product_add_ons[0]["value"]
-                            )
-                        );
+                                "type" => "checkbox",
+                                "row" => array(
+                                    "label" => $custom_product_add_ons[0]["label"],
+                                    "value" => $custom_product_add_ons[0]["value"]
+                                )
+                            );
+                        }
                     }
                 }
 
@@ -190,6 +190,8 @@ class Orders extends Base_Controller
                     "product_id" => $product[0]["custom_product_id"],
                     "order_id" => $order_id,
                     "total" => $input["price_" . $product_id],
+                    "height" => $input["height_" . $product_id],
+                    "width" => $input["width_" . $product_id],
                     "name" => $product[0]['name'],
                     "options" => json_encode($options)
                 );

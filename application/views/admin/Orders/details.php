@@ -30,7 +30,7 @@
                             <table class='formTable'>
                                 <tr>
                                     <th>name</th>
-                                    <td>: <?= $user['name']; ?></td>
+                                    <td>: <?= $orders['name']; ?></td>
                                 </tr>
                                 <tr>
                                     <th>email</th>
@@ -38,7 +38,7 @@
                                 </tr>
                                 <tr>
                                     <th>contact</th>
-                                    <td>: <?= $user['contact']; ?></td>
+                                    <td>: <?= $orders['contact']; ?></td>
                                 </tr>
                               
                             </table>
@@ -49,7 +49,10 @@
                                     <th>Date</th>
                                     <td>: <?= $orders['created_date']; ?></td>
                                 </tr>
-                               
+                                <tr>
+                                    <th>Grand Total</th>
+                                    <td>: RM<?= number_format($orders['total'],2); ?></td>
+                                </tr>
                                 <tr>
                                     <th>Address </th>
                                     <td>: <?= $orders['address1']; ?></td>
@@ -70,15 +73,20 @@
                                     <th>City </th>
                                     <td>: <?= $orders['city']; ?></td>
                                 </tr>
+                                <tr>
+                                    <th>Promo Code </th>
+                                    <td>: <?= $orders['promo_code']; ?></td>
+                                </tr>
                             </table>
                             <hr>
                             <h4>Remarks</h4>
-                            <form method="POST" action="<?= base_url() ?>orders/add_remarks/<?= $orders['order_id'] ?>">
+                            <!-- <form method="POST" action="<?= base_url() ?>orders/add_remarks/<?= $orders['order_id'] ?>">
                                 <textarea name="remarks" class="form-control" rows="5"><?= $orders["remarks"] ?></textarea>
                                 <br/>
                                 <input type="submit" class="btn btn-primary pull-right">
                                 <br/>
-                            </form>
+                            </form> -->
+                            <p><?= $orders["remarks"] ?></p>
                             <hr>
                             <h4>Current Status : <?= $orders['status']; ?></h4>
                             <?php if ($orders['status_id'] == 1) { ?>
@@ -137,12 +145,22 @@
                                             <td><?= $orders['details'][$i]['name']; ?></td>
                                             <td><?= $orders['details'][$i]['total']; ?></td>
                                         </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Height : <?= $orders['details'][$i]['height']; ?> (mm)</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Width : <?= $orders['details'][$i]['width']; ?> (mm)</td>
+                                            <td></td>
+                                        </tr>
                                         <?php 
                                         $details = json_decode($orders["details"][$i]['options']);
                                         foreach ($details as $key => $opt) { ?>
                                             <tr>
                                                 <td></td>
-                                                <td><?= $key; ?> : <?= $opt->label; ?></td>
+                                                <td><?= $opt->name; ?> : <?= $opt->label; ?></td>
                                                 <td></td>
                                             </tr>
                                         <?php 

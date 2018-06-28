@@ -15,13 +15,25 @@ class User extends Base_Controller{
         }
 
         $this->load->model("User_model");
+        $this->load->model("Orders_model");
     }
 
     public function index() {
 
         $users = $this->User_model->get_all();
 
-       
+        $i = 0;
+        foreach($users as $row){
+
+            $where = array(
+                "user_id" => $row["user_id"]
+            );
+
+            $users[$i]["contact_details"] = $this->Orders_model->get_distinct_name_contact($where);
+
+            $i++;
+        }
+
         $this->page_data["users"] = $users;
 
         $this->load->view("admin/header", $this->page_data);
@@ -89,6 +101,9 @@ class User extends Base_Controller{
         ));
       
 
+        $this->page_data["orders"] = $this->Orders_model->get_where(array(
+            "user_id" => $user_id
+        ));
         
         $this->page_data["user"] = $user[0];
 

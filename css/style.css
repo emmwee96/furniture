@@ -3315,7 +3315,7 @@ td {
     font-size: 18px;
     color: #555454;
 }
-.lp-input input {
+.lp-input input, .lp-input textarea {
     width: 100%;
     height: 40px;
     border: 1px solid #ebebeb;

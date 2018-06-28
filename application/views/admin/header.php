@@ -30,6 +30,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery.loadingModal.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery.jOrgChart.css">
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo site_url(); ?>/css/datepicker3.css">
 
 
@@ -121,7 +122,7 @@
 					</li>
 					<li>
 						<a href="<?= base_url() ?>product">
-							<i class="fa fa-industry"></i>
+							<i class="fa fa-archive"></i>
 							<span>Product</span>
 						</a>
 					</li>
@@ -129,6 +130,18 @@
 						<a href="<?= base_url() ?>Gallery">
 							<i class="fa fa-image"></i>
 							<span>Gallery</span>
+						</a>
+					</li>
+					<li>
+						<a href="<?= base_url() ?>faq_category">
+							<i class="fa fa-folder-open"></i>
+							<span>FAQ Category</span>
+						</a>
+					</li>
+					<li>
+						<a href="<?= base_url() ?>faq">
+							<i class="fa fa-question-circle"></i>
+							<span>FAQ</span>
 						</a>
 					</li>
 					<li>

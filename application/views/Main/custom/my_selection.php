@@ -5,6 +5,12 @@
 </span>
     </h3>
     <hr>
+    <label><?= $height_label ?></label><br>
+        <span id="height"></span>
+        <br>
+    <label><?= $width_label ?></label><br>
+        <span id="width"></span>
+        <br>
     <?php foreach($selection_labels as $row){ ?>
         <label><?= $row['label'] ?></label><br>
         <span id="<?= $row['label_id']; ?>"></span>
@@ -40,28 +46,37 @@
     // end values
 
     var all_selections = <?= json_encode($selection_labels); ?>;
+    var all_add_ons = <?= json_encode($add_ons); ?>;
     var selected_options = {};
+    var label_names = {};
     
-        console.log(all_selections);
+    console.log(all_selections);
+    console.log(all_add_ons);
     for(var i = 0; i < all_selections.length; i++){
         selected_options[ all_selections[i]['custom_product_field_id']] = null;
+        label_names[all_selections[i]['label_id']] = all_selections[i]['label'];
     }
+    for(var i = 0; i < all_add_ons.length; i++){
+        label_names[all_add_ons[i]['label_id']] = all_add_ons[i]['label'];
+    }
+
+    console.log(label_names);
 
     var selections = {
     };
 
 
     $(document).ready(function(){
-        
+        $("#height").html("<i>" + $("#height_form").val() + "</i>");
+        $("#width").html("<i>" + $("#width_form").val() + "</i>");
     });
 
     function changeSelection(key,ele,checkbox = false,label='',price =""){
         
-
-
         if(checkbox){
             if($(ele).is(":checked")){
                 selections[key] = {
+                    name : label_names[key],
                     label : label,
                     type : "checkbox",
                     row : {
@@ -104,6 +119,7 @@
 
                         }
                         selections[key] = {
+                            name : label_names[key],
                             label : label,
                             type : "option",
                             row : target_selection['options'][j]
@@ -148,7 +164,7 @@
         }
        
         for(key in selections){
-            $("#"+key).html(selections[key]['label']);
+            $("#"+key).html("<i>" + selections[key]['label'] + "</i>");
            // console.log(selections[key]['label'] + " : " + selections[key]['row'][valueColumn]);
 
             if(selections[key]['type'] == "checkbox")
@@ -168,7 +184,9 @@
                 product_id : "<?= $product['custom_product_id']; ?>",
                 product_name : "<?= $product['name']; ?>",
                 options : selections,
-                total : total
+                total : total,
+                height: $("#height_form").val(),
+                width: $("#width_form").val()
             },
             function(response){
                 alert("added");
@@ -176,5 +194,17 @@
             },
             "JSON");
     }   
+
+    $(document).on("change", "#height_form", function(e){
+        var height = $(this).val();
+
+        $("#height").html("<i>" + height + "</i>");
+    });
+
+    $(document).on("change", "#width_form", function(e){
+        var width = $(this).val();
+
+        $("#width").html("<i>" + width + "</i>");
+    });
 
 </script>

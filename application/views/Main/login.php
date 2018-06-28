@@ -45,7 +45,7 @@
                 <div class="col-xs-12">
                     <div class="progress-summery text-center">
                         <ul class="progress-steps">
-                            <li class="steps-item  litext is-active"><a href="cart.html">01. Cart</a>
+                            <li class="steps-item  litext is-active"><a href="<?= base_url() ?>main/cart">01. Cart</a>
                             </li>
                             <li class="steps-item is-active"><a href="<?= site_url('Main/login'); ?>">02. Contact</a>
                             </li>
@@ -67,7 +67,7 @@
                             <h3>Leave your contact</h3>
                         </div>
                         <div class="lp-left-text">
-                            <p>Your team will contact you for your order.</p>
+                            <p>Our team will contact you for your order.</p>
                         </div>
                         <form method="POST" id="contact_form">
                         <div class="lp-input">
@@ -108,10 +108,28 @@
                                 <a href="javascript:void()" id="submit_btn"><i class="fa fa-user" aria-hidden="true"></i> Submit</a>
                             </div>
                         </form>
-                        
                     </div>
                 </div>
-                
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="account-creation">
+                        <div class="lp-title">
+                            <h3>Additional Details</h3>
+                        </div>
+                        <div class="lp-left-text">
+                            <p>Do you have any additional details.</p>
+                        </div>
+                        <form method="POST" id="contact_form">
+                            <div class="lp-input">
+                                <label for="promo_code">Promo Code</label>
+                                <input type="text" id="promo_code" name="promo_code" />
+                            </div>
+                            <div class="lp-input">
+                                <label for="remarks">Remarks</label>
+                                <textarea id='remarks' class="form-control" name="remarks" rows="10" style="resize:none;"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -131,7 +149,9 @@
                address2 : $("#address2").val(),
                postcode : $("#postcode").val(),
                state : $("#state").val(),
-               city : $("#city").val()
+               city : $("#city").val(),
+               promo_code : $("#promo_code").val(),
+               remarks : $("#remarks").val()
            },function(res){
                 if(res.status == "SUCCESS"){
                     alert("Order placed! Our staff will contact you soon");

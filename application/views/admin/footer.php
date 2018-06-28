@@ -25,6 +25,7 @@
 <script src="<?= base_url() ?>js/plugins/fullcalendar-3.4.0/fullcalendar.min.js"></script>
 <script src="<?= base_url() ?>js/plugins/fullcalendar-3.4.0/gcal.min.js"></script>
 <script src="<?= base_url() ?>js/plugins/fullcalendar-3.4.0/locale-all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 <script>
     $(document).ready(function () {
         $("#org").jOrgChart({

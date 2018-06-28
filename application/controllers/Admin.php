@@ -91,7 +91,7 @@ class Admin extends Base_Controller
         $this->page_data["admin"] = $admin[0];
 
         $this->load->view("admin/header", $this->page_data);
-        $this->load->view("admin/admin/details");
+        $this->load->view("admin/Admin/details");
         $this->load->view("admin/footer");
     }
 
@@ -153,7 +153,7 @@ class Admin extends Base_Controller
         $this->page_data["role"] = $this->Role_model->get_all();
 
         $this->load->view("admin/header", $this->page_data);
-        $this->load->view("admin/admin/edit");
+        $this->load->view("admin/Admin/edit");
         $this->load->view("admin/footer");
     }
 

@@ -8,8 +8,11 @@ class Main extends Base_Controller{
         parent::__construct();
 
         $this->load->model("Wardrobe_model");
+        $this->load->model("Orders_model");
         $this->load->model("Category_model");
         $this->load->model("Custom_Product_model");
+        $this->load->model("Faq_model");
+        $this->load->model("Faq_category_model");
 
         if(!$this->session->has_userdata("cart")){
             $this->session->set_userdata("cart",array());
@@ -63,6 +66,8 @@ class Main extends Base_Controller{
     }
 
     function cart(){
+        // $this->debug($this->session->userdata("cart"));
+
         $this->load->view("header");
         $this->load->view("Main/cart");
         $this->load->view("footer");
@@ -112,8 +117,27 @@ class Main extends Base_Controller{
         $this->load->view("footer");
     }
     function FAQ(){
-        $this->load->view("header");
-        $this->load->view("Main/FAQ");
+
+        $faq_category = $this->Faq_category_model->get_all();
+
+        $i = 0;
+        foreach($faq_category as $row){
+
+            $where = array(
+                "faq.faq_category_id" => $row["faq_category_id"]
+            );
+
+            $faq = $this->Faq_model->get_where($where);
+
+            $faq_category[$i]["faq"] = $faq;
+
+            $i++;
+        }
+
+        $this->page_data["faq_category"] = $faq_category;
+
+        $this->load->view("header", $this->page_data);
+        $this->load->view("Main/faq");
         $this->load->view("footer");
     }
 
@@ -122,8 +146,11 @@ class Main extends Base_Controller{
             "product_id" => $this->input->post("product_id"),
             "name" => $this->input->post("product_name"),
             "options" => $this->input->post("options"),
+            "height" => $this->input->post("height"),
+            "width" => $this->input->post("width"),
             "total" => $this->input->post("total")
         );
+
         $cart = $this->session->userdata("cart");
 
         array_push($cart,$data);
@@ -198,9 +225,7 @@ class Main extends Base_Controller{
                $user_id = $user[0]['user_id'];
             }else{
                 $this->db->insert("user",array(
-                    "name" => $this->input->post("name"),
-                    "email" => $this->input->post("email"),
-                    "contact" => $this->input->post("contact")
+                    "email" => $this->input->post("email")
                 ));
                 $user_id = $this->db->insert_id();
             }
@@ -215,24 +240,43 @@ class Main extends Base_Controller{
             }
             $this->db->insert("orders",array(
                 "user_id" => $user_id,
+                "name" => $this->input->post("name"),
+                "contact" => $this->input->post("contact"),
                 "address1" => $this->input->post("address1"),
                 "address2" => $this->input->post("address2"),
                 "postcode" => $this->input->post("postcode"),
                 "state" => $this->input->post("state"),
-                "city" => $this->input->post("city")
+                "city" => $this->input->post("city"),
+                "promo_code" => $this->input->post("promo_code"),
+                "remarks" => $this->input->post("remarks")
             ));
 
             $order_id = $this->db->insert_id();
 
+            $grand_total = 0;
             foreach($cart as $row){
                 $this->db->insert("order_product",array(
                     "order_id" => $order_id,
                     "product_id" => $row['product_id'],
                     "name" => $row['name'],
                     "total" => $row['total'],
+                    "height" => $row['height'],
+                    "width" => $row['width'],
                     "options" => json_encode($row['options'])
                 ));
+
+                $grand_total += $row["total"];
             }
+
+            $where = array(
+                "order_id" => $order_id
+            );
+
+            $data = array(
+                "total" => $grand_total
+            );
+
+            $this->Orders_model->update_where($where, $data);
 
 
             $this->session->set_userdata("cart",[]);

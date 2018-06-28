@@ -24,6 +24,14 @@
 			<div class="box-body">
 				<h4>Order Details</h4>
 				<div class="form-group">
+					<label>Name</label>
+					<input type="text" class="form-control" id="form_name" placeholder="Name" name="name" required value="<?= $order['name'] ?>">
+				</div>
+				<div class="form-group">
+					<label>Contact</label>
+					<input type="text" class="form-control" id="form_contact" placeholder="Contact" name="contact" required value="<?= $order['contact'] ?>">
+				</div>
+				<div class="form-group">
 					<label>Address Line 1</label>
 					<input type="text" class="form-control" id="form_address1" placeholder="Address Line 1" name="address1" required value="<?= $order['address1'] ?>">
 				</div>
@@ -58,61 +66,77 @@
 								<h4>
 									<?= $row["name"] ?>
 								</h4>
-								<input type="hidden" name="product_id[]" value="<?= $row['product_id']?>">
+								<input type="hidden" name="product_id[]" value="<?= $row['product_id'] ?>">
 								<div class="col-xs-12">
-								<?php
-								foreach ($row["labels"] as $label_row) {
-									?>
-									<div class="col-md-3 col-xs-12">
-										<select class="form-control" name="<?= $label_row['label_id'] ?>_<?= $row['product_id'] ?>">
-											<option value="">
-												<?= $label_row["label"] ?>
-											</option>
-											<?php
-												foreach ($label_row["options"] as $option_row) {
-													?>
-												<option value="<?= $option_row['custom_product_options_id'] ?>" <?php if (!empty($row[ "options"][$label_row['label_id']]['row']['custom_product_options_id']) AND $row[ "options"][$label_row['label_id']]['row']['custom_product_options_id'] == $option_row['custom_product_options_id']) echo "selected"; ?>>
-													<?= $option_row["label"] ?>
+									<div class="col-md-6 col-xs-12">
+										<label>Height (mm)</label>
+										<input type="number" class="form-control" name="height_<?= $row['product_id'] ?>" value="<?= $row['height'] ?>">
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<label>Width (mm)</label>
+										<input type="number" class="form-control" name="width_<?= $row['product_id'] ?>" value="<?= $row['width'] ?>">
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<hr>
+									<?php
+							foreach ($row["labels"] as $label_row) {
+								?>
+										<div class="col-md-3 col-xs-12">
+											<select class="form-control" name="<?= $label_row['label_id'] ?>_<?= $row['product_id'] ?>">
+												<option value="">
+													<?= $label_row["label"] ?>
 												</option>
 												<?php
+										foreach ($label_row["options"] as $option_row) {
+											?>
+													<option value="<?= $option_row['custom_product_options_id'] ?>" <?php if (!empty($row["options"][$label_row['label_id']]['row'][ 'custom_product_options_id']) and 
+													$row[ "options"][$label_row[ 'label_id']][ 'row']['custom_product_options_id'] == $option_row['custom_product_options_id']) echo "selected"; ?>>
+														<?= $option_row["label"] ?>
+													</option>
+													<?php
 
-													}
-													?>
-										</select>
-									</div>
-									<?php
-
-									}
-									?>
-									</div>
-									<div class="col-xs-12">
-									<br>
-									<?php
-								foreach ($row["add_ons"] as $add_on_row) {
-									?>
-										<div class="checkbox-inline">
-											<label>
-												<input type="checkbox" name="<?= $add_on_row['label_id'] ?>_<?= $row['product_id'] ?>" value="CHECKED" <?php if
-												(!empty($row["options"][$add_on_row['label_id']])) echo "checked"; ?>>
-												<?= $add_on_row["label"] ?>
-											</label>
+										}
+										?>
+											</select>
 										</div>
 										<?php
 
-									}
-									?>
-									</div>
+							}
+							?>
+								</div>
+								<div class="col-xs-12">
+									<hr>
 									<div class="col-xs-12">
-										<br/>
+										<?php
+								foreach ($row["add_ons"] as $add_on_row) {
+									?>
+											<div class="checkbox-inline">
+												<label>
+													<input type="checkbox" name="<?= $add_on_row['label_id'] ?>_<?= $row['product_id'] ?>" value="CHECKED" <?php if (!empty($row[
+													"options"][$add_on_row[ 'label_id']])) echo "checked"; ?>>
+													<?= $add_on_row["label"] ?>
+												</label>
+											</div>
+											<?php
+
+								}
+								?>
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<hr/>
+									<div class="col-xs-12">
 										<label>Price</label>
-										<input type="number" name="price_<?= $row['product_id']?>" class="form-control" value="<?= $row['total'] ?>" required min="1">
-										<hr/>
+										<input type="number" name="price_<?= $row['product_id'] ?>" class="form-control" value="<?= $row['total'] ?>" required min="1">
+									</div>
+									<hr/>
 								</div>
 							</div>
 							<?php
 
-						}
-						?>
+					}
+					?>
 					</div>
 				</div>
 			</div>

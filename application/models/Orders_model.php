@@ -13,6 +13,26 @@ class Orders_model extends Base_Model{
         return $orders;
     }
 
+    function get_where($where){
+        $this->db->select('*, (SELECT status FROM order_status WHERE orders.status_id = order_status.order_status_id) as status');
+        $this->db->from("orders");
+        $this->db->where($where);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
+    function get_distinct_name_contact($where){
+        $this->db->distinct("name, contact");
+        $this->db->from("orders");
+        $this->db->where($where);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
     function get($order_id){
         $sql = "SELECT *, email as user,
         (SELECT status FROM order_status WHERE orders.status_id = order_status.order_status_id) as status 

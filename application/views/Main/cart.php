@@ -51,9 +51,9 @@
                 <div class="col-xs-12">
                     <div class="progress-summery text-center">
                         <ul class="progress-steps">
-                            <li class="steps-item  litext is-active"><a href="cart.html">01. Cart</a>
+                            <li class="steps-item  litext is-active"><a href="<?= base_url()?>main/cart">01. Cart</a>
                             </li>
-                            <li class="steps-item"><a href="login.html">02. Contact</a>
+                            <li class="steps-item"><a href="<?= base_url()?>main/login">02. Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -85,9 +85,18 @@
                                             <td class="td2">
                                                 <h5>Custom <?= $row['name']; ?></h5>
                                                 <p>
-                                            
+                                                    height : <?= $row["height"]?> (mm)<br>
+                                                    width : <?= $row["width"]?> (mm)<br>
                                                     <?php  foreach($row['options'] as $key => $option){ ?>
-                                                    <?= $key . " : " . $option['label']; ?><br>
+                                                    <?php if($option["type"] == "option"){
+                                                        ?>
+                                                        <?= $option["name"] . " : " . $option['label']; ?><br>
+                                                        <?php
+                                                    } else if ($option["type"] == "checkbox"){
+                                                        ?>
+                                                        Add On : <?= $option["name"]?><br>
+                                                        <?php
+                                                    }?>
                                                     <?php } ?>
                                                 </p>
                                             </td>
@@ -121,7 +130,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="page-indicator-left indicator-def">
-                        <a href="index.html"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+                        <a href="<?= base_url() ?>"><i class="fa fa-angle-left"></i> Continue Shopping</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
