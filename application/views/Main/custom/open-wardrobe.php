@@ -45,7 +45,7 @@
 							<div class="skill-plusminus-wrap">
 								<div class="skill-plusminus">
 									<div class="skill-minus qtybutton">-</div>
-                            			<input type="text" name="#" value="220" class="cart-plus-minus-box" name="height" id="height_form"/>
+                            			<input type="text" name="#" value="3000" class="cart-plus-minus-box" name="height" id="height_form"/>
 									<div class="skill-plus qtybutton">+</div>
 								</div>
 							</div>
@@ -56,7 +56,7 @@
 							<div class="skill-plusminus-wrap">
 								<div class="skill-plusminus">
 									<div class="skill-minus qtybutton">-</div>
-                            			<input type="text" name="#" value="400" class="cart-plus-minus-box" name="width" id="width_form"/>
+                            			<input type="text" name="#" value="2400" class="cart-plus-minus-box" name="width" id="width_form"/>
 									<div class="skill-plus qtybutton">+</div>
 								</div>
 							</div>

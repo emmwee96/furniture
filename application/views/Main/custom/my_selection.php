@@ -146,8 +146,11 @@
         var valueColumn;
         total = 0;
 
-        var width = $("#install_width").val();
+        var height = $("#height_form").val();
+        var width = $("#width_form").val();
+        var area = ((height-2400)/300) * width;
         ft = parseFloat(width)/300;
+        console.log(ft);
         var price_multiplier = ft > 1.5 ? 2 : 1.5;
 
         if(type == "Standard Height"){
@@ -168,12 +171,13 @@
            // console.log(selections[key]['label'] + " : " + selections[key]['row'][valueColumn]);
 
             if(selections[key]['type'] == "checkbox")
-                total += parseFloat(selections[key]['row']["value"]);
-            else
-                total += parseFloat(selections[key]['row'][valueColumn]);
+                total += parseFloat(selections[key]['row']["value"] * ft);
+            else    
+                total += parseFloat(selections[key]['row'][valueColumn] * ft);
         }
 
         total *= price_multiplier;
+        total += area;
         
     }
 

@@ -109,9 +109,21 @@
 						</a>
 					</li>
 					<li>
+						<a href="<?= base_url() ?>User">
+							<i class="fa fa-user"></i>
+							<span>Users</span>
+						</a>
+					</li>
+					<li>
 						<a href="<?= base_url() ?>Orders">
-							<i class="fa fa-file"></i>
+							<i class="fa fa-truck"></i>
 							<span>Orders</span>
+						</a>
+					</li>
+					<li>
+						<a href="<?= base_url() ?>Orders_log">
+							<i class="fa fa-calendar"></i>
+							<span>Orders Log</span>
 						</a>
 					</li>
 					<li>

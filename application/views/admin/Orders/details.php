@@ -88,6 +88,14 @@
                             </form> -->
                             <p><?= $orders["remarks"] ?></p>
                             <hr>
+                            <h4>Admin Remarks</h4>
+                            <form method="POST" action="<?= base_url() ?>orders/add_admin_remarks/<?= $orders['order_id'] ?>">
+                                <textarea name="admin_remarks" class="form-control" rows="5"><?= $orders["admin_remarks"] ?></textarea>
+                                <br/>
+                                <input type="submit" class="btn btn-primary pull-right">
+                                <br/>
+                            </form>
+                            <hr>
                             <h4>Current Status : <?= $orders['status']; ?></h4>
                             <?php if ($orders['status_id'] == 1) { ?>
                                 <a href="<?= site_url('Orders/updateStatus/' . $orders['order_id'] . "/2"); ?>" class="btn btn-info">In Progress</a>

@@ -2,6 +2,11 @@
 
 class Orders_model extends Base_Model{
 
+    function __construct()
+    {
+        parent::__construct();
+    }
+
     function get_all(){
         $sql = "SELECT *, email as user,
         (SELECT status FROM order_status WHERE orders.status_id = order_status.order_status_id) as status 

@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Orders extends Base_Controller
+class Orders_log extends Base_Controller
 {
 
     public function __construct()
@@ -31,20 +31,20 @@ class Orders extends Base_Controller
     public function index()
     {
 
-        $orders = $this->Orders_model->get_all();
+        $orders = $this->Orders_log_model->get_all();
 
 
         $this->page_data["orders"] = $orders;
 
         $this->load->view("admin/header", $this->page_data);
-        $this->load->view("admin/Orders/all");
+        $this->load->view("admin/Orders_log/all");
         $this->load->view("admin/footer");
     }
 
-    public function details($order_id)
+    public function details($order_log_id)
     {
 
-        $orders = $this->Orders_model->get($order_id);
+        $orders = $this->Orders_log_model->get($order_log_id);
 
         $this->load->model("User_model");
         $user = $this->User_model->get_where($where = array(
@@ -55,7 +55,7 @@ class Orders extends Base_Controller
         $this->page_data['user'] = $user[0];
 
         $this->load->view("admin/header", $this->page_data);
-        $this->load->view("admin/Orders/details");
+        $this->load->view("admin/Orders_log/details");
         $this->load->view("admin/footer");
     }
 
@@ -315,7 +315,6 @@ class Orders extends Base_Controller
             "remarks" => $orders[0]["remarks"],
             "admin_remarks" => $orders[0]["admin_remarks"],
             "promo_code" => $orders[0]["promo_code"],
-            "created_date" => $orders[0]["created_date"],
             "modified_by" => $this->session->userdata("login_id")
         );
 
