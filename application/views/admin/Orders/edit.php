@@ -70,11 +70,11 @@
 								<div class="col-xs-12">
 									<div class="col-md-6 col-xs-12">
 										<label>Height (mm)</label>
-										<input type="number" class="form-control" name="height_<?= $row['product_id'] ?>" value="<?= $row['height'] ?>">
+										<input type="number" class="form-control" name="height_<?= $row['product_id'] ?>" value="<?= $row['height'] ?>" id="height_form_<?= $row['product_id'] ?>">
 									</div>
 									<div class="col-md-6 col-xs-12">
 										<label>Width (mm)</label>
-										<input type="number" class="form-control" name="width_<?= $row['product_id'] ?>" value="<?= $row['width'] ?>">
+										<input type="number" class="form-control" name="width_<?= $row['product_id'] ?>" value="<?= $row['width'] ?>" id="width_form_<?= $row['product_id'] ?>">
 									</div>
 								</div>
 								<div class="col-xs-12">
@@ -83,7 +83,7 @@
 							foreach ($row["labels"] as $label_row) {
 								?>
 										<div class="col-md-3 col-xs-12">
-											<select class="form-control" name="<?= $label_row['label_id'] ?>_<?= $row['product_id'] ?>">
+											<select class="form-control" name="<?= $label_row['label_id'] ?>_<?= $row['product_id'] ?>" onchange="changeSelection('<?= $row['product_id'] ?>', '<?= $label_row['label_id']; ?>',this)">
 												<option value="">
 													<?= $label_row["label"] ?>
 												</option>
@@ -114,7 +114,7 @@
 											<div class="checkbox-inline">
 												<label>
 													<input type="checkbox" name="<?= $add_on_row['label_id'] ?>_<?= $row['product_id'] ?>" value="CHECKED" <?php if (!empty($row[
-													"options"][$add_on_row[ 'label_id']])) echo "checked"; ?>>
+													"options"][$add_on_row[ 'label_id']])) echo "checked"; ?>  onchange="changeSelection('<?= $row['product_id'] ?>','<?= $add_on_row['label_id']; ?>',this,true,'<?= $add_on_row['label']; ?>',<?= $add_on_row['value']; ?>)">
 													<?= $add_on_row["label"] ?>
 												</label>
 											</div>
@@ -128,7 +128,7 @@
 									<hr/>
 									<div class="col-xs-12">
 										<label>Price</label>
-										<input type="number" name="price_<?= $row['product_id'] ?>" class="form-control" value="<?= $row['total'] ?>" required min="1">
+										<input type="number" name="price_<?= $row['product_id'] ?>" class="form-control" value="<?= $row['total'] ?>" required min="1" id="form_price_<?= $row['product_id'] ?>">
 									</div>
 									<hr/>
 								</div>
@@ -169,6 +169,21 @@
 <script>
 	
 	var existing_selections = [];
+	<?php
+		foreach($order["details"] as $row){
+			?>
+				existing_selections['<?= $row['product_id'] ?>'] = {
+				<?php
+				foreach($row['options'] as $key => $option_row){
+					?>
+						"<?= $key ?>": <?= json_encode($option_row)?>,
+					<?php
+				}
+				?>
+				};
+			<?php
+		}
+	?>
 	var is_cabinet = true;
 	var addedProducts = [];
     var all_products = <?= json_encode($products); ?>;

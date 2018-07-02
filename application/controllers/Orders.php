@@ -89,6 +89,8 @@ class Orders extends Base_Controller
         }
         // $this->debug($orders[0]["details"][1]["options"]);
 
+        // $this->debug($orders[0]["details"][0]);
+
         $this->page_data["order"] = $orders[0];
         $this->page_data['user'] = $user[0];
         $products = $this->Custom_Product_model->get_all();

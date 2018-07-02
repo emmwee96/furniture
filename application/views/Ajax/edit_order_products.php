@@ -12,11 +12,11 @@ foreach ($product as $row) {
 		<div class="col-xs-12">
 			<div class="col-md-6 col-xs-12">
 				<label>Height (mm)</label>
-				<input type="number" class="form-control" name="height_<?= $row['product_id'] ?>" value="3000" onchange="calculate(<?= $row['product_id']?>)" id="height_form_<?= $row['product_id'] ?>">
+				<input type="number" class="form-control" name="height_<?= $row['product_id'] ?>" value="3000" id="height_form_<?= $row['product_id'] ?>">
 			</div>
 			<div class="col-md-6 col-xs-12">
 				<label>Width (mm)</label>
-				<input type="number" class="form-control" name="width_<?= $row['product_id'] ?>" value="2400" onchange="calculate(<?= $row['product_id']?>)" id="width_form_<?= $row['product_id'] ?>">
+				<input type="number" class="form-control" name="width_<?= $row['product_id'] ?>" value="2400" id="width_form_<?= $row['product_id'] ?>">
 			</div>
 		</div>
 		<div class="col-xs-12">
