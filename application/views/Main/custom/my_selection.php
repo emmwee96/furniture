@@ -26,7 +26,7 @@
 
     <hr>
     <h5>Total : </h5>
-    <h2 id="total_price">0.00 MYR</h2>
+    <h2 id="total_price" style="font-size:20px">0.00 MYR</h2>
     <div class="skill-cart-option skill-sep posr" style="margin-left:0;">
         <a href="#" 
         onclick="add_to_cart()"
@@ -201,12 +201,14 @@
 
     $(document).on("change", "#height_form", function(e){
         var height = $(this).val();
+        refreshSelection();
 
         $("#height").html("<i>" + height + "</i>");
     });
 
     $(document).on("change", "#width_form", function(e){
         var width = $(this).val();
+        refreshSelection();
 
         $("#width").html("<i>" + width + "</i>");
     });

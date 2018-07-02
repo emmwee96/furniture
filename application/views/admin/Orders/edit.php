@@ -167,7 +167,15 @@
 	</div>
 </div>
 <script>
+	
+	var existing_selections = [];
+	var is_cabinet = true;
 	var addedProducts = [];
+    var all_products = <?= json_encode($products); ?>;
+	var selections = {};
+	var selected_product_id = 0;
+	var type = "";
+	var internal_frame = "";
 
 	<?php
 foreach ($order["details"] as $row) {
@@ -217,4 +225,147 @@ foreach ($order["details"] as $row) {
 			}
 		}
 	}
+
+	function changeSelection(product_id, key,ele,checkbox = false,label='',price =""){
+
+		selected_product_id = product_id
+
+		console.log
+
+		if(existing_selections[product_id] != undefined){
+			selections = existing_selections[product_id];
+		} else {
+			selections = {};
+			existing_selections[product_id] = selections;
+		}
+		
+		for(var i = 0; i < all_products.length; i++){
+			if(all_products[i]['custom_product_id'] == product_id){
+				all_selections = all_products[i]['labels'];
+			}
+		}
+		for(var i = 0; i < all_products.length; i++){
+			if(all_products[i]['custom_product_id'] == product_id){
+				all_add_ons = all_products[i]['add_ons'];
+			}
+		}
+    	var label_names = {};
+		var selected_options = {};
+		var label_names = {};
+		for(var i = 0; i < all_selections.length; i++){
+			selected_options[ all_selections[i]['custom_product_field_id']] = null;
+			label_names[all_selections[i]['label_id']] = all_selections[i]['label'];
+		}
+		for(var i = 0; i < all_add_ons.length; i++){
+			label_names[all_add_ons[i]['label_id']] = all_add_ons[i]['label'];
+		}
+
+        if(checkbox){
+            if($(ele).is(":checked")){
+                selections[key] = {
+                    name : label_names[key],
+                    label : label,
+                    type : "checkbox",
+                    row : {
+                        label : label,
+                        value : price
+                        
+                    }
+                };
+            }else{
+                delete selections[key];
+            }
+            refreshSelection();
+            return;
+        }
+
+		//get the selection_label row
+        var target_selection = null;
+        var label = "";
+        var label_value ="";
+        for(var i = 0; i < all_selections.length; i++){
+            if(all_selections[i]['label_id'] == key){
+                target_selection = all_selections[i];
+             
+                // get the label for options
+                for(var j = 0; j < target_selection['options'].length; j++){
+                    if(target_selection['options'][j]['custom_product_options_id'] == $(ele).val()){
+
+                        label = target_selection['options'][j]['label'];
+                        label_value = target_selection['options'][j]['value'];
+                        
+                        if(is_cabinet){
+                            //set cabinet only settings
+                            if(key == "c_type"){
+                                type = label;
+                                
+                            }else if(key == "c_internal_frame_material"){
+                                internal_frame = label;
+                            }
+
+                        }
+                        selections[key] = {
+                            name : label_names[key],
+                            label : label,
+                            type : "option",
+                            row : target_selection['options'][j]
+                        };
+                    }
+                }
+            }
+        }
+		existing_selections[product_id] === selections;
+
+        refreshSelection();
+    }
+
+    function refreshSelection(){
+        $(".c_add_on").html("");
+        for(key in selections)
+            $("#"+key).html(selections[key]);
+        
+        calculate();
+        $("#form_price_" + selected_product_id).val(total.toFixed(2));
+    }
+
+	function calculate(){
+        var valueColumn;
+        total = 0;
+
+        var height = $("#height_form_" + selected_product_id).val();
+        var width = $("#width_form_" + selected_product_id).val();
+        // var type = $("#form_c_type_" + selected_product_id + " option:selected").text();
+        // var internal_frame = $("#form_c_internal_frame_" + selected_product_id + " option:selected").text();
+		var area = ((height-2400)/300) * width;
+		console.log(area);
+        ft = parseFloat(width)/300;
+        var price_multiplier = ft > 1.5 ? 2 : 1.5;
+
+        if(type == "Standard Height"){
+			if(internal_frame == "White PVC")
+                valueColumn = "standard_white_pvc";
+            else
+                valueColumn = "standard_color_pvc";
+        }else{
+            if(internal_frame == "White PVC")
+                valueColumn = "full_white_pvc";
+            else
+                valueColumn = "full_color_pvc";
+        }
+
+		console.log(selections);
+		for(key in selections){
+            $("#"+key).html("<i>" + selections[key]['label'] + "</i>");
+           	//console.log(selections[key]['label'] + " : " + selections[key]['row'][valueColumn]);
+
+            if(selections[key]['type'] == "checkbox")
+                total += parseFloat(selections[key]['row']["value"] * ft);
+            else    
+                total += parseFloat(selections[key]['row'][valueColumn] * ft);
+        }
+
+        total *= price_multiplier;
+        total += area;
+        
+    }
 </script>

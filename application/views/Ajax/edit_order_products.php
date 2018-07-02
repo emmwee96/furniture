@@ -12,11 +12,11 @@ foreach ($product as $row) {
 		<div class="col-xs-12">
 			<div class="col-md-6 col-xs-12">
 				<label>Height (mm)</label>
-				<input type="number" class="form-control" name="height_<?= $row['product_id'] ?>">
+				<input type="number" class="form-control" name="height_<?= $row['product_id'] ?>" value="3000" onchange="calculate(<?= $row['product_id']?>)" id="height_form_<?= $row['product_id'] ?>">
 			</div>
 			<div class="col-md-6 col-xs-12">
 				<label>Width (mm)</label>
-				<input type="number" class="form-control" name="width_<?= $row['product_id'] ?>">
+				<input type="number" class="form-control" name="width_<?= $row['product_id'] ?>" value="2400" onchange="calculate(<?= $row['product_id']?>)" id="width_form_<?= $row['product_id'] ?>">
 			</div>
 		</div>
 		<div class="col-xs-12">
@@ -25,16 +25,14 @@ foreach ($product as $row) {
 		foreach ($row["labels"] as $label_row) {
 			?>
 				<div class="col-md-3 col-xs-12">
-					<select class="form-control" name="<?= $label_row['label_id'] ?>_<?= $row['product_id'] ?>" style="margin-top:2.5%;">
+					<select class="form-control" name="<?= $label_row['label_id'] ?>_<?= $row['product_id'] ?>" style="margin-top:2.5%;" onchange="changeSelection('<?= $row['product_id'] ?>', '<?= $label_row['label_id']; ?>',this)" id="form_<?= $label_row['label_id'] ?>_<?= $row['product_id'] ?>">
 						<option value="">
 							<?= $label_row["label"] ?>
 						</option>
 						<?php
 					foreach ($label_row["options"] as $option_row) {
 						?>
-							<option value="<?= $option_row['custom_product_options_id'] ?>">
-								<?= $option_row["label"] ?>
-							</option>
+							<option value="<?= $option_row['custom_product_options_id'] ?>"><?= $option_row["label"] ?></option>
 							<?php
 
 					}
@@ -54,7 +52,7 @@ foreach ($product as $row) {
 				?>
 					<div class="checkbox-inline">
 						<label>
-							<input type="checkbox" name="<?= $add_on_row['label_id'] ?>_<?= $row['product_id'] ?>" value="CHECKED">
+							<input type="checkbox" name="<?= $add_on_row['label_id'] ?>_<?= $row['product_id'] ?>" value="CHECKED" onchange="changeSelection('<?= $row['product_id'] ?>','<?= $add_on_row['label_id']; ?>',this,true,'<?= $add_on_row['label']; ?>',<?= $add_on_row['value']; ?>)" id="form_<?= $add_on_row['label_id'] ?>_<?= $row['product_id'] ?>">
 							<?= $add_on_row["label"] ?>
 						</label>
 					</div>
@@ -68,7 +66,7 @@ foreach ($product as $row) {
 			<hr>
 			<div class="col-xs-12">
 				<label>Price</label>
-				<input type="number" name="price_<?= $row['product_id'] ?>" class="form-control" required min="1">
+				<input type="number" name="price_<?= $row['product_id'] ?>" class="form-control" required min="1" id="form_price_<?= $row['product_id'] ?>">
 			</div>
 			<hr/>
 		</div>

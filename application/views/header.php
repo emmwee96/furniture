@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -75,7 +75,8 @@
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-12">
                                 <div class="header-logo home2-header-logo header-logo-def">
-                                   <a href="<?= site_url('Main'); ?>"><h1> LOGO</h1>   </a>                             </div>
+                                   <a href="<?= site_url('Main'); ?>"><img src="<?= base_url()?>images/logo.png"></a>                             
+                                </div>
                             </div>
                             <div class="col-md-9 col-sm-9 hidden-xs">
                                 <nav>

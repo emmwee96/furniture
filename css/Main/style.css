@@ -280,7 +280,7 @@ body {}::-moz-selection {
 /*Header middle css start*/
 
 .header-logo {
-    padding: 10px 0;
+    padding: 20px 0;
 }
 .sticky .header-logo {
     padding: 0;

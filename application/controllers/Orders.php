@@ -95,9 +95,9 @@ class Orders extends Base_Controller
 
         $i = 0;
         foreach ($products as $row) {
-            // $products[$i]["labels"] = $this->Custom_Product_model->get_labels($row['custom_product_id']);
-            // $products[$i]["add_ons"] = $this->Custom_Product_model->get_add_ons($row['custom_product_id']);
-            // $products[$i]["images"] = $this->Custom_Product_model->get_images($row['custom_product_id']);
+            $products[$i]["labels"] = $this->Custom_Product_model->get_labels($row['custom_product_id']);
+            $products[$i]["add_ons"] = $this->Custom_Product_model->get_add_ons($row['custom_product_id']);
+            $products[$i]["images"] = $this->Custom_Product_model->get_images($row['custom_product_id']);
             $products[$i]["product_id"] = $row["custom_product_id"];
             $i++;
         }
@@ -126,82 +126,84 @@ class Orders extends Base_Controller
 
             $this->Order_product_model->hard_delete_where($where);
 
-            foreach ($input["product_id"] as $product_id) {
-                $where = array(
-                    "custom_product_id" => $product_id
-                );
+            if (!empty($input["product_id"])) {
+                foreach ($input["product_id"] as $product_id) {
+                    $where = array(
+                        "custom_product_id" => $product_id
+                    );
 
-                $product = $this->Custom_Product_model->get_where($where);
+                    $product = $this->Custom_Product_model->get_where($where);
 
-                $i = 0;
-                foreach ($product as $row) {
-                    $product[$i]["labels"] = $this->Custom_Product_model->get_labels($row['custom_product_id']);
-                    $product[$i]["add_ons"] = $this->Custom_Product_model->get_add_ons($row['custom_product_id']);
-                    $product[$i]["images"] = $this->Custom_Product_model->get_images($row['custom_product_id']);
-                    $product[$i]["product_id"] = $row["custom_product_id"];
-                    $i++;
-                }
-
-                $options = array();
-                foreach ($product[0]['labels'] as $row) {
-                    if ($input[$row['label_id'] . "_" . $product_id] != "") {
-                        $where = array(
-                            "label_id" => $row['label_id'],
-                            "custom_product_id" => $product_id,
-                        );
-
-                        $custom_product_fields = $this->Custom_product_fields_model->get_where($where);
-
-                        $where = array(
-                            "custom_product_fields_id" => $custom_product_fields[0]["custom_product_field_id"],
-                            "custom_product_options_id" => $input[$row['label_id'] . "_" . $product_id]
-                        );
-
-                        $custom_product_options = $this->Custom_product_options_model->get_where($where);
-
-                        $options[$custom_product_fields[0]["label_id"]] = array(
-                            "name" => $custom_product_fields[0]["label"],
-                            "label" => $custom_product_options[0]["label"],
-                            "type" => "option",
-                            "row" => $custom_product_options[0]
-                        );
+                    $i = 0;
+                    foreach ($product as $row) {
+                        $product[$i]["labels"] = $this->Custom_Product_model->get_labels($row['custom_product_id']);
+                        $product[$i]["add_ons"] = $this->Custom_Product_model->get_add_ons($row['custom_product_id']);
+                        $product[$i]["images"] = $this->Custom_Product_model->get_images($row['custom_product_id']);
+                        $product[$i]["product_id"] = $row["custom_product_id"];
+                        $i++;
                     }
-                }
 
-                foreach ($product[0]['add_ons'] as $row) {
-                    if (!empty($input[$row['label_id'] . "_" . $product_id])) {
-                        if ($input[$row['label_id'] . "_" . $product_id] == "CHECKED") {
+                    $options = array();
+                    foreach ($product[0]['labels'] as $row) {
+                        if ($input[$row['label_id'] . "_" . $product_id] != "") {
                             $where = array(
                                 "label_id" => $row['label_id'],
                                 "custom_product_id" => $product_id,
                             );
 
-                            $custom_product_add_ons = $this->Custom_product_add_ons_model->get_where($where);
+                            $custom_product_fields = $this->Custom_product_fields_model->get_where($where);
 
-                            $options[$custom_product_add_ons[0]["label_id"]] = array(
-                                "name" => $custom_product_add_ons[0]["label"],
-                                "label" => $custom_product_add_ons[0]["label"],
-                                "type" => "checkbox",
-                                "row" => array(
-                                    "label" => $custom_product_add_ons[0]["label"],
-                                    "value" => $custom_product_add_ons[0]["value"]
-                                )
+                            $where = array(
+                                "custom_product_fields_id" => $custom_product_fields[0]["custom_product_field_id"],
+                                "custom_product_options_id" => $input[$row['label_id'] . "_" . $product_id]
+                            );
+
+                            $custom_product_options = $this->Custom_product_options_model->get_where($where);
+
+                            $options[$custom_product_fields[0]["label_id"]] = array(
+                                "name" => $custom_product_fields[0]["label"],
+                                "label" => $custom_product_options[0]["label"],
+                                "type" => "option",
+                                "row" => $custom_product_options[0]
                             );
                         }
                     }
+
+                    foreach ($product[0]['add_ons'] as $row) {
+                        if (!empty($input[$row['label_id'] . "_" . $product_id])) {
+                            if ($input[$row['label_id'] . "_" . $product_id] == "CHECKED") {
+                                $where = array(
+                                    "label_id" => $row['label_id'],
+                                    "custom_product_id" => $product_id,
+                                );
+
+                                $custom_product_add_ons = $this->Custom_product_add_ons_model->get_where($where);
+
+                                $options[$custom_product_add_ons[0]["label_id"]] = array(
+                                    "name" => $custom_product_add_ons[0]["label"],
+                                    "label" => $custom_product_add_ons[0]["label"],
+                                    "type" => "checkbox",
+                                    "row" => array(
+                                        "label" => $custom_product_add_ons[0]["label"],
+                                        "value" => $custom_product_add_ons[0]["value"]
+                                    )
+                                );
+                            }
+                        }
+                    }
+
+                    $data = array(
+                        "product_id" => $product[0]["custom_product_id"],
+                        "order_id" => $order_id,
+                        "total" => $input["price_" . $product_id],
+                        "height" => $input["height_" . $product_id],
+                        "width" => $input["width_" . $product_id],
+                        "name" => $product[0]['name'],
+                        "options" => json_encode($options)
+                    );
+
+                    $this->Order_product_model->insert($data);
                 }
-
-                $data = array(
-                    "product_id" => $product[0]["custom_product_id"],
-                    "order_id" => $order_id,
-                    "total" => $input["price_" . $product_id],
-                    "height" => $input["height_" . $product_id],
-                    "width" => $input["width_" . $product_id],
-                    "name" => $product[0]['name'],
-                    "options" => json_encode($options)
-                );
-
-                $this->Order_product_model->insert($data);
             }
 
             redirect("orders/details/" . $order_id, "refresh");
@@ -268,7 +270,8 @@ class Orders extends Base_Controller
         }
     }
 
-    function add_to_log($order_id){
+    function add_to_log($order_id)
+    {
         $orders = $this->Orders_model->get($order_id);
 
         $this->load->model("User_model");
@@ -299,7 +302,7 @@ class Orders extends Base_Controller
         }
 
         $this->page_data["products"] = $products;
-        
+
         $data = array(
             "order_id" => $order_id,
             "user_id" => $orders[0]["user_id"],
@@ -321,7 +324,7 @@ class Orders extends Base_Controller
 
         $order_log_id = $this->Orders_log_model->insert($data);
 
-        foreach($orders[0]["details"] as $row){
+        foreach ($orders[0]["details"] as $row) {
 
             $data = array(
                 "order_log_id" => $order_log_id,

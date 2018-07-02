@@ -35,24 +35,13 @@
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                 </div>
             </div>
-            <div class="compare-conpart-pm compare-bottom" style="border:none;padding-bottom:0;">
-               
-                <div class="plus-minus-text">Install Height (mm)</div>
-                <div class="skill-plusminus-wrap">
-                    <div class="skill-plusminus">
-                        <div class="skill-minus qtybutton">-</div>
-                            <input type="text" name="#" value="220" class="cart-plus-minus-box" name="height" id="height_form"/>
-                        <div class="skill-plus qtybutton">+</div>
-                    </div>
-                </div>
-            </div>
             <div class="compare-conpart-pm compare-bottom">
                
             <div class="plus-minus-text">Install Width (mm)&nbsp;&nbsp;</div>
             <div class="skill-plusminus-wrap">
                 <div class="skill-plusminus">
                     <div class="skill-minus qtybutton">-</div>
-                        <input type="text" name="#" value="400" class="cart-plus-minus-box" name="width" id="width_form"/>
+                        <input type="text" name="#" value="3000" class="cart-plus-minus-box" name="width" id="width_form"/>
                     <div class="skill-plus qtybutton">+</div>
                 </div>
             </div>
