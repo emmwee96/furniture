@@ -1,6 +1,6 @@
 <section class="content-header">
 	<h1>
-		<?= $faq['title'] ?>
+		FAQ Details
 	</h1>
 	<ol class="breadcrumb">
 		<li>
@@ -9,7 +9,7 @@
 		</li>
 		<li>
 			<a href="<?= base_url() ?>Faq/detail/<?= $faq['faq_id'] ?>">
-				<?= $faq['title'] ?>
+				FAQ Details
 			</a>
 		</li>
 	</ol>

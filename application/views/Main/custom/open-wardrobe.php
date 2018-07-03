@@ -11,14 +11,40 @@
 									<a href="<?= site_url(); ?>/images/product/custom/open1.JPG" class="fancybox" data-fancybox-group="gallery">
 										<img class="main_image" src="<?= site_url(); ?>/images/product/custom/open1.JPG" alt="" />
 									</a>
-								</div>
-								<?php foreach($product_image as $row){ ?> -->
+								</div> -->
+								<?php foreach ($product_image as $row) { ?>
 								<div class="tab-single-image">
-									<a href="<?= site_url().$row['url'] ?>" class="fancybox" data-fancybox-group="gallery">
-										<img class="sub_image" data-img="<?= site_url().$row['url']; ?>" src="<?= site_url().$row['url']; ?>">
+									<a href="<?= site_url() . $row['url'] ?>" class="fancybox" data-fancybox-group="gallery">
+										<img data-img="<?= site_url() . $row['url']; ?>" src="<?= site_url() . $row['url']; ?>">
 									</a>
 								</div>
-								<?php } ?>
+								<?php 
+						} ?>
+							</div>
+							<div class="slider-nav" 
+							<?php
+								if(count($product_image) == 1){
+									?>
+									style="margin-left:-70%;"
+									<?php
+								} else if(count($product_image) == 2){
+									?>
+									style="margin-left:-45%;"
+									<?php
+								} else if (count($product_image) == 3){
+									?>
+									style="margin-left:-15%;"
+									<?php
+								}
+							?>>
+								<?php foreach ($product_image as $row) { ?>
+								<div>
+									<a class="gallery">
+										<img class="sub_image" data-img="<?= site_url() . $row['url']; ?>" src="<?= site_url() . $row['url']; ?>">
+									</a>
+								</div>
+								<?php 
+						} ?>
 							</div>
 						</div>
 					</div>
@@ -45,7 +71,7 @@
 							<div class="skill-plusminus-wrap">
 								<div class="skill-plusminus">
 									<div class="skill-minus qtybutton">-</div>
-                            			<input type="text" name="#" value="3000" class="cart-plus-minus-box" name="height" id="height_form"/>
+									<input type="text" name="#" value="3000" class="cart-plus-minus-box" name="height" id="height_form" />
 									<div class="skill-plus qtybutton">+</div>
 								</div>
 							</div>
@@ -56,7 +82,7 @@
 							<div class="skill-plusminus-wrap">
 								<div class="skill-plusminus">
 									<div class="skill-minus qtybutton">-</div>
-                            			<input type="text" name="#" value="2400" class="cart-plus-minus-box" name="width" id="width_form"/>
+									<input type="text" name="#" value="2400" class="cart-plus-minus-box" name="width" id="width_form" />
 									<div class="skill-plus qtybutton">+</div>
 								</div>
 							</div>
@@ -64,8 +90,8 @@
 
 						<div class="compare-conpart skill-communicate">
 
-							<?php foreach($selection_labels as $row){ 
-                                        if ($row['label'] == 'Internal Frame Material') {?>
+							<?php foreach ($selection_labels as $row) {
+							if ($row['label'] == 'Internal Frame Material') { ?>
 
 							<div class="skill-checklist internal_frame_container">
 								<label for="<?= $row['label_id']; ?>">
@@ -78,13 +104,17 @@
 								</label>
 								<select class="custom_select" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
 									<option value="">-- select a type --</option>
-									<?php foreach($row['options'] as $option){ ?>
-										<option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
-									<?php } ?>
-								
+									<?php foreach ($row['options'] as $option) { ?>
+									<option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>">
+										<?= $option['label']; ?>
+									</option>
+									<?php 
+							} ?>
+
 								</select>
 							</div>
-							<?php } elseif ($row['label'] == 'External Frame Material') { ?>
+							<?php 
+					} elseif ($row['label'] == 'External Frame Material') { ?>
 							<div class="skill-checklist external_frame_container">
 								<label for="<?= $row['label_id']; ?>">
 									<span class="italic">Choose
@@ -96,21 +126,26 @@
 								</label>
 								<select class="custom_select" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
 									<option value="">-- select a type --</option>
-									<?php foreach($row['options'] as $option){ ?>
-										<option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
-									<?php } ?>
-								
+									<?php foreach ($row['options'] as $option) { ?>
+									<option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>">
+										<?= $option['label']; ?>
+									</option>
+									<?php 
+							} ?>
+
 								</select>
 							</div>
 
-							<?php } ?>
-							<?php } ?>
+							<?php 
+					} ?>
+							<?php 
+					} ?>
 
 						</div>
 
-						<?php foreach($selection_labels as $row){ 
-                                    if ($row['label'] !== 'Internal Frame Material') {
-                                        if ($row['label'] !== 'External Frame Material') { ?>
+						<?php foreach ($selection_labels as $row) {
+						if ($row['label'] !== 'Internal Frame Material') {
+							if ($row['label'] !== 'External Frame Material') { ?>
 						<div class="compare-conpart skill-communicate">
 							<div class="skill-checklist">
 								<label for="<?= $row['label_id']; ?>">
@@ -123,17 +158,23 @@
 								</label>
 								<br>
 								<select class="custom_select" name="type" onchange="changeSelection('<?= $row['label_id']; ?>',this)">
-                                    <option value="">-- select a type --</option>
-                                    <?php foreach($row['options'] as $option){ ?>
-                                        <option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>" ><?= $option['label']; ?></option>
-                                    <?php } ?>
-                                
-                                </select>
+									<option value="">-- select a type --</option>
+									<?php foreach ($row['options'] as $option) { ?>
+									<option value="<?= $option['custom_product_options_id']; ?>" data-label="<?= $option['label']; ?>">
+										<?= $option['label']; ?>
+									</option>
+									<?php 
+							} ?>
+
+								</select>
 							</div>
 						</div>
-						<?php } ?>
-						<?php } ?>
-						<?php } ?>
+						<?php 
+				} ?>
+						<?php 
+				} ?>
+						<?php 
+				} ?>
 						<!--
                                 <div class="compare-conpart skill-communicate">
                                     <div class="skill-checklist">
@@ -181,11 +222,13 @@
 								<label for="skillc" style="padding-right: 5%;">
 									<span class="italic">Add Ons</span>
 								</label>
-								<?php foreach($add_ons as $add_on){ ?>
-								<input style="margin-left: 1%;" type="checkbox" onchange="changeSelection('<?= $add_on['label_id']; ?>',this,true,'<?= $add_on['label']; ?>',<?= $add_on['value']; ?>)" name="drawer">
+								<?php foreach ($add_ons as $add_on) { ?>
+								<input style="margin-left: 1%;" type="checkbox" onchange="changeSelection('<?= $add_on['label_id']; ?>',this,true,'<?= $add_on['label']; ?>',<?= $add_on['value']; ?>)"
+								name="drawer">
 								<?= $add_on['label']; ?>
 
-									<?php } ?>
+									<?php 
+							} ?>
 
 							</div>
 
@@ -206,7 +249,7 @@
 				</div>
 			</form>
 			<div class="col-md-2 col-lg-2">
-				<?php $this->load->view("Main/custom/my_selection",array("selection_labels" => $selection_labels, "add_ons" => $add_ons, "height_label" => "Ceiling Height (mm)", "width_label" => "Install Width (mm)")); ?>
+				<?php $this->load->view("Main/custom/my_selection", array("selection_labels" => $selection_labels, "add_ons" => $add_ons, "height_label" => "Ceiling Height (mm)", "width_label" => "Install Width (mm)")); ?>
 			</div>
 		</div>
 
@@ -217,13 +260,14 @@
 				</div>
 
 				<div class="row">
-					<?php foreach($recommended_image as $row){ ?>
-						<div class="col-md-3 col-lg-3">
-							<a href="<?= site_url().$row['url'] ?>" class="fancybox" data-fancybox-group="gallery">
-								<img src="<?= site_url() . $row['url'] ?>">
-							</a>
-						</div>
-					<?php } ?>
+					<?php foreach ($recommended_image as $row) { ?>
+					<div class="col-md-3 col-lg-3">
+						<a href="<?= site_url() . $row['url'] ?>" class="fancybox" data-fancybox-group="gallery">
+							<img src="<?= site_url() . $row['url'] ?>">
+						</a>
+					</div>
+					<?php 
+			} ?>
 				</div>
 			</div>
 		</div>

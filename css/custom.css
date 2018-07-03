@@ -149,3 +149,10 @@
 	left: 9px !important;
 	z-index: 1;
 }
+
+.sub_image {
+	padding: 10%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

@@ -5,23 +5,33 @@
 </span>
     </h3>
     <hr>
-    <label><?= $height_label ?></label><br>
+    <?php 
+    if (isset($height_label)) {
+        ?>
+        <label><?= $height_label ?></label><br>
         <span id="height"></span>
         <br>
+            <?php
+
+        }
+        ?>
+    
     <label><?= $width_label ?></label><br>
         <span id="width"></span>
         <br>
-    <?php foreach($selection_labels as $row){ ?>
+    <?php foreach ($selection_labels as $row) { ?>
         <label><?= $row['label'] ?></label><br>
         <span id="<?= $row['label_id']; ?>"></span>
         <br>
-    <?php } ?>
+    <?php 
+} ?>
 
     <label>Add Ons</label><br>
     <div class="selected_add_ons">
-    <?php foreach($add_ons as $add_on){ ?>
+    <?php foreach ($add_ons as $add_on) { ?>
         <span class="c_add_on" id="<?= $add_on['label_id']; ?>" ></span><br>
-    <?php } ?>
+    <?php 
+} ?>
     </div>
 
     <hr>

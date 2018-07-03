@@ -119,7 +119,18 @@
             $('.ttip').tooltip()
 
             $('.single-carousel').slick({
-                
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+            $('.slider-nav').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                asNavFor: '.single-carousel',
+                focusOnSelect: true,
+                adaptiveHeight: true
             });
         });
 
