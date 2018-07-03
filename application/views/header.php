@@ -44,6 +44,8 @@
         <script src="<?= site_url(); ?>js/Main/vendor/jquery-1.12.0.min.js"></script>
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <link rel="stylesheet" type="text/css" href="<?= base_url() ?>css/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="<?= base_url() ?>css/slick-theme.css"/>
         <script>
             site_url = "<?= site_url(); ?>";
         </script>

@@ -6,15 +6,15 @@
 					<div class="single-product-tab"></div>
 					<div class="single-cat-main">
 						<div class="tab-content">
-							<div role="tabpanel" class="tab-pane active" id="tab-1">
-								<div class="tab-single-image">
+							<div role="tabpanel" class="tab-pane active single-carousel" id="tab-1">
+								<!-- <div class="tab-single-image">
 									<a href="<?= site_url(); ?>/images/product/custom/open1.JPG" class="fancybox" data-fancybox-group="gallery">
 										<img class="main_image" src="<?= site_url(); ?>/images/product/custom/open1.JPG" alt="" />
 									</a>
 								</div>
-								<?php foreach($product_image as $row){ ?>
-								<div class="col-md-4 col-lg-4">
-									<a class="gallery">
+								<?php foreach($product_image as $row){ ?> -->
+								<div class="tab-single-image">
+									<a href="<?= site_url().$row['url'] ?>" class="fancybox" data-fancybox-group="gallery">
 										<img class="sub_image" data-img="<?= site_url().$row['url']; ?>" src="<?= site_url().$row['url']; ?>">
 									</a>
 								</div>
@@ -217,26 +217,13 @@
 				</div>
 
 				<div class="row">
-					<div class="col-md-3 col-lg-3">
-						<a href="<?= site_url('Main/product/'." sliding-wardrobe "); ?>">
-							<img src="<?= site_url(); ?>/images/product/custom/slide1.jpg">
-						</a>
-					</div>
-					<div class="col-md-3 col-lg-3">
-						<a href="<?= site_url('Main/product/'." sliding-wardrobe "); ?>">
-							<img src="<?= site_url(); ?>/images/product/custom/slide2.jpg">
-						</a>
-					</div>
-					<div class="col-md-3 col-lg-3">
-						<a href="<?= site_url('Main/product/'." swing-door-wardrobe "); ?>">
-							<img src="<?= site_url(); ?>/images/product/custom/swing1.jpg">
-						</a>
-					</div>
-					<div class="col-md-3 col-lg-3">
-						<a href="<?= site_url('Main/product/'." swing-door-wardrobe "); ?>">
-							<img src="<?= site_url(); ?>/images/product/custom/swing2.jpg">
-						</a>
-					</div>
+					<?php foreach($recommended_image as $row){ ?>
+						<div class="col-md-3 col-lg-3">
+							<a href="<?= site_url().$row['url'] ?>" class="fancybox" data-fancybox-group="gallery">
+								<img src="<?= site_url() . $row['url'] ?>">
+							</a>
+						</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>

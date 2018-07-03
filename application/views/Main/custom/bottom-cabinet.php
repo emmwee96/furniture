@@ -6,15 +6,15 @@
                 <div class="single-product-tab"></div>
                 <div class="single-cat-main">
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="tab-1">
-                            <div class="tab-single-image">
+                        <div role="tabpanel" class="tab-pane active single-carousel" id="tab-1">
+                            <!-- <div class="tab-single-image">
                                 <a href="<?= site_url(); ?>/images/product/custom/floor.jpg" class="fancybox" data-fancybox-group="gallery"><img class="main_image" src="<?= site_url(); ?>/images/product/custom/floor.jpg" alt="" />
                                 </a>
                             </div>
-                            <br>
+                            <br> -->
                             <?php foreach($product_image as $row){ ?>
-								<div class="col-md-4 col-lg-4">
-									<a class="gallery">
+								<div class="tab-single-image">
+									<a href="<?= site_url().$row['url'] ?>" class="fancybox" data-fancybox-group="gallery">
 										<img class="sub_image" data-img="<?= site_url().$row['url']; ?>" src="<?= site_url().$row['url']; ?>">
 									</a>
 								</div>

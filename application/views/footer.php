@@ -110,12 +110,17 @@
     <script src="<?= site_url(); ?>js/Main/google-map.js"></script>
     <script src="<?= site_url(); ?>js/Main/jquery.fancybox.js"></script>
     <script src="<?= site_url(); ?>js/Main/functions.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>js/slick.min.js"></script>
     <script>
         refresh_cart();
     </script>
     <script>
         $(document).ready(function(){
             $('.ttip').tooltip()
+
+            $('.single-carousel').slick({
+                
+            });
         });
 
         $('.panel-collapse').on('shown.bs.collapse', function (e) {
@@ -125,11 +130,11 @@
             }, 500); 
         });
 
-        $(document).on("click", ".sub_image", function(e){
-            var img = $(this).data("img");
-            $(".main_image").attr("src", img);
-            $(".fancybox").attr("href", img);
-        });
+        // $(document).on("click", ".sub_image", function(e){
+        //     var img = $(this).data("img");
+        //     $(".main_image").attr("src", img);
+        //     $(".fancybox").attr("href", img);
+        // });
     </script>
 </body>
 </html>

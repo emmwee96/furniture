@@ -22,7 +22,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <form id="product_form" method="POST" action="<?php echo site_url("Product/edit_images/" . $custom_product_id); ?>">
+                        <form id="product_form" method="POST" action="<?php echo site_url("Product/edit_recommended_images/" . $custom_product_id); ?>">
                             <div class="tab-content">
                                 <div class="tab-pane active" id="add">
                                     <div class="row">
@@ -116,7 +116,7 @@
         e.preventDefault();
         if (confirm("Are you sure you want to delete this image?")) {
             id = $(this).attr('data-id');
-            window.location.replace("<?= base_url() ?>product/delete_image/" + id);
+            window.location.replace("<?= base_url() ?>product/delete_recommended_images/" + id);
         }
     });
 

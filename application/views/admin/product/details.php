@@ -58,6 +58,27 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+            <div class="box box-default">
+                <div class="box-header">
+                    Recommended Images
+                    <a href="<?= site_url("product/edit_recommended_images/" . $products['custom_product_id']); ?>" class="pull-right">
+                        edit
+                    </a>
+                </div>
+                <div class="box-body" id="family-tree-container">
+                    <?php
+                    foreach ($recommended_images as $row) {
+                        ?>
+                        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12 product-images">
+                            <img class="cropped" src="<?= base_url() . $row['url'] ?>">
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

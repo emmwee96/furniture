@@ -57,7 +57,8 @@ class Main extends Base_Controller{
             "product" => $product[0],
             "selection_labels" => $this->Custom_Product_model->get_labels($product[0]['product_id']),
             "add_ons" => $this->Custom_Product_model->get_add_ons($product[0]['product_id']),
-            "product_image" => $this->Custom_Product_model->get_images($product[0]['product_id'])
+            "product_image" => $this->Custom_Product_model->get_images($product[0]['product_id']),
+            "recommended_image" => $this->Custom_Product_model->get_recommended_images($product[0]['product_id'])
         );
 
         $this->load->view("header",$data);
