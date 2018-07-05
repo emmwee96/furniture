@@ -108,17 +108,28 @@
 							<span>Users</span>
 						</a>
 					</li>
-					<li>
-						<a href="<?= base_url() ?>Orders">
+					<li class="treeview">
+						<a href="#">
 							<i class="fa fa-truck"></i>
 							<span>Orders</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
 						</a>
-					</li>
-					<li>
-						<a href="<?= base_url() ?>Orders_log">
-							<i class="fa fa-calendar"></i>
-							<span>Orders Log</span>
-						</a>
+						<ul class="treeview-menu" style="display: none;">
+							<li>
+								<a href="<?= base_url() ?>Orders">
+									<i class="fa fa-circle-thin"></i>
+									<span>Orders</span>
+								</a>
+							</li>
+							<li>
+								<a href="<?= base_url() ?>Orders_log">
+									<i class="fa fa-circle-thin"></i>
+									<span>Orders Log</span>
+								</a>
+							</li>
+						</ul>
 					</li>
 					<li>
 						<a href="<?= base_url() ?>category">
@@ -132,29 +143,51 @@
 							<span>Product</span>
 						</a>
 					</li>
-					<li>
-						<a href="<?= base_url() ?>Gallery">
+					<li class="treeview">
+						<a href="#">
 							<i class="fa fa-image"></i>
-							<span>Gallery</span>
+							<span>Front Page Images</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
 						</a>
+						<ul class="treeview-menu" style="display: none;">
+							<li>
+								<a href="<?= base_url() ?>Gallery">
+									<i class="fa fa-circle-thin"></i>
+									<span>Gallery</span>
+								</a>
+							</li>
+							<li>
+								<a href="<?= base_url() ?>Banner">
+									<i class="fa fa-circle-thin"></i>
+									<span>Banner</span>
+								</a>
+							</li>
+						</ul>
 					</li>
-					<li>
-						<a href="<?= base_url() ?>Banner">
-							<i class="fa fa-image"></i>
-							<span>Banner</span>
-						</a>
-					</li>
-					<li>
-						<a href="<?= base_url() ?>faq_category">
-							<i class="fa fa-folder-open"></i>
-							<span>FAQ Category</span>
-						</a>
-					</li>
-					<li>
-						<a href="<?= base_url() ?>faq">
+					<li class="treeview">
+						<a href="#">
 							<i class="fa fa-question-circle"></i>
 							<span>FAQ</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
 						</a>
+						<ul class="treeview-menu" style="display: none;">
+							<li>
+								<a href="<?= base_url() ?>faq">
+									<i class="fa fa-circle-thin"></i>
+									<span>FAQ</span>
+								</a>
+							</li>
+							<li>
+								<a href="<?= base_url() ?>faq_category">
+									<i class="fa fa-circle-thin"></i>
+									<span>FAQ Category</span>
+								</a>
+							</li>
+						</ul>
 					</li>
 					<li>
 						<a href="<?= base_url() ?>Access/logout">

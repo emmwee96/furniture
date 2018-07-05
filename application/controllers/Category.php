@@ -3,9 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Category extends  Base_Controller{
+class Category extends Base_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         if (!$this->session->has_userdata("login_data")) {
@@ -16,24 +18,26 @@ class Category extends  Base_Controller{
         $this->page_data = array();
     }
 
-    public function index() {
+    public function index()
+    {
 
         $this->page_data['category'] = $this->Category_model->get_all();
-        
+
         $this->load->view('admin/header', $this->page_data);
         $this->load->view('admin/category/all');
         $this->load->view('admin/footer');
     }
 
-    public function edit($category_id) {
+    public function edit($category_id)
+    {
         $where = array(
             "category_id" => $category_id,
         );
 
         $category = $this->Category_model->get_where($where);
-        
+
         $this->page_data['category'] = $category[0];
-        
+
         if ($_POST) {
             $input = $this->input->post();
 
@@ -41,7 +45,8 @@ class Category extends  Base_Controller{
                 $config = array(
                     "allowed_types" => "gif|png|jpg|jpeg",
                     "upload_path" => "./images/category/",
-                    "path" => "/images/category/");
+                    "path" => "/images/category/"
+                );
 
                 $this->load->library("upload", $config);
                 if ($this->upload->do_upload("images")) {

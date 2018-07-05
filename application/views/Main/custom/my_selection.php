@@ -193,6 +193,8 @@
 
 
     function add_to_cart(){
+        var product_title = $(".product_title").text();
+
         $.post(site_url+'Main/add_to_cart',
             {
                 product_id : "<?= $product['custom_product_id']; ?>",
@@ -203,7 +205,7 @@
                 width: $("#width_form").val()
             },
             function(response){
-                alert("added");
+                alert(product_title + " added");
                 refresh_cart();
             },
             "JSON");

@@ -36,12 +36,23 @@ class Main extends Base_Controller{
     
     function category($category_id){
 
+        $where = array(
+            "category_id" => $category_id
+        );
+
+        $category = $this->Category_model->get_where($where);
+
+        $this->show_404_if_empty($category);
+
+        $this->page_data["category"] = $category[0];
+        
         $products = $this->Custom_Product_model->get_where(array(
             "category_id" => $category_id
         ));
 
         $this->page_data = array(
-            "products" => $products
+            "products" => $products,
+            "category" => $category[0]
         );
 
         $this->load->view("header",$this->page_data);

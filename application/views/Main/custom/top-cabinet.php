@@ -54,7 +54,7 @@
 				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="compare-content-wrap">
 						<div class="cmain-heading text-uppercase">
-							<h3>Top Cabinet</h3>
+							<h3 class="product_title">Top Cabinet</h3>
 						</div>
 
 						<div class="compare-conpart compare-conpart-text">
