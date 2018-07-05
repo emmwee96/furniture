@@ -21,7 +21,22 @@
 								<?php 
 						} ?>
 							</div>
-							<div class="slider-nav">
+							<div class="slider-nav"
+							<?php
+								if(count($product_image) == 1){
+									?>
+									style="margin-left:-52%;"
+									<?php
+								} else if(count($product_image) == 2){
+									?>
+									style="margin-left:-30%;"
+									<?php
+								} else if(count($product_image) == 3){
+									?>
+									style="margin-left:-12%;"
+									<?php
+								}
+							?>>
 								<?php foreach ($product_image as $row) { ?>
 								<div>
 									<a class="gallery">

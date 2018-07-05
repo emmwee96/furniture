@@ -139,6 +139,12 @@
 						</a>
 					</li>
 					<li>
+						<a href="<?= base_url() ?>Banner">
+							<i class="fa fa-image"></i>
+							<span>Banner</span>
+						</a>
+					</li>
+					<li>
 						<a href="<?= base_url() ?>faq_category">
 							<i class="fa fa-folder-open"></i>
 							<span>FAQ Category</span>

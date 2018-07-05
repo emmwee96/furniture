@@ -1,6 +1,6 @@
 <section class="content-header">
     <h1>
-        Gallery
+        Banner
     </h1>
 </section>
 <br>
@@ -8,7 +8,7 @@
     <div class="mediumBox">
         <div class='panel panel-default'>
             <div class='panel-heading'>
-                <h4 class="whiteTitle " style='display: inline-block;width:100%;'>Gallery
+                <h4 class="whiteTitle " style='display: inline-block;width:100%;'>Banner
                     <div class="btn btn-info pull-right" data-toggle="modal" data-target="#addImageModal">Add</div>
                 </h4>
             </div>
@@ -30,7 +30,7 @@
                                 <tr>
                                     <td><img class="xs-thumbnail" src="<?= base_url($image['image']);  ?>"></td>
                                    
-                                    <td> <a class="btn btn-warning" href='<?= base_url('gallery/delete/'.$image['gallery_id']) ?>'><i class="fa fa-remove"></i> Delete</a></td>
+                                    <td> <a class="btn btn-warning" href='<?= base_url('banner/delete/'.$image['banner_id']) ?>'><i class="fa fa-remove"></i> Delete</a></td>
                                 </tr>
                                 <?php
                                 $i++;
@@ -79,7 +79,7 @@
 
             $.ajax({
                 type:'POST',
-                url: "<?= site_url('Gallery/add'); ?>",
+                url: "<?= site_url('Banner/add'); ?>",
                 data:formData,
                 cache:false,
                 contentType: false,

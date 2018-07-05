@@ -22,18 +22,18 @@
 					} ?>
 						</div>
 						<div class="slider-nav" 
-							<?php
+						<?php
 								if(count($product_image) == 1){
 									?>
-									style="margin-left:-70%;"
+									style="margin-left:-52%;"
 									<?php
 								} else if(count($product_image) == 2){
 									?>
-									style="margin-left:-35%;"
+									style="margin-left:-30%;"
 									<?php
-								} else if (count($product_image) == 3){
+								} else if(count($product_image) == 3){
 									?>
-									style="margin-left:-15%;"
+									style="margin-left:-12%;"
 									<?php
 								}
 							?>>

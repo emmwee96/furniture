@@ -129,8 +129,7 @@
                 slidesToShow: 4,
                 slidesToScroll: 1,
                 asNavFor: '.single-carousel',
-                focusOnSelect: true,
-                adaptiveHeight: true
+                focusOnSelect: true
             });
         });
 

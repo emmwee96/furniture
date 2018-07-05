@@ -142,12 +142,22 @@
 }
 
 .slick-next {
-	right: 9px !important;
+	right: 5px !important;
 }
 
 .slick-prev {
-	left: 9px !important;
+	left: -5px !important;
 	z-index: 1;
+}
+
+.slider-nav .slick-list {
+	width: 85%;
+    margin: 0 auto;
+}
+
+.slider-nav .slick-slide{
+	height: 100px !important;
+    width: 100px !important;
 }
 
 .sub_image {

@@ -13,6 +13,7 @@ class Main extends Base_Controller{
         $this->load->model("Custom_Product_model");
         $this->load->model("Faq_model");
         $this->load->model("Faq_category_model");
+        $this->load->model("Banner_model");
 
         if(!$this->session->has_userdata("cart")){
             $this->session->set_userdata("cart",array());
