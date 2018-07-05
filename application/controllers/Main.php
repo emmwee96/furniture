@@ -14,6 +14,7 @@ class Main extends Base_Controller{
         $this->load->model("Faq_model");
         $this->load->model("Faq_category_model");
         $this->load->model("Banner_model");
+        $this->load->model("Gallery_model");
 
         if(!$this->session->has_userdata("cart")){
             $this->session->set_userdata("cart",array());
@@ -25,6 +26,9 @@ class Main extends Base_Controller{
         $this->page_data = array(
             "categories" => $categories
         );
+        
+        $this->page_data["banner"] = $this->Banner_model->get_all_ordered("banner_id DESC");
+
         $this->load->view("header",$this->page_data);
         $this->load->view("Main/index");
         $this->load->view("footer");
@@ -82,11 +86,10 @@ class Main extends Base_Controller{
     }
 
     function gallery(){
-        $images = $this->db->get("gallery")->result_array();
-        $pageData = array(
-            "images" => $images
-        );
-        $this->load->view("header",$pageData);
+        
+        $this->page_data["images"] = $this->Gallery_model->get_all_ordered("gallery_id DESC");
+        
+        $this->load->view("header",$this->page_data);
         $this->load->view("Main/gallery");
         $this->load->view("footer");
     }

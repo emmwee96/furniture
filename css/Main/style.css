@@ -580,7 +580,7 @@ li.active a {
 	display: none;
 }
 .sticky .shop-bag.home2-shopbag {
-	display: none;
+	/* display: none; */
 }
 /*Mobile menu*/
 
@@ -1800,7 +1800,8 @@ nav ul.main-menu {
     padding: 2px 0;
 }
 .sticky .home2-header-logo {
-    display: none;
+    /* display: none; */
+    padding-top: 6%;
 }
 .sticky .home2-header-logo2 {
     display: block;
@@ -2036,7 +2037,7 @@ nav ul.main-menu {
     width: 100%;
 }
 .sticky .shop-bag.home3-shopbag {
-    display: none;
+    /* display: none; */
 }
 .sticky .header-search.header-search-style2.header-search-position.hps2.hps3 {
     display: none;

@@ -81,6 +81,31 @@ class Base_Model extends CI_Model
         return $query->result_array();
     }
 
+    function get_all_ordered($order_by = "")
+    {
+        $fields = $this->db->list_fields($this->table_name);
+
+        $deleted = false;
+        foreach($fields as $row){
+            if($row == "deleted"){
+                $deleted = true;
+            }
+        }
+
+        $this->db->select("*");
+        $this->db->from($this->table_name);
+        if($deleted){
+            $this->db->where("deleted", 0);
+        }
+        if($order_by != ""){
+            $this->db->order_by($order_by);
+        }
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
     function get_all_with_role()
     {
         $this->db->select("*, role.role AS role");

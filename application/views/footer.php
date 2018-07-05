@@ -131,6 +131,9 @@
                 asNavFor: '.single-carousel',
                 focusOnSelect: true
             });
+            $('.banner_carousel').slick({
+
+            });
         });
 
         $('.panel-collapse').on('shown.bs.collapse', function (e) {
@@ -139,6 +142,7 @@
                 scrollTop: $panel.offset().top -110
             }, 500); 
         });
+        
 
         // $(document).on("click", ".sub_image", function(e){
         //     var img = $(this).data("img");

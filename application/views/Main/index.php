@@ -1,88 +1,50 @@
-     <!--slider area are start-->
-     <div class="slider-container slider2-container hp3-slider">
-            <!-- Slider Image -->
-            <div id="home3-slider" class="nivoSlider slider-image">
-                <img src="<?= site_url(); ?>images/slider/slider.jpg" alt="main slider" title="#htmlcaption5" />
-                <img src="<?= site_url(); ?>images/slider/slider.png" alt="main slider" title="#htmlcaption6" />
-            </div>
+<!--slider area are start-->
+<div class="banner_carousel">
+	<?php foreach ($banner as $row) { ?>
+	<div>
+		<img src="<?= site_url() . $row['image']; ?>">
+    </div>
+    <?php } ?>
+</div>
+<!--slider area are end-->
 
-            <!-- Slider2 Caption 2 -->
-            <div id="htmlcaption5" class="nivo-html-caption">
-                <div class="slider-progress"></div>
-                <div class="container">
-                    <div class="slider4-cap-wrapper4 cap-wrapper">
-                        <div class="captext-pos1">
-                            <div class="slider3-btext wow fadeInDown" data-wow-duration=".9s" data-wow-delay="0.8s">
-                                <h2></h2>
-                            </div>
-                            <div class="slider3-stext wow fadeInDown" data-wow-duration=".9s" data-wow-delay="0.8s">
-                                <h4></h4>
-                            </div>
-                            <div class="slider3-btn1 wow fadeInDown" data-wow-duration=".9s" data-wow-delay="0.8s">
-                                <a class="btn-trans" href="shop.html">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Slider2 Caption 1 -->
-            <div id="htmlcaption6" class="nivo-html-caption">
-                <div class="slider-progress"></div>
-                <div class="container">
-                    <div class="slider2-cap-wrapper2 cap-wrapper">
-                        <div class="captext-pos2 slider-capstyle3">
-                            <div class="slider3-toptext wow fadeInRight" data-wow-duration=".5s" data-wow-delay="0.8s">
-                                <h4></h4>
-                            </div>
-                            <div class="slider3-btext2 wow fadeInRight" data-wow-duration=".9s" data-wow-delay="0.8s">
-                                <h2></h2>
-                            </div>
-                            <div class="slider3-btext2 wow fadeInRight" data-wow-duration=".5s" data-wow-delay="0.8s">
-                                <h2></h2>
-                            </div>
-                            <div class="slider3-btn slider3-btn2 wow fadeInRight" data-wow-duration=".9s" data-wow-delay="0.8s">
-                                <a class="btn-nontrans" href="shop.html">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--slider area are end-->
-
-        <!--Banner3 top area start-->
-        <div class="banner3-top  hp3-banner-area hp3ba">
-            <h2 class="title_center">How it works</h2>
-            <br><br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
-                        <img src="<?= site_url('/images/product.png'); ?>" class="how_it_works_icon">
-                        <h3>Select A Product</h3>
-                        <p>Choose from our array of product selections.</p>
-                    </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
-                        <img src="<?= site_url('/images/dimensions.png'); ?>" class="how_it_works_icon">
-                        <h3>Customize</h3>
-                        <p>Customize to your desired dimensions and add ons.<p>
-                    </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
-                        <img src="<?= site_url('/images/quot.png'); ?>" class="how_it_works_icon">
-                        <h3>Get Quotation</h3>
-                        <p>Get your quotation instantly from our product finder<p>
-                    </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
-                        <img src="<?= site_url('/images/contact.png'); ?>" class="how_it_works_icon">
-                        <h3>Sit Back</h3>
-                        <p>Our customer service will contact you to complete the order.<p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Banner3 top area end-->
+<!--Banner3 top area start-->
+<div class="banner3-top  hp3-banner-area hp3ba">
+	<h2 class="title_center">How it works</h2>
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
+				<img src="<?= site_url('/images/product.png'); ?>" class="how_it_works_icon">
+				<h3>Select A Product</h3>
+				<p>Choose from our array of product selections.</p>
+			</div>
+			<div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
+				<img src="<?= site_url('/images/dimensions.png'); ?>" class="how_it_works_icon">
+				<h3>Customize</h3>
+				<p>Customize to your desired dimensions and add ons.
+					<p>
+			</div>
+			<div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
+				<img src="<?= site_url('/images/quot.png'); ?>" class="how_it_works_icon">
+				<h3>Get Quotation</h3>
+				<p>Get your quotation instantly from our product finder
+					<p>
+			</div>
+			<div class="col-12 col-lg-3 col-md-3 col-sm-12 col-xs-12 index_how_it_works">
+				<img src="<?= site_url('/images/contact.png'); ?>" class="how_it_works_icon">
+				<h3>Sit Back</h3>
+				<p>Our customer service will contact you to complete the order.
+					<p>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Banner3 top area end-->
 
 
-    <!--Banner3 top area start
+<!--Banner3 top area start
     <div class="banner3-middle bg_black" style="margin-top:0">
             <div class="banner-full-wrapper bg_black hp3-bannerbag-md">
                 <div class="container">
@@ -119,47 +81,47 @@
         Banner3 top area end-->
 
 
-        <!--Product banner area start-->
+<!--Product banner area start-->
 
-        <div class="product-banner-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="product-banner-left">
-                        <a href="<?= site_url('Main/category/'.$categories[0]['category_id']); ?>">
-                            <div class="pbanner-image hvreff-defm20 posr">
-                                <img src="<?= site_url().$categories[0]['image']; ?>" alt="" />
-                            </div>
-                            </a>
-                        </div>
+<div class="product-banner-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="product-banner-left">
+					<a href="<?= site_url('Main/category/'.$categories[0]['category_id']); ?>">
+						<div class="pbanner-image hvreff-defm20 posr">
+							<img src="<?= site_url().$categories[0]['image']; ?>" alt="" />
+						</div>
+					</a>
+				</div>
 
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="product-banner-right">
-                            <div class="img-banner">
-                            <a href="<?= site_url('Main/category/'.$categories[1]['category_id']); ?>">
-                                <div class="pbanner-image hvreff-defm10 posr">
-                                    <img src="<?= site_url().$categories[1]['image']; ?>" alt="" />
-                                </div>
-                                </a>
-                            </div>
-                            <div class="img-banner">
-                            <a href="<?= site_url('Main/category/'.$categories[2]['category_id']); ?>">
-                                <div class="pbanner-image hvreff-defm10 posr">
-                                    <img src="<?= site_url().$categories[2]['image']; ?>" alt="" />
-                                </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="product-banner-right">
+					<div class="img-banner">
+						<a href="<?= site_url('Main/category/'.$categories[1]['category_id']); ?>">
+							<div class="pbanner-image hvreff-defm10 posr">
+								<img src="<?= site_url().$categories[1]['image']; ?>" alt="" />
+							</div>
+						</a>
+					</div>
+					<div class="img-banner">
+						<a href="<?= site_url('Main/category/'.$categories[2]['category_id']); ?>">
+							<div class="pbanner-image hvreff-defm10 posr">
+								<img src="<?= site_url().$categories[2]['image']; ?>" alt="" />
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-        <!--Product banner area end-->
+<!--Product banner area end-->
 
-    
-        <!--Featured product area start
+
+<!--Featured product area start
         <div class="featured-product-area home3-fp">
             <div class="container">
                 <div class="row">
@@ -832,11 +794,11 @@
 
         Featured product area end-->
 
-     
 
 
-        <!-- Google map area start-->
 
-        <div class="hp3-map-area map-area">
-            <div id="googleMap2999"></div>
-        </div>
+<!-- Google map area start-->
+
+<div class="hp3-map-area map-area">
+	<div id="googleMap2999"></div>
+</div>
