@@ -51,7 +51,7 @@
                                 </tr>
                                 <tr>
                                     <th>Grand Total</th>
-                                    <td>: RM<?= number_format($orders['total'],2); ?></td>
+                                    <td>: RM<?= number_format($orders['total'], 2); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Address </th>
@@ -164,11 +164,12 @@
                                             <td></td>
                                         </tr>
                                         <?php 
-                                        $details = json_decode($orders["details"][$i]['options']);
-                                        foreach ($details as $key => $opt) { ?>
+                                        $details = json_decode($orders["details"][$i]['options'], true);
+                                        foreach ($details as $opt) {
+                                            ?>
                                             <tr>
                                                 <td></td>
-                                                <td><?= $opt->name; ?> : <?= $opt->label; ?></td>
+                                                <td><?= $opt["name"] ?> : <?= $opt["label"] ?> <?= ($opt["type"] == "checkbox")? "( x" . $opt["row"]["quantity"] . " )" : ""  ?></td>
                                                 <td></td>
                                             </tr>
                                         <?php 
@@ -188,10 +189,10 @@
 </div>
 <script>
     <?php
-    if ($this->session->flashdata("quotation")) {
+    if ($this->session->flashdata(" quotation ")) {
         ?>
         $(document).ready(function(){
-            alert("quotation sent");
+            alert(" quotation sent ");
         });
         <?php
 

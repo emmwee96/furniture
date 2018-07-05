@@ -82,20 +82,21 @@
     });
 
     function changeSelection(key,ele,checkbox = false,label='',price =""){
-        
+
         if(checkbox){
-            if($(ele).is(":checked")){
+            if($(ele).is(":checked") || $(ele).hasClass("add_on_qty")){
                 selections[key] = {
                     name : label_names[key],
                     label : label,
                     type : "checkbox",
                     row : {
                         label : label,
-                        value : price
+                        value : price,
+                        quantity : $("#" + key + "_qty").val()
                         
                     }
                 };
-            }else{
+            } else {
                 delete selections[key];
             }
             refreshSelection();
@@ -175,19 +176,19 @@
             else
                 valueColumn = "full_color_pvc";
         }
-       
+
         for(key in selections){
             $("#"+key).html("<i>" + selections[key]['label'] + "</i>");
            // console.log(selections[key]['label'] + " : " + selections[key]['row'][valueColumn]);
 
             if(selections[key]['type'] == "checkbox")
-                total += parseFloat(selections[key]['row']["value"] * ft);
+                total += parseFloat(selections[key]['row']["value"] * $("#" + key + "_qty").val());
             else    
                 total += parseFloat(selections[key]['row'][valueColumn] * ft);
         }
 
-        total *= price_multiplier;
-        total += area;
+        // total *= price_multiplier;
+        // total += area;
         
     }
 

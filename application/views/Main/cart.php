@@ -94,7 +94,7 @@
                                                         <?php
                                                     } else if ($option["type"] == "checkbox"){
                                                         ?>
-                                                        Add On : <?= $option["name"]?><br>
+                                                        Add On : <?= $option["name"]?> (x <?= $option["row"]["quantity"] ?>)<br>
                                                         <?php
                                                     }?>
                                                     <?php } ?>
