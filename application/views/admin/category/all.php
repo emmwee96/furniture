@@ -8,6 +8,8 @@
     <div class="mediumBox">
         <div class='panel panel-default'>
             <div class='panel-heading'>
+            <!-- <a href='<?php echo site_url('category/add'); ?>' class='btn btn-info pull-right'>
+                <i class='fa fa-plus' ></i> Add</a> -->
                 <h4 class="whiteTitle" style='display: inline-block;'>Category</h4>
             </div>
             <div class='panel-body'>

@@ -87,7 +87,7 @@
                                                 <p>
                                                     height : <?= $row["height"]?> (mm)<br>
                                                     width : <?= $row["width"]?> (mm)<br>
-                                                    <?php  foreach($row['options'] as $key => $option){ ?>
+                                                    <?php if (!empty($row['options'])) foreach($row['options'] as $key => $option){ ?>
                                                     <?php if($option["type"] == "option"){
                                                         ?>
                                                         <?= $option["name"] . " : " . $option['label']; ?><br>

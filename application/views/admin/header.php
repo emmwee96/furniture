@@ -108,6 +108,18 @@
 							<span>Users</span>
 						</a>
 					</li>
+					<li>
+						<a href="<?= base_url() ?>product">
+							<i class="fa fa-archive"></i>
+							<span>Product</span>
+						</a>
+					</li>
+					<li>
+						<a href="<?= base_url() ?>category">
+							<i class="fa fa-industry"></i>
+							<span>Category</span>
+						</a>
+					</li>
 					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-truck"></i>
@@ -130,18 +142,6 @@
 								</a>
 							</li>
 						</ul>
-					</li>
-					<li>
-						<a href="<?= base_url() ?>category">
-							<i class="fa fa-industry"></i>
-							<span>Category</span>
-						</a>
-					</li>
-					<li>
-						<a href="<?= base_url() ?>product">
-							<i class="fa fa-archive"></i>
-							<span>Product</span>
-						</a>
 					</li>
 					<li class="treeview">
 						<a href="#">

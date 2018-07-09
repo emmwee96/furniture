@@ -7,7 +7,7 @@
 					<div class="pull-left image ">
 						<img src="<?= base_url() . $products['banner'] ?>" class="img-circle user_thumbnail" alt="Product Image">
 					</div>
-					<a href="<?= site_url(" product/edit_details/ " . $products['custom_product_id']); ?>" class="pull-right">
+					<a href="<?= site_url('product/edit_details/' . $products['custom_product_id']); ?>" class="pull-right">
 						edit
 					</a>
 
@@ -44,7 +44,7 @@
 			<div class="box box-default">
 				<div class="box-header">
 					Images
-					<a href="<?= site_url(" product/edit_images/ " . $products['custom_product_id']); ?>" class="pull-right">
+					<a href="<?= site_url('product/edit_images/' . $products['custom_product_id']); ?>" class="pull-right">
 						edit
 					</a>
 				</div>
@@ -66,7 +66,7 @@
 			<div class="box box-default">
 				<div class="box-header">
 					Recommended Images
-					<a href="<?= site_url(" product/edit_recommended_images/ " . $products['custom_product_id']); ?>" class="pull-right">
+					<a href="<?= site_url('product/edit_recommended_images/' . $products['custom_product_id']); ?>" class="pull-right">
 						edit
 					</a>
 				</div>

@@ -28,6 +28,38 @@ class Category extends Base_Controller
         $this->load->view('admin/footer');
     }
 
+    public function add()
+    {
+
+        if ($_POST) {
+            $input = $this->input->post();
+
+            if ($_FILES) {
+                if (!empty($_FILES['images']['name'])) {
+                    $upload_data = $this->multi_image_upload($_FILES, "images", "category");
+
+                    if (!$upload_data["error"]) {
+
+                        $data = array(
+                            "name" => $input["name"],
+                            "image" => $upload_data["urls"][0]
+                        );
+
+                        $this->Category_model->insert($data);
+
+                        redirect("category", "refresh");
+                    } else {
+                        $this->page_data["error"] = $upload_data["error_message"];
+                    }
+                }
+            }
+        }
+
+        $this->load->view('admin/header', $this->page_data);
+        $this->load->view('admin/category/add');
+        $this->load->view('admin/footer');
+    }
+
     public function edit($category_id)
     {
         $where = array(

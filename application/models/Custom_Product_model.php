@@ -91,7 +91,10 @@ class Custom_Product_model extends Base_Model
             "swing-door-wardrobe",
             "sliding-wardrobe",
             "bottom-cabinet",
-            "top-cabinet"
+            "top-cabinet",
+            "type-1",
+            "type-2",
+            "type-3"
         );
 
         $exist = false;

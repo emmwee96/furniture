@@ -165,7 +165,7 @@
                                         </tr>
                                         <?php 
                                         $details = json_decode($orders["details"][$i]['options'], true);
-                                        foreach ($details as $opt) {
+                                        if (!empty($details)) foreach ($details as $opt) {
                                             ?>
                                             <tr>
                                                 <td></td>

@@ -105,6 +105,16 @@
                                                     <li><a href="<?= site_url('Main/product/top-cabinet'); ?>">Top Hung Cabinet</a>
                                                     </li>
                                                 </ul>
+                                                <ul class="single-mega-item mega-underline1 mega-underline3">
+                                                    <li class="mega-title"><a href="<?= site_url('Main/category/4'); ?>">TV Panel</a>
+                                                    </li>
+                                                    <li><a href="<?= site_url('Main/product/type-1'); ?>">Type 1</a>
+                                                    </li>
+                                                    <li><a href="<?= site_url('Main/product/type-2'); ?>">Type 2</a>
+                                                    </li>
+                                                    <li><a href="<?= site_url('Main/product/type-3'); ?>">Type 3</a>
+                                                    </li>
+                                                </ul>
                                             </div>
 
                                         </li>

@@ -71,6 +71,7 @@ class Base_Controller extends CI_Controller
         $urls = array();
 
         $error = false;
+        $error_message = "";
         for ($i = 0; $i < $files_count; $i++) {
 
             if ($error) die($error_message);
@@ -99,7 +100,13 @@ class Base_Controller extends CI_Controller
             }
         }
 
-        return $urls;
+        $data = array(
+            "urls" => $urls,
+            "error" => $error,
+            "error_message" => $error_message
+        );
+
+        return $data;
     }
 
     function build_email($data, $template)
