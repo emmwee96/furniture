@@ -186,7 +186,8 @@ class Orders extends Base_Controller
                                     "type" => "checkbox",
                                     "row" => array(
                                         "label" => $custom_product_add_ons[0]["label"],
-                                        "value" => $custom_product_add_ons[0]["value"]
+                                        "value" => $custom_product_add_ons[0]["value"],
+                                        "quantity" => $input[$row['label_id'] . "_qty_" . $product_id]
                                     )
                                 );
                             }

@@ -118,7 +118,7 @@
 													if (!empty($row["options"][$add_on_row[ 'label_id']])) echo "checked"; ?>  onchange="changeSelection('<?= $row['product_id'] ?>','<?= $add_on_row['label_id']; ?>',this,true,'<?= $add_on_row['label']; ?>',<?= $add_on_row['value']; ?>)">
 													<?= $add_on_row["label"] ?>
 												</label>
-												<input type="number" min="1" class="form-control add_on_qty" id="<?= $add_on_row['label_id'] ?>_qty" value="<?= (!empty($row["options"][$add_on_row['label_id']]))? ($row["options"][$add_on_row['label_id']]["row"]["quantity"]) : 0 ?>" onchange="changeSelection('<?= $row['product_id'] ?>','<?= $add_on_row['label_id']; ?>',this,false,'<?= $add_on_row['label']; ?>',<?= $add_on_row['value']; ?>)">
+												<input type="number" min="1" class="form-control add_on_qty" id="<?= $add_on_row['label_id'] ?>_qty" name="<?= $add_on_row['label_id'] ?>_qty_<?= $row['product_id']?>" value="<?= (!empty($row["options"][$add_on_row['label_id']]))? ($row["options"][$add_on_row['label_id']]["row"]["quantity"]) : 0 ?>" onchange="changeSelection('<?= $row['product_id'] ?>','<?= $add_on_row['label_id']; ?>',this,false,'<?= $add_on_row['label']; ?>',<?= $add_on_row['value']; ?>)">
 											</div>
 											<?php
 
@@ -263,8 +263,12 @@
 
 		if(existing_selections[product_id] != undefined){
 			selections = existing_selections[product_id];
-			type = selections['c_type']['label'];
-			internal_frame = selections['c_internal_frame_material']['label'];
+			if(selections['c_type'] != undefined){
+				type = selections['c_type']['label'];
+			}
+			if(selections['c_internal_frame_material'] != undefined){
+				internal_frame = selections['c_internal_frame_material']['label'];
+			}
 		} else {
 			selections = {};
 			existing_selections[product_id] = selections;
