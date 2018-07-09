@@ -233,7 +233,7 @@
 										<div class="skill-plusminus-wrap" style="display:inline-block; vertical-align:top; margin-left:5%; margin-top:-2%;">
 											<div class="skill-plusminus">
 												<div class="skill-minus qtybutton">-</div>
-												<input type="text" value="1" class="cart-plus-minus-box add_on_qty" id="<?= $add_on['label_id']; ?>_qty" onchange="changeSelection('<?= $add_on['label_id']; ?>',this,true,'<?= $add_on['label']; ?>',<?= $add_on['value']; ?>)"/>
+												<input type="text" value="1" class="cart-plus-minus-box add_on_qty" id="<?= $add_on['label_id']; ?>_qty" onchange="changeSelection('<?= $add_on['label_id']; ?>',this,false,'<?= $add_on['label']; ?>',<?= $add_on['value']; ?>)"/>
 												<div class="skill-plus qtybutton">+</div>
 											</div>
 										</div>	

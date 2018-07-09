@@ -169,6 +169,7 @@
 	</div>
 </div>
 <script>
+	
 	var existing_selections = [];
 	<?php
 		foreach($order["details"] as $row){
@@ -189,23 +190,19 @@
 	var addedProducts = [];
     var all_products = <?= json_encode($products); ?>;
 	var selections = {};
-	var all_selections = {};
-	var all_add_ons = {};
-    var selected_options = {};
-    var label_names = {};
 	var selected_product_id = 0;
 	var type = "";
 	var internal_frame = "";
 
 	<?php
-	foreach ($order["details"] as $row) {
-		?>
-		addedProducts.push("<?= $row['product_id'] ?>");
-		<?php
-
-	}
+foreach ($order["details"] as $row) {
 	?>
-	
+	addedProducts.push("<?= $row['product_id'] ?>");
+	<?php
+
+}
+?>
+
 	function showProductModal() {
 		loadProducts();
 		$("#product_modal").modal("show");
@@ -245,31 +242,18 @@
 			}
 		}
 	}
-	
-    for(var i = 0; i < all_selections.length; i++){
-        selected_options[ all_selections[i]['custom_product_field_id']] = null;
-        label_names[all_selections[i]['label_id']] = all_selections[i]['label'];
-    }
-    for(var i = 0; i < all_add_ons.length; i++){
-        label_names[all_add_ons[i]['label_id']] = all_add_ons[i]['label'];
-    }
 
-    var selections = {
-    };
-
-    function changeSelection(product_id, key,ele,checkbox = false,label='',price =""){
+	function changeSelection(product_id, key,ele,checkbox = false,label='',price =""){
 
 		selected_product_id = product_id
 
 		if(existing_selections[product_id] != undefined){
 			selections = existing_selections[product_id];
-			type = selections['c_type']['label'];
-			internal_frame = selections['c_internal_frame_material']['label'];
 		} else {
 			selections = {};
 			existing_selections[product_id] = selections;
 		}
-
+		
 		for(var i = 0; i < all_products.length; i++){
 			if(all_products[i]['custom_product_id'] == product_id){
 				all_selections = all_products[i]['labels'];
@@ -280,7 +264,7 @@
 				all_add_ons = all_products[i]['add_ons'];
 			}
 		}
-		var label_names = {};
+    	var label_names = {};
 		var selected_options = {};
 		var label_names = {};
 		for(var i = 0; i < all_selections.length; i++){
@@ -291,7 +275,7 @@
 			label_names[all_add_ons[i]['label_id']] = all_add_ons[i]['label'];
 		}
 
-	    if(checkbox){
+        if(checkbox){
             if($(ele).is(":checked")){
                 selections[key] = {
                     name : label_names[key],
@@ -304,14 +288,14 @@
                         
                     }
                 };
-            } else {
+            }else{
                 delete selections[key];
             }
             refreshSelection();
             return;
         }
 
-        if($(ele).hasClass("add_on_qty") && selections[key] != undefined){
+		if($(ele).hasClass("add_on_qty") && selections[key] != undefined){
             selections[key] = {
                 name : label_names[key],
                 label : label,
@@ -327,7 +311,7 @@
             return;
         }
 
-        //get the selection_label row
+		//get the selection_label row
         var target_selection = null;
         var label = "";
         var label_value ="";
@@ -351,7 +335,6 @@
                                 internal_frame = label;
                             }
 
-
                         }
                         selections[key] = {
                             name : label_names[key],
@@ -369,7 +352,6 @@
     }
 
     function refreshSelection(){
-        console.log(selections);
         $(".c_add_on").html("");
         for(key in selections)
             $("#"+key).html(selections[key]);
@@ -378,56 +360,41 @@
         $("#form_price_" + selected_product_id).val(total.toFixed(2));
     }
 
-    function calculate(){
-		var valueColumn;
-		total = 0;
+	function calculate(){
+        var valueColumn;
+        total = 0;
+
         var width = $("#width_form_" + selected_product_id).val();
+        // var type = $("#form_c_type_" + selected_product_id + " option:selected").text();
+        // var internal_frame = $("#form_c_internal_frame_" + selected_product_id + " option:selected").text();
 		ft = parseFloat(width)/300;
         var price_multiplier = ft > 1.5 ? 2 : 1.5;
 
         if(type == "Standard Height"){
-            if(internal_frame == "White PVC")
+			if(internal_frame == "White PVC")
                 valueColumn = "standard_white_pvc";
             else
                 valueColumn = "standard_color_pvc";
-            
         }else{
             if(internal_frame == "White PVC")
                 valueColumn = "full_white_pvc";
             else
                 valueColumn = "full_color_pvc";
-		}
-		
-		console.log(valueColumn);
+        }
 
-        for(key in selections){
+		console.log(selections);
+		for(key in selections){
             $("#"+key).html("<i>" + selections[key]['label'] + "</i>");
-           // console.log(selections[key]['label'] + " : " + selections[key]['row'][valueColumn]);
+           	//console.log(selections[key]['label'] + " : " + selections[key]['row'][valueColumn]);
 
-            if(selections[key]['type'] == "checkbox"){
-				total += parseFloat(selections[key]['row']["value"] * $("#" + key + "_qty").val());
-				// console.log("checkbox");
-				// console.log(total);
-			} else {
-				// console.log("options");
+            if(selections[key]['type'] == "checkbox")
+                total += parseFloat(selections[key]['row']["value"] * $("#" + key + "_qty").val());
+            else    
                 total += parseFloat(selections[key]['row'][valueColumn] * ft);
-				// console.log(selections[key]['row'][valueColumn]);
-				// console.log(total);
-			}
-		}
-		
-		console.log(total);
+        }
 
         // total *= price_multiplier;
         // total += area;
         
     }
-
-    $(document).on("change", "#height_form", function(e){
-        var height = $(this).val();
-        refreshSelection();
-
-        $("#height").html("<i>" + height + "</i>");
-    });
-
 </script>

@@ -9,9 +9,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="<?= base_url() ?>js/notify.min.js"></script>
+	<!-- <script src="<?= base_url() ?>js/notify.min.js"></script> -->
 	<script src="<?= base_url() ?>js/moment.min.js"></script>
-	<script src="<?= base_url() ?>js/bootstrapValidator.min.js"></script>
+	<!-- <script src="<?= base_url() ?>js/bootstrapValidator.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css">
 	<link rel="stylesheet" type="text/css" media="print" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css">
@@ -20,18 +20,18 @@
 	<link rel="stylesheet" href="<?= base_url() ?>/js/plugins/datatables/dataTables.bootstrap.css">
 	<link rel="stylesheet" href="<?= base_url() ?>/js/plugins/fullcalendar-3.4.0/fullcalendar.min.css">
 	<link rel="stylesheet" media="print" href="<?= base_url() ?>/js/plugins/fullcalendar-3.4.0/fullcalendar.print.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/admin_style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/admin_style.css"> -->
 	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/admin.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/bootstrapValidator.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery-ui.structure.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery-ui.theme.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/bootstrapValidator.min.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery-ui.min.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery-ui.structure.min.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery-ui.theme.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery.loadingModal.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery.loadingModal.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery.jOrgChart.css">
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo site_url(); ?>/css/jquery.jOrgChart.css"> -->
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
-	<link rel="stylesheet" href="<?php echo site_url(); ?>/css/datepicker3.css">
+	<!-- <link rel="stylesheet" href="<?php echo site_url(); ?>/css/datepicker3.css"> -->
 
 
 </head>

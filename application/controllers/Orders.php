@@ -87,9 +87,8 @@ class Orders extends Base_Controller
             $orders[0]["details"][$i]["options"] = json_decode($row["options"], true);
             $i++;
         }
-        // $this->debug($orders[0]["details"][1]["options"]);
 
-        // $this->debug($orders[0]["details"][0]);
+        // $this->debug($orders[0]["details"]);
 
         $this->page_data["order"] = $orders[0];
         $this->page_data['user'] = $user[0];

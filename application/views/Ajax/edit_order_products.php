@@ -54,6 +54,7 @@ foreach ($product as $row) {
 						<label>
 							<input type="checkbox" name="<?= $add_on_row['label_id'] ?>_<?= $row['product_id'] ?>" value="CHECKED" onchange="changeSelection('<?= $row['product_id'] ?>','<?= $add_on_row['label_id']; ?>',this,true,'<?= $add_on_row['label']; ?>',<?= $add_on_row['value']; ?>)" id="form_<?= $add_on_row['label_id'] ?>_<?= $row['product_id'] ?>">
 							<?= $add_on_row["label"] ?>
+							<input type="number" class="form-control add_on_qty" id="<?= $add_on_row['label_id'] ?>_qty" value="1" onchange="changeSelection('<?= $row['product_id'] ?>','<?= $add_on_row['label_id']; ?>',this,false,'<?= $add_on_row['label']; ?>',<?= $add_on_row['value']; ?>)">
 						</label>
 					</div>
 					<?php

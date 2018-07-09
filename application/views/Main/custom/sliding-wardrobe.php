@@ -179,13 +179,24 @@
 						<label for="skillc" style="padding-right: 5%;">
 							<span class="italic">Add Ons</span>
 						</label>
-						<?php foreach ($add_ons as $add_on) { ?>
-						<input style="margin-left: 1%;" type="checkbox" onchange="changeSelection('<?= $add_on['label_id']; ?>',this,true,'<?= $add_on['label']; ?>',<?= $add_on['value']; ?>)"
-						name="drawer">
-						<?= $add_on['label']; ?>
-
-							<?php 
-					} ?>
+						<?php 
+									foreach ($add_ons as $add_on) { 
+										?>
+										<br>
+										<input style="margin-left: 1%;" type="checkbox" onchange="changeSelection('<?= $add_on['label_id']; ?>',this,true,'<?= $add_on['label']; ?>',<?= $add_on['value']; ?>)"
+										name="drawer">
+										<?= $add_on['label']; ?>
+										<div class="skill-plusminus-wrap" style="display:inline-block; vertical-align:top; margin-left:5%; margin-top:-2%;">
+											<div class="skill-plusminus">
+												<div class="skill-minus qtybutton">-</div>
+												<input type="text" value="1" class="cart-plus-minus-box add_on_qty" id="<?= $add_on['label_id']; ?>_qty" onchange="changeSelection('<?= $add_on['label_id']; ?>',this,false,'<?= $add_on['label']; ?>',<?= $add_on['value']; ?>)"/>
+												<div class="skill-plus qtybutton">+</div>
+											</div>
+										</div>	
+										<br>
+										<?php 
+									} 
+								?>
 
 					</div>
 

@@ -84,7 +84,7 @@
     function changeSelection(key,ele,checkbox = false,label='',price =""){
 
         if(checkbox){
-            if($(ele).is(":checked") || $(ele).hasClass("add_on_qty")){
+            if($(ele).is(":checked")){
                 selections[key] = {
                     name : label_names[key],
                     label : label,
@@ -99,6 +99,22 @@
             } else {
                 delete selections[key];
             }
+            refreshSelection();
+            return;
+        }
+
+        if($(ele).hasClass("add_on_qty") && selections[key] != undefined){
+            selections[key] = {
+                name : label_names[key],
+                label : label,
+                type : "checkbox",
+                row : {
+                    label : label,
+                    value : price,
+                    quantity : $("#" + key + "_qty").val()
+                    
+                }
+            };
             refreshSelection();
             return;
         }
