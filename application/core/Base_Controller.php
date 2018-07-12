@@ -76,11 +76,14 @@ class Base_Controller extends CI_Controller
 
             if ($error) die($error_message);
 
-            $_FILES["image"]['name'] = $files[$field_name]['name'][$i];
+            // $_FILES["image"]['name'] = $files[$field_name]['name'][$i];
+            $_FILES["image"]['name'] = strtolower($path) . "_" . date("YmdHis") . "." . pathinfo($files[$field_name]['name'][$i], PATHINFO_EXTENSION);;
             $_FILES["image"]['type'] = $files[$field_name]['type'][$i];
             $_FILES["image"]['tmp_name'] = $files[$field_name]['tmp_name'][$i];
             $_FILES["image"]['error'] = $files[$field_name]['error'][$i];
             $_FILES["image"]['size'] = $files[$field_name]['size'][$i];
+
+            // $this->debug($_FILES);
 
             $config = array(
                 "allowed_types" => "gif|png|jpg|jpeg",

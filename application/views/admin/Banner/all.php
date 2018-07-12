@@ -57,7 +57,7 @@
       <div class="modal-body">
             <form id="imageForm" method="POST" enctype="multipart/form-data">
                     <label>Select your image</label>
-                    <input type="file" name="image" class="form-control">
+                    <input type="file" name="image[]" class="form-control">
                     <input type="hidden" name="dummy" value="1">
                     <br>
                     <input type="submit" class="btn btn-info">
