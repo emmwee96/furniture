@@ -1,0 +1,25 @@
+@media (min-width: 768px) and (max-width: 991px) {
+    .header-logo.home2-header-logo.header-logo-def {
+        margin-left: 0 !important;
+        margin-top: 12px !important;
+    }
+}
+
+@media (max-width: 1169px) and (min-width: 992px){
+
+    .sticky .home2-header-logo {
+        padding-top: 9% !important;
+    }
+}
+
+.mean-container .mean-bar{
+    z-index: 1 !important;
+}
+
+.floating_price{
+    z-index: 99999 !important;
+}
+
+.def-funderline:before {
+    content: '' !important;
+}

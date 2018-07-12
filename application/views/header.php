@@ -33,6 +33,7 @@
         <link rel="stylesheet" href="<?= site_url(); ?>css/Main/responsive.css">
         <link rel="stylesheet" href="<?= site_url(); ?>css/Main/jquery.fancybox.css">
         <link rel="stylesheet" href="<?= site_url(); ?>css/Main/jquery.fancybox.min.css">
+        <link rel="stylesheet" href="<?= site_url(); ?>css/Main/mobileMain.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -181,8 +182,8 @@
                                                         <ul>
                                                             <li><a href="<?= site_url('Main/category/1'); ?>">Wardrobe</a>
                                                             <ul class="single-mega-item mega-underline1 mega-underline3">
-                                                                <li class="mega-title"><a href="#">Wardrobe</a>
-                                                                </li>
+                                                                <!--<li class="mega-title"><a href="#">Wardrobe</a>
+                                                                </li>-->
                                                                 <li><a href="<?= site_url('Main/product/open-wardrobe'); ?>">Open Wardrobe</a>
                                                                 </li>
                                                                 <li><a href="<?= site_url('Main/product/sliding-wardrobe'); ?>">Sliding Wardrobe</a>
@@ -193,10 +194,10 @@
                                                             </ul>
                                                           
                                                             </li>
-                                                            <li><a href="<?= site_url('Main/category/2'); ?>">Cabinets</a>
+                                                            <li><a href="<?= site_url('Main/category/2'); ?>">Kitchen Cabinets</a>
                                                                 <ul class="single-mega-item mega-underline1 mega-underline3">
-                                                                    <li class="mega-title"><a href="#">Kitchen Cabinet</a>
-                                                                    </li>
+                                                                    <!--<li class="mega-title"><a href="#">Kitchen Cabinet</a>
+                                                                    </li>-->
                                                                     <li><a href="<?= site_url('Main/product/bottom-cabinet'); ?>">Bottom Cabinet</a>
                                                                     </li>
                                                                     <li><a href="<?= site_url('Main/product/top-cabinet'); ?>">Top Hung Cabinet</a>

@@ -11,7 +11,7 @@
                                 </div>
                                 <div class="footer-text">
                                     <p>Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura. Aenean commodo ligula eget dolor Aenean massa. Portals seize data-driven, tag expedite</p>
-                                    <div class="footer-readmore"><a href="about.html">Read more</a>
+                                    <div class="footer-readmore"><!--<a href="about.html">Read more</a>-->
                                     </div>
                                 </div>
                             </div>
@@ -22,12 +22,14 @@
                             <div id="f-info" class="footer-title def-funderline ftitle-info posr">
                                 <h5 class="active">Contact</h5>
                             </div>
+                            <div>
                             <ul class="footer-list-text jscroll-info">
                                 <li><a href="shop.html" title="New products">About Us</a>
                                 </li>
                                 <li><a href="single-product.html" title="Best sellers">Our Team</a>
                                 </li>
                             </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-2 col-sm-6 col-xs-12">
@@ -35,14 +37,15 @@
                             <div id="f-myac" class="footer-title def-funderline ftitle-myA posr">
                                 <h5 class="active">Connect</h5>
                             </div>
-                            <div class="footer_social">
-
-                            <span class="fa fa-facebook">
-                            </span>
-                            </div>
-                            <div class="footer_social">
-                            <span class="fa fa-instagram">
-                            </span>
+                            <div class="footer-list-text jscroll-myac">
+                                <div class="footer_social">
+                                    <span class="fa fa-facebook">
+                                    </span>
+                                </div>
+                                <div class="footer_social">
+                                    <span class="fa fa-instagram">
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>

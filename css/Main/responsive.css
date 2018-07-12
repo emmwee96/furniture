@@ -124,7 +124,7 @@
 		width: 647px;
 	}
 	.header-logo {
-		padding: 22.5px 0;
+		padding: 22.5px;
 	}
 	/*=========================Home3 992=========================*/
 	.slider3-btext h2 {
@@ -1389,7 +1389,7 @@
 		margin-top: 1px;
 	}
 	.footer-text {
-		display: block;
+		display: none;
 		margin-bottom: 10px;
 		margin-top: -10px;
 	}
@@ -1412,7 +1412,8 @@
 		height: 13px;
 		line-height: 12px;
 		position: absolute;
-		right: -36px;
+		/*right: -36px;*/
+		right: -34px;
 		text-align: center;
 		top: 0;
 		width: 13px;
@@ -1426,7 +1427,8 @@
 		height: 13px;
 		line-height: 12px;
 		position: absolute;
-		right: -50px;
+		/*right: -50px;*/
+		right: -34px;
 		text-align: center;
 		top: 0;
 		width: 13px;
@@ -1435,7 +1437,7 @@
 		background: #fff;
 		color: #333;
 		border-radius: 50%;
-		content: "-";
+		content: "+";
 		font-size: 17px;
 		height: 13px;
 		line-height: 12px;
@@ -1449,7 +1451,7 @@
 		background: #fff;
 		color: #333;
 		border-radius: 50%;
-		content: "+";
+		content: "-";
 		font-size: 17px;
 		height: 13px;
 		line-height: 12px;
