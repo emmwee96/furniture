@@ -1608,7 +1608,6 @@ nav ul.main-menu {
     margin-top: 20px;
 }
 .def-funderline:before {
-    content: "";
     width: 22px;
     height: 1px;
     position: absolute;

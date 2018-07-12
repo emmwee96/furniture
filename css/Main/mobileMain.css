@@ -16,10 +16,10 @@
     z-index: 1 !important;
 }
 
-.floating_price{
-    z-index: 99999 !important;
+.sticky {
+    z-index: 1 !important;
 }
 
-.def-funderline:before {
-    content: '' !important;
+.mean-container .mean-nav ul {
+    height: auto !important;
 }
